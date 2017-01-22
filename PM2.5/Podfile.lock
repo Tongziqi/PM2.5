@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.3.0)
+  - Kingfisher (3.3.1)
+  - MJRefresh (3.1.12)
+  - PKHUD (4.2.0)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.3)
+  - Kingfisher (~> 3.3.1)
+  - MJRefresh
+  - PKHUD (~> 4.2.0)
+  - SwiftyJSON (~> 3.1.4)
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Kingfisher: 4d943445768c60fe5de314619a8ab07ec761ae5b
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 2a6042dc75e825f3d1058647a60215d4e9506bc1
+
+COCOAPODS: 1.1.1
