@@ -1,0 +1,145 @@
+[
+    {
+        "aqi": 26,
+        "area": "北京",
+        "pm2_5": 18,
+        "pm2_5_24h": 10,
+        "position_name": "万寿西宫",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1001A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 24,
+        "area": "北京",
+        "pm2_5": 4,
+        "pm2_5_24h": 7,
+        "position_name": "定陵",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1002A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 34,
+        "area": "北京",
+        "pm2_5": 21,
+        "pm2_5_24h": 16,
+        "position_name": "东四",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1003A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 32,
+        "area": "北京",
+        "pm2_5": 16,
+        "pm2_5_24h": 10,
+        "position_name": "天坛",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1004A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 25,
+        "area": "北京",
+        "pm2_5": 17,
+        "pm2_5_24h": 11,
+        "position_name": "农展馆",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1005A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 24,
+        "area": "北京",
+        "pm2_5": 12,
+        "pm2_5_24h": 10,
+        "position_name": "官园",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1006A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 19,
+        "area": "北京",
+        "pm2_5": 13,
+        "pm2_5_24h": 12,
+        "position_name": "海淀区万柳",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1007A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 21,
+        "area": "北京",
+        "pm2_5": 9,
+        "pm2_5_24h": 8,
+        "position_name": "顺义新城",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1008A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 26,
+        "area": "北京",
+        "pm2_5": 8,
+        "pm2_5_24h": 9,
+        "position_name": "怀柔镇",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1009A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 17,
+        "area": "北京",
+        "pm2_5": 8,
+        "pm2_5_24h": 10,
+        "position_name": "昌平镇",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1010A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 30,
+        "area": "北京",
+        "pm2_5": 21,
+        "pm2_5_24h": 12,
+        "position_name": "奥体中心",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1011A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 29,
+        "area": "北京",
+        "pm2_5": 17,
+        "pm2_5_24h": 12,
+        "position_name": "古城",
+        "primary_pollutant": null,
+        "quality": "优",
+        "station_code": "1012A",
+        "time_point": "2017-01-22T11:00:00Z"
+    },
+    {
+        "aqi": 23,
+        "area": "北京",
+        "pm2_5": 13,
+        "pm2_5_24h": 10,
+        "position_name": null,
+        "primary_pollutant": "",
+        "quality": "优",
+        "station_code": null,
+        "time_point": "2017-01-22T11:00:00Z"
+    }
+]

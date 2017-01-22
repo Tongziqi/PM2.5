@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		01C5FBDB9D51592320B8B679 /* Pods_PM2_5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D670352EFB4D571611A901BE /* Pods_PM2_5.framework */; };
+		5D6A02031E3490CE00AA0F50 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6A02021E3490CE00AA0F50 /* MainViewController.swift */; };
+		5D6A02051E34AC3100AA0F50 /* pm25.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D6A02041E34AC3100AA0F50 /* pm25.json */; };
+		5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6A02071E34C6E000AA0F50 /* CommonTool.swift */; };
 		5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE004921E3473CD009517CB /* AppDelegate.swift */; };
-		5DE004951E3473CD009517CB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE004941E3473CD009517CB /* FirstViewController.swift */; };
-		5DE004971E3473CD009517CB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE004961E3473CD009517CB /* SecondViewController.swift */; };
 		5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE004981E3473CD009517CB /* Main.storyboard */; };
 		5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0049B1E3473CD009517CB /* Assets.xcassets */; };
 		5DE0049F1E3473CD009517CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0049D1E3473CD009517CB /* LaunchScreen.storyboard */; };
@@ -18,10 +19,11 @@
 
 /* Begin PBXFileReference section */
 		3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM2.5.release.xcconfig"; path = "Pods/Target Support Files/Pods-PM2.5/Pods-PM2.5.release.xcconfig"; sourceTree = "<group>"; };
+		5D6A02021E3490CE00AA0F50 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController\U0010\U0010\U0010\U0010\U0010\U0010.swift"; sourceTree = "<group>"; };
+		5D6A02041E34AC3100AA0F50 /* pm25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm25.json; sourceTree = "<group>"; };
+		5D6A02071E34C6E000AA0F50 /* CommonTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
 		5DE0048F1E3473CD009517CB /* PM2.5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM2.5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE004921E3473CD009517CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DE004941E3473CD009517CB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		5DE004961E3473CD009517CB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		5DE004991E3473CD009517CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DE0049B1E3473CD009517CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DE0049E1E3473CD009517CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D6A02061E34C69600AA0F50 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				5D6A02071E34C6E000AA0F50 /* CommonTool.swift */,
+			);
+			name = Tools;
+			sourceTree = "<group>";
+		};
 		5DE004861E3473CD009517CB = {
 			isa = PBXGroup;
 			children = (
@@ -73,12 +83,13 @@
 			isa = PBXGroup;
 			children = (
 				5DE004921E3473CD009517CB /* AppDelegate.swift */,
-				5DE004941E3473CD009517CB /* FirstViewController.swift */,
-				5DE004961E3473CD009517CB /* SecondViewController.swift */,
 				5DE004981E3473CD009517CB /* Main.storyboard */,
 				5DE0049B1E3473CD009517CB /* Assets.xcassets */,
 				5DE0049D1E3473CD009517CB /* LaunchScreen.storyboard */,
 				5DE004A01E3473CD009517CB /* Info.plist */,
+				5D6A02021E3490CE00AA0F50 /* MainViewController.swift */,
+				5D6A02041E34AC3100AA0F50 /* pm25.json */,
+				5D6A02061E34C69600AA0F50 /* Tools */,
 			);
 			path = PM2.5;
 			sourceTree = "<group>";
@@ -154,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D6A02051E34AC3100AA0F50 /* pm25.json in Resources */,
 				5DE0049F1E3473CD009517CB /* LaunchScreen.storyboard in Resources */,
 				5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */,
 				5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */,
@@ -215,9 +227,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE004971E3473CD009517CB /* SecondViewController.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
-				5DE004951E3473CD009517CB /* FirstViewController.swift in Sources */,
+				5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */,
+				5D6A02031E3490CE00AA0F50 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A73BA685815A780E9CB541CF /* Pods-PM2.5.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y28U5S6N4T;
 				INFOPLIST_FILE = PM2.5/Info.plist;
@@ -354,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y28U5S6N4T;
 				INFOPLIST_FILE = PM2.5/Info.plist;
@@ -383,6 +397,7 @@
 				5DE004A51E3473CD009517CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
