@@ -17,9 +17,10 @@ class CommonTool {
     /// - Parameter string: 传入需要的数据
     /// - Returns: 所需要数据的平均值
     class func getAverageNum(json: JSON, string: String) -> Int {
-        for index in 0..<json.count-1 {
-            print(json[index][string].int ?? 0)
+        var sum = 0
+        for index in 0..<json.count {
+            sum += json[index][string].int!
         }
-        return 0;
+        return sum/json.count;
     }
 }

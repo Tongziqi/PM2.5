@@ -449,6 +449,15 @@
                             <constraint firstAttribute="centerX" secondItem="3C9-9y-F6h" secondAttribute="centerX" constant="124.5" id="zxH-xG-gmm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="co" destination="pue-XU-LnY" id="unD-we-eBb"/>
+                        <outlet property="no2" destination="YRr-yi-sXg" id="IBL-nj-pNe"/>
+                        <outlet property="o3" destination="boc-5w-HSD" id="5sa-O9-UcS"/>
+                        <outlet property="pm10" destination="f8T-pu-has" id="paM-aY-NtB"/>
+                        <outlet property="pm25" destination="QEI-A3-oRs" id="MAP-4c-26L"/>
+                        <outlet property="so2" destination="yI1-dD-yLZ" id="MXG-GT-yLC"/>
+                        <outlet property="userLocationLabel" destination="qHJ-0Z-Wzm" id="7Hk-DD-aj7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Co1-wN-Pwm" sceneMemberID="firstResponder"/>
             </objects>
