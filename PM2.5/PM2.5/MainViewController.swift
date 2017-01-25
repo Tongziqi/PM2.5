@@ -9,10 +9,12 @@
 import UIKit
 import SwiftyJSON
 import CoreLocation
+import PKHUD
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBOutlet weak var userLocationLabel: UILabel!
+    @IBOutlet weak var pm25image: UIImageView!
     
     @IBOutlet weak var pm25: UILabel!
     @IBOutlet weak var pm10: UILabel!
@@ -20,6 +22,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var no2: UILabel!
     @IBOutlet weak var o3: UILabel!
     @IBOutlet weak var co: UILabel!
+    
+    let arrowWidth = 35
+    let arrowHight = 35
+    
+    
+    
     
     var locationManager: CLLocationManager!
     
@@ -36,8 +44,23 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func updateUI(json: JSON) {
-        pm25.text = String(CommonTool.getAverageNum(json: json, string: "pm2_5"))
+        let pm25 = CommonTool.getAverageNum(json: json, string: "pm2_5")
+        self.pm25.text = String(pm25)
+        let x = pm25image.frame.origin.x
+        let y = pm25image.frame.origin.y
+        updateArrow(pm25: pm25, locationX: (Int(self.view.frame.midX) - arrowWidth/2), locationY: Int(y) - arrowHight/2)
     }
+    
+    
+    /// 根据pm2.5更新箭头的位置
+    func updateArrow(pm25: Int, locationX: Int, locationY: Int) {
+        let imageView = UIImageView(image:UIImage(named:"arrow2"))
+        
+        imageView.frame = CGRect(x:locationX, y:locationY, width:35, height:35)
+        self.view.addSubview(imageView)
+        print("箭头的frame+\(imageView.frame)")
+    }
+    
     
     func initLocationManager() {
         locationManager = CLLocationManager()
@@ -50,11 +73,31 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        CLGeocoder().reverseGeocodeLocation(manager.location!) { (placemarks, error) in
-            let pm = placemarks![0]
-            self.displayLocationInfo(placemark: pm)
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        
+        let newLocation: CLLocation? = locations.last
+        let locationAge: TimeInterval = -(newLocation?.timestamp.timeIntervalSinceNow)!
+        if locationAge.binade > 1.0 {
+            //如果调用已经一次，不再执行
+            return
         }
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location!) { (placemarks, error) in
+            if let pm = placemarks?[0] {
+                self.displayLocationInfo(placemark: pm)
+            } else {
+                self.showHub(text: "获得地理位置失败...")
+            }
+        }
+        self.locationManager.stopUpdatingLocation()
+    }
+    
+    func showHub(text: String) {
+        // 这里面又一个warning https://github.com/pkluz/PKHUD/issues/6 fixed
+        let hud = PKHUD()
+        hud.contentView = PKHUDTextView(text: text)
+        hud.show()
+        hud.hide(afterDelay: 1.0)
     }
     
     func displayLocationInfo(placemark: CLPlacemark?) {
@@ -70,8 +113,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }
     }
     
-
-
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

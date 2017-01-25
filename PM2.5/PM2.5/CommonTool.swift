@@ -23,4 +23,7 @@ class CommonTool {
         }
         return sum/json.count;
     }
+    
+    
+    
 }
