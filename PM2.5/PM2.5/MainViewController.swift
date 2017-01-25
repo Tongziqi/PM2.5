@@ -10,12 +10,14 @@ import UIKit
 import SwiftyJSON
 import CoreLocation
 import PKHUD
+import MJRefresh
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
+    @IBOutlet weak var scoreView: UIScrollView!
     @IBOutlet weak var userLocationLabel: UILabel!
-    @IBOutlet weak var pm25image: UIImageView!
     
+    @IBOutlet weak var pm25image: UIImageView!
     @IBOutlet weak var pm25: UILabel!
     @IBOutlet weak var pm10: UILabel!
     @IBOutlet weak var so2: UILabel!
@@ -26,39 +28,49 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     let arrowWidth = 35
     let arrowHight = 35
     
-    
-    
-    
     var locationManager: CLLocationManager!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         let path = Bundle.main.path(forResource: "pm25", ofType: "json")
         let jsonData = NSData.init(contentsOfFile: path!)
         let json = JSON(jsonData!)
         initLocationManager()
         updateUI(json: json)
         
+        ceateHeader()
         // Do any additional setup after loading the view.
     }
     
     func updateUI(json: JSON) {
         let pm25 = CommonTool.getAverageNum(json: json, string: "pm2_5")
         self.pm25.text = String(pm25)
-        let x = pm25image.frame.origin.x
-        let y = pm25image.frame.origin.y
-        updateArrow(pm25: pm25, locationX: (Int(self.view.frame.midX) - arrowWidth/2), locationY: Int(y) - arrowHight/2)
+        let distence = CommonTool.pm25ChangeIntoFrame(pm25: pm25)
+        self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: Int(pm25image.frame.origin.y) - Int(Double(arrowHight)/1.7))
+    }
+    
+    func ceateHeader() {
+        let header = MJDIYHeader()
+        header.setRefreshingTarget(self, refreshingAction: #selector(self.headerRefresh))
+        self.scoreView.mj_header = header
+    }
+    
+    func headerRefresh() {
+//        let path = Bundle.main.path(forResource: "pm10", ofType: "json")
+//        let jsonData = NSData.init(contentsOfFile: path!)
+//        let json = JSON(jsonData!)
+//        self.updateUI(json: json)
+        print("重新获得pm25的值是")
     }
     
     
     /// 根据pm2.5更新箭头的位置
-    func updateArrow(pm25: Int, locationX: Int, locationY: Int) {
+    func updateArrow(locationX: Int, locationY: Int) {
         let imageView = UIImageView(image:UIImage(named:"arrow2"))
-        
         imageView.frame = CGRect(x:locationX, y:locationY, width:35, height:35)
-        self.view.addSubview(imageView)
-        print("箭头的frame+\(imageView.frame)")
+        self.scoreView.addSubview(imageView)
     }
     
     
@@ -112,9 +124,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             self.userLocationLabel.text = "\(place!), \(locality!), \(country!)"
         }
     }
-    
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

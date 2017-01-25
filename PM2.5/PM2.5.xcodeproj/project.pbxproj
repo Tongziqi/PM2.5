@@ -13,6 +13,7 @@
 		5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D94BB521E34D2EE00F4CD3D /* MainViewController.swift */; };
 		5DB051841E35F9B800EE8358 /* pm10.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DB051831E35F9B800EE8358 /* pm10.json */; };
 		5DB051871E35FABC00EE8358 /* co.json in Resources */ = {isa = PBXBuildFile; fileRef = 5DB051861E35FABC00EE8358 /* co.json */; };
+		5DC5621E1E38B8A2003397AE /* MJDIYHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC5621D1E38B8A2003397AE /* MJDIYHeader.swift */; };
 		5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE004921E3473CD009517CB /* AppDelegate.swift */; };
 		5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE004981E3473CD009517CB /* Main.storyboard */; };
 		5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0049B1E3473CD009517CB /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		5D94BB521E34D2EE00F4CD3D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5DB051831E35F9B800EE8358 /* pm10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm10.json; sourceTree = "<group>"; };
 		5DB051861E35FABC00EE8358 /* co.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = co.json; sourceTree = "<group>"; };
+		5DC5621D1E38B8A2003397AE /* MJDIYHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJDIYHeader.swift; sourceTree = "<group>"; };
 		5DE0048F1E3473CD009517CB /* PM2.5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM2.5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE004921E3473CD009517CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE004991E3473CD009517CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				5DB051861E35FABC00EE8358 /* co.json */,
 				5D94BB521E34D2EE00F4CD3D /* MainViewController.swift */,
 				5D6A02061E34C69600AA0F50 /* Tools */,
+				5DC5621D1E38B8A2003397AE /* MJDIYHeader.swift */,
 			);
 			path = PM2.5;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			files = (
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
+				5DC5621E1E38B8A2003397AE /* MJDIYHeader.swift in Sources */,
 				5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

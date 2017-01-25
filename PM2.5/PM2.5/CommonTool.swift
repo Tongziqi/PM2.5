@@ -19,11 +19,15 @@ class CommonTool {
     class func getAverageNum(json: JSON, string: String) -> Int {
         var sum = 0
         for index in 0..<json.count {
-            sum += json[index][string].int!
+            if let num = json[index][string].int {
+                sum += num
+            }
         }
         return sum/json.count;
     }
     
-    
+    class func pm25ChangeIntoFrame(pm25: Int) -> Int {
+        return 199 * pm25 / 500
+    }
     
 }
