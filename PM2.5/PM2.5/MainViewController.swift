@@ -52,9 +52,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func ceateHeader() {
-        let header = MJDIYHeader()
-        header.setRefreshingTarget(self, refreshingAction: #selector(self.headerRefresh))
-        self.scoreView.mj_header = header
+        self.scoreView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(self.headerRefresh))
     }
     
     func headerRefresh() {
@@ -63,6 +61,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
 //        let json = JSON(jsonData!)
 //        self.updateUI(json: json)
         print("重新获得pm25的值是")
+        self.scoreView.mj_header.endRefreshing()
     }
     
     
@@ -81,7 +80,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
-        
     }
     
     
