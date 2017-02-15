@@ -44,6 +44,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func jumpToChoose(_ sender: Any) {
+        let vc = ChooseViewController()
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     func updateUI(json: JSON) {
         let pm25 = CommonTool.getAverageNum(json: json, string: "pm2_5")
         self.pm25.text = String(pm25)
@@ -117,9 +123,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             
             let place = (containsPlacemark.name != nil) ? containsPlacemark.name : ""
             let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
-            let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
+            //let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
             
-            self.userLocationLabel.text = "\(place!), \(locality!), \(country!)"
+            self.userLocationLabel.text = "\(place!), \(locality!)"
         }
     }
     
