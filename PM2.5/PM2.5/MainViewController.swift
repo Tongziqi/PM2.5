@@ -46,7 +46,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     @IBAction func jumpToChoose(_ sender: Any) {
-        let vc = ChooseViewController()
+        let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
+        vc.setBackMyClosure { (input: String) in
+            self.userLocationLabel.text = input
+        }
         self.present(vc, animated: true, completion: nil)
     }
     

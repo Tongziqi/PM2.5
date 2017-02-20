@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseViewController" customModule="PM2_5" customModuleProvider="target">
             <connections>
+                <outlet property="searchBar" destination="YQY-2V-BHG" id="8Pf-yb-8My"/>
+                <outlet property="tabelView" destination="bw0-mi-VCS" id="qr7-KJ-l1i"/>
                 <outlet property="view" destination="jYD-jK-BQi" id="r4B-Xv-9xg"/>
             </connections>
         </placeholder>
