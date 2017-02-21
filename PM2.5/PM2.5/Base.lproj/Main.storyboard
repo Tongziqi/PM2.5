@@ -363,6 +363,14 @@
                                                     <action selector="jumpToChoose:" destination="TJY-HS-ez5" eventType="touchUpInside" id="VaA-qh-dQc"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygf-Uc-oK7">
+                                                <rect key="frame" x="238" y="27" width="20" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="kqA-je-zBK"/>
+                                                    <constraint firstAttribute="height" constant="20" id="pxQ-4c-6bk"/>
+                                                </constraints>
+                                                <state key="normal" image="location"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -421,6 +429,7 @@
                                             <constraint firstAttribute="centerX" secondItem="C7u-7K-eVg" secondAttribute="centerX" constant="70" id="VH6-QZ-0kI"/>
                                             <constraint firstItem="OWS-U3-OAH" firstAttribute="top" secondItem="692-qw-Isa" secondAttribute="bottom" constant="8" id="Vvc-m6-NBZ"/>
                                             <constraint firstItem="aS9-5A-RIl" firstAttribute="centerX" secondItem="bhv-ED-7By" secondAttribute="centerX" constant="-1.5" id="WSf-2o-2j7"/>
+                                            <constraint firstItem="ygf-Uc-oK7" firstAttribute="leading" secondItem="384-qA-8t5" secondAttribute="trailing" constant="10" id="XrC-Kg-azW"/>
                                             <constraint firstItem="w3L-Jx-OXV" firstAttribute="leading" secondItem="qS9-ZA-FXe" secondAttribute="leading" id="Y88-fX-tyh"/>
                                             <constraint firstItem="gxO-03-u6U" firstAttribute="leading" secondItem="4j0-GG-66C" secondAttribute="trailing" constant="7" id="ZOl-xr-sGJ"/>
                                             <constraint firstItem="JVG-sI-qaB" firstAttribute="top" secondItem="Xe5-Jm-JT8" secondAttribute="bottom" constant="6" id="aC4-7k-xPH"/>
@@ -452,6 +461,7 @@
                                             <constraint firstItem="gxO-03-u6U" firstAttribute="centerX" secondItem="esU-82-ZA9" secondAttribute="centerX" constant="1.5" id="pPb-bC-0o9"/>
                                             <constraint firstItem="0hH-RB-0YO" firstAttribute="top" secondItem="ssS-Qn-NYj" secondAttribute="bottom" constant="22" id="pXO-Iw-lwq"/>
                                             <constraint firstAttribute="centerX" secondItem="0hH-RB-0YO" secondAttribute="centerX" constant="1" id="qOs-2N-JGd"/>
+                                            <constraint firstItem="ygf-Uc-oK7" firstAttribute="centerY" secondItem="384-qA-8t5" secondAttribute="centerY" id="r7f-Ja-vl5"/>
                                             <constraint firstItem="C7u-7K-eVg" firstAttribute="top" secondItem="Sdl-ds-RDb" secondAttribute="bottom" constant="10" id="t28-kT-tXF"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="centerY" secondItem="eAh-la-Vgr" secondAttribute="centerY" constant="1" id="t8M-bZ-vzw"/>
                                             <constraint firstItem="Ria-0J-Gnl" firstAttribute="leading" secondItem="Sdl-ds-RDb" secondAttribute="trailing" constant="11" id="teJ-Qj-gjX"/>
@@ -504,6 +514,7 @@
         <image name="Detail" width="45" height="45"/>
         <image name="cloudy-night" width="73" height="42"/>
         <image name="heatindex" width="820" height="66"/>
+        <image name="location" width="32" height="32"/>
         <image name="rain" width="60" height="48"/>
     </resources>
 </document>
