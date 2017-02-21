@@ -10,7 +10,8 @@ import UIKit
 
 class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
     let cellId = "CityListCellTableViewCell"
-
+    var locationCity: String? = nil
+    
     @IBOutlet weak var tabelView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -25,7 +26,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     var filteredCities = [City]()
     var parserCities = [City]()
     var parserXML: ParserXML!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //设置代理
@@ -37,7 +38,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         let cellNib = UINib(nibName: cellId, bundle: nil)
         self.tabelView.register(cellNib, forCellReuseIdentifier: cellId)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,39 +51,64 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if  !filteredCities.isEmpty || searchBar.text != ""{
-            return filteredCities.count
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            if  !filteredCities.isEmpty || searchBar.text != ""{
+                return filteredCities.count
+            }
+            return cities.count
+        default:
+            return 1
         }
-        return cities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let city: City
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as?CityListCellTableViewCell
-        if searchBar.text != ""{
-            cell?.textLabel?.textColor = UIColor.white
-            city = filteredCities[indexPath.row]
-            cell?.labelOfCity?.text = city.cityCN
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as?CityListCellTableViewCell
+            cell?.labelOfCity.text = locationCity ?? ""
+            
             return cell!
-        }else{
-            city = cities[indexPath.row]
-            cell?.addCityName(city)
-            return cell!
+        }  else if indexPath.section == 1{
+            let city: City
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as?CityListCellTableViewCell
+            if searchBar.text != ""{
+                cell?.textLabel?.textColor = UIColor.white
+                city = filteredCities[indexPath.row]
+                cell?.labelOfCity?.text = city.cityCN
+                cell?.locationImg.isHidden = true
+                return cell!
+            } else {
+                city = cities[indexPath.row]
+                cell?.addCityName(city)
+                return cell!
+            }
+        }else {
+            return UITableViewCell()
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            tableView.deselectRow(at: indexPath, animated: true)
+            if self.backClosure != nil {
+                self.backClosure!(locationCity!)
+            }
+            self.dismiss(animated: true, completion: nil)
+        } else {
         let city: City
         if !filteredCities.isEmpty{
             city = filteredCities[indexPath.row]
         }else{
             city = cities[indexPath.row]
         }
-         searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder()
         tableView.deselectRow(at: indexPath, animated: true)
         
         if self.backClosure != nil {
@@ -92,9 +118,10 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
         }
         self.dismiss(animated: true, completion: nil);
+        }
         
     }
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         filterControllerForSearchText(searchBar.text!)

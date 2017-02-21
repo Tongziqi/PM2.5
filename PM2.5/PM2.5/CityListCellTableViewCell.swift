@@ -10,8 +10,9 @@ import UIKit
 
 class CityListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var labelOfCity: UILabel!
-
+    @IBOutlet weak var locationImg: UIImageView!
     override func awakeFromNib() {
+
         super.awakeFromNib()
         // Initialization code
     }

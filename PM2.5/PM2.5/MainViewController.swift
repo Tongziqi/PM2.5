@@ -16,6 +16,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBOutlet weak var scoreView: UIScrollView!
     @IBOutlet weak var userLocationLabel: UILabel!
+    @IBOutlet weak var locationImg: UIButton!
     
     @IBOutlet weak var pm25image: UIImageView!
     @IBOutlet weak var pm25: UILabel!
@@ -24,16 +25,19 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var no2: UILabel!
     @IBOutlet weak var o3: UILabel!
     @IBOutlet weak var co: UILabel!
+
     
     let arrowWidth = 35
     let arrowHight = 35
     
     var locationManager: CLLocationManager!
+    var currentLocation: String = "获取地理位置失败"
     
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.locationImg.isHidden = true
         let path = Bundle.main.path(forResource: "pm25", ofType: "json")
         let jsonData = NSData.init(contentsOfFile: path!)
         let json = JSON(jsonData!)
@@ -47,8 +51,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func jumpToChoose(_ sender: Any) {
         let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
+        vc.locationCity = self.currentLocation
         vc.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
+            self.locationImg.isHidden = true
         }
         self.present(vc, animated: true, completion: nil)
     }
@@ -127,8 +133,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             let place = (containsPlacemark.name != nil) ? containsPlacemark.name : ""
             let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
             //let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
-            
-            self.userLocationLabel.text = "\(place!), \(locality!)"
+            self.currentLocation = "\(place!), \(locality!)"
+            self.locationImg.isHidden = false
+            self.userLocationLabel.text = currentLocation
         }
     }
     

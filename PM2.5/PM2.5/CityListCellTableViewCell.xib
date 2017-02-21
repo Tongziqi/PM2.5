@@ -32,10 +32,19 @@
                         <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-Q4-AAG">
+                        <rect key="frame" x="87" y="9" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Jm1-Eg-5Rv"/>
+                            <constraint firstAttribute="width" constant="15" id="MSX-1Q-YFu"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fb6-tq-Hqj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="AX2-Ke-dhC"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ja2-aa-M9E" secondAttribute="trailing" constant="20" id="Q5b-qh-OC4"/>
+                    <constraint firstItem="hS5-Q4-AAG" firstAttribute="centerY" secondItem="ja2-aa-M9E" secondAttribute="centerY" constant="-5" id="ZW4-1m-hOW"/>
+                    <constraint firstItem="hS5-Q4-AAG" firstAttribute="leading" secondItem="ja2-aa-M9E" secondAttribute="trailing" constant="3" id="eDG-Gr-Az8"/>
                     <constraint firstItem="ja2-aa-M9E" firstAttribute="leading" secondItem="fb6-tq-Hqj" secondAttribute="trailing" constant="8" id="jW4-qa-c8P"/>
                     <constraint firstItem="fb6-tq-Hqj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xQm-Qv-T8E"/>
                     <constraint firstItem="ja2-aa-M9E" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="z8l-Fc-t6C"/>
@@ -43,10 +52,12 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="labelOfCity" destination="ja2-aa-M9E" id="ynd-hK-dbN"/>
+                <outlet property="locationImg" destination="hS5-Q4-AAG" id="f5z-j2-XrD"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
         <image name="cityLocation-1" width="256" height="256"/>
+        <image name="location" width="32" height="32"/>
     </resources>
 </document>
