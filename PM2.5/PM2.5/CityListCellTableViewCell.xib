@@ -39,10 +39,18 @@
                             <constraint firstAttribute="width" constant="15" id="MSX-1Q-YFu"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您定位过的城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLN-Vw-qKW">
+                        <rect key="frame" x="223" y="15" width="79" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.59999999999999998" green="0.60784313729999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="LLN-Vw-qKW" secondAttribute="trailing" constant="10" id="865-iv-anf"/>
                     <constraint firstItem="fb6-tq-Hqj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="AX2-Ke-dhC"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="ja2-aa-M9E" secondAttribute="trailing" constant="20" id="Q5b-qh-OC4"/>
+                    <constraint firstItem="LLN-Vw-qKW" firstAttribute="centerY" secondItem="ja2-aa-M9E" secondAttribute="centerY" id="QB8-fo-30t"/>
                     <constraint firstItem="hS5-Q4-AAG" firstAttribute="centerY" secondItem="ja2-aa-M9E" secondAttribute="centerY" constant="-5" id="ZW4-1m-hOW"/>
                     <constraint firstItem="hS5-Q4-AAG" firstAttribute="leading" secondItem="ja2-aa-M9E" secondAttribute="trailing" constant="3" id="eDG-Gr-Az8"/>
                     <constraint firstItem="ja2-aa-M9E" firstAttribute="leading" secondItem="fb6-tq-Hqj" secondAttribute="trailing" constant="8" id="jW4-qa-c8P"/>
@@ -52,6 +60,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="labelOfCity" destination="ja2-aa-M9E" id="ynd-hK-dbN"/>
+                <outlet property="locatedLabel" destination="LLN-Vw-qKW" id="TxD-t7-Oro"/>
                 <outlet property="locationImg" destination="hS5-Q4-AAG" id="f5z-j2-XrD"/>
             </connections>
         </tableViewCell>

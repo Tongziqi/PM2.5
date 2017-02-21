@@ -29,6 +29,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadData()
+        self.tabelView.separatorStyle = .none
         //设置代理
         self.searchBar.delegate = self
         self.tabelView.delegate = self
@@ -37,6 +39,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tabelView?.estimatedRowHeight = 100
         let cellNib = UINib(nibName: cellId, bundle: nil)
         self.tabelView.register(cellNib, forCellReuseIdentifier: cellId)
+        
+        print(cities)
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,7 +55,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     
@@ -60,33 +64,64 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         case 0:
             return 1
         case 1:
-            if  !filteredCities.isEmpty || searchBar.text != ""{
-                return filteredCities.count
-            }
             return cities.count
+        case 2:
+            return filteredCities.count
         default:
             return 1
         }
     }
     
+
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 0.001
+        case 1:
+            return 10
+        case 2:
+            if filteredCities.count == 0 {
+                return 0.001
+            } else {
+                return 10
+            }
+        default:
+            return 0.001
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as?CityListCellTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
             cell?.labelOfCity.text = locationCity ?? ""
-            
+            cell?.locatedLabel.isHidden = true
+            cell?.selectionStyle = UITableViewCellSelectionStyle.none
             return cell!
-        }  else if indexPath.section == 1{
+        } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
+            cell?.locationImg.isHidden = true
+            cell?.labelOfCity?.text = cities[indexPath.row].cityCN
+            cell?.selectionStyle = UITableViewCellSelectionStyle.none
+            return cell!
+        } else if indexPath.section == 2 {
             let city: City
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as?CityListCellTableViewCell
-            if searchBar.text != ""{
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
+            if searchBar.text != "" {
                 cell?.textLabel?.textColor = UIColor.white
                 city = filteredCities[indexPath.row]
                 cell?.labelOfCity?.text = city.cityCN
                 cell?.locationImg.isHidden = true
+                cell?.locatedLabel.text = "点击查询该城市"
+                cell?.locatedLabel.textColor = UIColor.green
+                cell?.selectionStyle = UITableViewCellSelectionStyle.none
                 return cell!
             } else {
                 city = cities[indexPath.row]
                 cell?.addCityName(city)
+                cell?.locationImg.isHidden = true
+                cell?.locatedLabel.text = "点击查询该城市"
+                cell?.selectionStyle = UITableViewCellSelectionStyle.none
                 return cell!
             }
         }else {
@@ -101,25 +136,87 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 self.backClosure!(locationCity!)
             }
             self.dismiss(animated: true, completion: nil)
-        } else {
-        let city: City
-        if !filteredCities.isEmpty{
-            city = filteredCities[indexPath.row]
-        }else{
-            city = cities[indexPath.row]
+        } else if indexPath.section == 1 {
+            let city: City
+            if !filteredCities.isEmpty{
+                city = filteredCities[indexPath.row]
+            }else{
+                city = cities[indexPath.row]
+            }
+            searchBar.resignFirstResponder()
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            if self.backClosure != nil {
+                let tempString: String? = city.cityCN
+                if tempString != nil {
+                    self.backClosure!(tempString!)
+                }
+            }
+            cities.append(city)
+            self.saveCity()
+            self.dismiss(animated: true, completion: nil);
+        }  else if indexPath.section == 2 {
+            let city: City
+            if !filteredCities.isEmpty{
+                city = filteredCities[indexPath.row]
+            }else{
+                city = cities[indexPath.row]
+            }
+            searchBar.resignFirstResponder()
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            if self.backClosure != nil {
+                let tempString: String? = city.cityCN
+                if tempString != nil {
+                    self.backClosure!(tempString!)
+                }
+            }
+            cities.append(city)
+            self.saveCity()
+            self.dismiss(animated: true, completion: nil);
         }
-        searchBar.resignFirstResponder()
-        tableView.deselectRow(at: indexPath, animated: true)
         
-        if self.backClosure != nil {
-            let tempString: String? = city.cityCN
-            if tempString != nil {
-                self.backClosure!(tempString!)
+    }
+    
+    fileprivate func documentsDirectory() -> String{
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        return paths[0]
+    }
+    
+    fileprivate func dataFilePath() -> String{
+        return (documentsDirectory() as NSString).appendingPathComponent("Cities.plist")
+    }
+    
+    func saveCity(){
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(cities, forKey: "Cities")
+        archiver.finishEncoding()
+        data.write(toFile: dataFilePath(), atomically: true)
+    }
+    
+    func loadData(){
+        let path = dataFilePath()
+        if FileManager.default.fileExists(atPath: path) {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)){
+                let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+                cities = unarchiver.decodeObject(forKey: "Cities") as! [City]
+                unarchiver.finishDecoding()
             }
         }
-        self.dismiss(animated: true, completion: nil);
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if searchBar.text != ""{
+            return false
+        }else{
+            return true
         }
-        
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        cities.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

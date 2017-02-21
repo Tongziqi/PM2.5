@@ -11,6 +11,7 @@ import UIKit
 class CityListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var labelOfCity: UILabel!
     @IBOutlet weak var locationImg: UIImageView!
+    @IBOutlet weak var locatedLabel: UILabel!
     override func awakeFromNib() {
 
         super.awakeFromNib()
