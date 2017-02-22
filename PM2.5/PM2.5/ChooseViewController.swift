@@ -54,6 +54,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         searchBar.delegate = nil
     }
     
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -92,39 +94,37 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
+        cell?.initdata()
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
-            cell?.labelOfCity.text = locationCity ?? ""
-            cell?.locatedLabel.isHidden = true
-            cell?.selectionStyle = UITableViewCellSelectionStyle.none
-            return cell!
+            var cellZero = tableView.cellForRow(at: indexPath) as? CityListCellTableViewCell
+            if cellZero == nil {
+                 cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
+            }
+            cellZero?.labelOfCity.text = locationCity ?? ""
+            cellZero?.locatedLabel.isHidden = true
+            cellZero?.locationImg.isHidden = false
+            return cellZero!
         } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
-            cell?.locationImg.isHidden = true
+            cell?.locatedLabel.text = "您定位过的城市"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
-            cell?.selectionStyle = UITableViewCellSelectionStyle.none
             return cell!
         } else if indexPath.section == 2 {
             let city: City
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
             if searchBar.text != "" {
-                cell?.textLabel?.textColor = UIColor.white
                 city = filteredCities[indexPath.row]
                 cell?.labelOfCity?.text = city.cityCN
-                cell?.locationImg.isHidden = true
                 cell?.locatedLabel.text = "点击查询该城市"
                 cell?.locatedLabel.textColor = UIColor.green
-                cell?.selectionStyle = UITableViewCellSelectionStyle.none
                 return cell!
             } else {
                 city = cities[indexPath.row]
                 cell?.addCityName(city)
                 cell?.locationImg.isHidden = true
                 cell?.locatedLabel.text = "点击查询该城市"
-                cell?.selectionStyle = UITableViewCellSelectionStyle.none
                 return cell!
             }
-        }else {
+        } else {
             return UITableViewCell()
         }
     }
