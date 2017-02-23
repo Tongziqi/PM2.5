@@ -10,6 +10,8 @@
 		01C5FBDB9D51592320B8B679 /* Pods_PM2_5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D670352EFB4D571611A901BE /* Pods_PM2_5.framework */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
+		5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */; };
+		5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69CDE81E5EC9A60004C3D2 /* VersionControl.swift */; };
 		5D6A02051E34AC3100AA0F50 /* pm25.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D6A02041E34AC3100AA0F50 /* pm25.json */; };
 		5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6A02071E34C6E000AA0F50 /* CommonTool.swift */; };
 		5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D80F7A51E5AE7F500A989D8 /* City.swift */; };
@@ -30,6 +32,8 @@
 		3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM2.5.release.xcconfig"; path = "Pods/Target Support Files/Pods-PM2.5/Pods-PM2.5.release.xcconfig"; sourceTree = "<group>"; };
 		5D5161621E546DF4006F512E /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		5D5161631E546DF4006F512E /* ChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseViewController.xib; sourceTree = "<group>"; };
+		5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardVC.swift; sourceTree = "<group>"; };
+		5D69CDE81E5EC9A60004C3D2 /* VersionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionControl.swift; sourceTree = "<group>"; };
 		5D6A02041E34AC3100AA0F50 /* pm25.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pm25.json; sourceTree = "<group>"; };
 		5D6A02071E34C6E000AA0F50 /* CommonTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
 		5D80F7A51E5AE7F500A989D8 /* City.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -71,11 +75,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D69CDE31E5EB8DB0004C3D2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
 		5D6A02061E34C69600AA0F50 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
 				5D80F7A91E5AEA3700A989D8 /* ParserXML.swift */,
 				5D6A02071E34C6E000AA0F50 /* CommonTool.swift */,
+				5D69CDE81E5EC9A60004C3D2 /* VersionControl.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -138,6 +151,7 @@
 		5DE004911E3473CD009517CB /* PM2.5 */ = {
 			isa = PBXGroup;
 			children = (
+				5D69CDE31E5EB8DB0004C3D2 /* Onboarding */,
 				5D80F7B21E5B183800A989D8 /* View */,
 				5D80F7B11E5B17E500A989D8 /* Model */,
 				5D80F7B01E5B17B600A989D8 /* ViewController */,
@@ -292,10 +306,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
+				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,
 				5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
 				5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */,
+				5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */,
 				5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */,
 				5D80F7AD1E5B046800A989D8 /* CityListCellTableViewCell.swift in Sources */,
 			);

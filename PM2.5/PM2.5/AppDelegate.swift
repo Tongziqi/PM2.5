@@ -13,12 +13,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        buildOnboard()
         // Override point for customization after application launch.
-
         return true
+    }
+    
+    func buildOnboard() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.makeKeyAndVisible()
+        let needOnBoard = VersionControl.checkIsRealFirstUse()
+        if needOnBoard {
+            window?.rootViewController = OnBoardVC()
+        } else {
+            
+//            let mainstoryboard = UIStoryboard.init(name: "LaunchScreen", bundle: nil)
+//            let loginViewController = mainstoryboard.instantiateViewController(withIdentifier: "Main")
+            
+            
+            
+            window?.rootViewController = MainViewController()
+        }
+        
+
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
