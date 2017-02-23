@@ -23,20 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
         let needOnBoard = VersionControl.checkIsRealFirstUse()
-        if needOnBoard {
-            window?.rootViewController = OnBoardVC()
+        if !needOnBoard {
+            window?.rootViewController = self.generateStandardOnboardingVC()
         } else {
-            
-//            let mainstoryboard = UIStoryboard.init(name: "LaunchScreen", bundle: nil)
-//            let loginViewController = mainstoryboard.instantiateViewController(withIdentifier: "Main")
-            
-            
-            
-            window?.rootViewController = MainViewController()
+            window?.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
         }
-        
-
-
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
