@@ -1,24 +1,47 @@
 PODS:
   - Alamofire (4.3.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - IGListKit (2.0.0)
   - Kingfisher (3.3.1)
+  - MGSwipeTableCell (1.5.6)
   - MJRefresh (3.1.12)
+  - Onboard (2.3.1)
   - PKHUD (4.2.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - IGListKit (~> 2.0.0)
   - Kingfisher (~> 3.3.1)
+  - MGSwipeTableCell
   - MJRefresh
+  - Onboard
   - PKHUD (~> 4.2.0)
   - SwiftyJSON (~> 3.1.4)
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  IGListKit: ee255e4e61865bc3e01ca96b690c5435c2887849
   Kingfisher: 4d943445768c60fe5de314619a8ab07ec761ae5b
+  MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 2a6042dc75e825f3d1058647a60215d4e9506bc1
+PODFILE CHECKSUM: 5cc8a4bf6dfecdd0f7e73de3d7ce5eab3f20acf6
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
