@@ -59,6 +59,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         vc.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
             self.locationImg.isHidden = true
+            self.currentLocation = input
+            self.updateWeatherUI(location: input)
         }
         self.present(vc, animated: true, completion: nil)
     }
@@ -75,7 +77,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                                       "format":"json",
                                       "appkey":UserSetting.Appkey,
                                       "sign":UserSetting.Sign,
-                                      "weaid":"北京"]
+                                      "weaid":self.currentLocation]
         if searchLocation != location {
             Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
                 guard self != nil else { return }
@@ -97,7 +99,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updateWeather(json: JSON) {
-        self.weatherLabel.text = json["result"]["weather"].stringValue
+        let testWeatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + " " + json["result"]["temperature"].stringValue
+        self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
+        self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
+        self.weatherLabel.text = testWeatherLabel
         self.scoreView.reloadInputViews()
     }
     
@@ -161,10 +166,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         if let containsPlacemark = placemark {
             locationManager.stopUpdatingLocation()
             //let place = (containsPlacemark.name != nil) ? containsPlacemark.name : ""
-            let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
+            var locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
             //let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
+            if locality == "北京市" {
+                locality = "北京"
+            }
             self.currentLocation = "\(locality!)"
             self.locationImg.isHidden = false
+
             self.userLocationLabel.text = currentLocation
             self.updateWeatherUI(location: self.currentLocation)
         }
