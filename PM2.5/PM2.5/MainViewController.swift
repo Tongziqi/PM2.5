@@ -11,6 +11,7 @@ import SwiftyJSON
 import CoreLocation
 import PKHUD
 import MJRefresh
+import Alamofire
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
@@ -18,6 +19,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var userLocationLabel: UILabel!
     @IBOutlet weak var locationImg: UIButton!
     
+    //Weather
+    @IBOutlet weak var weatherImage: UIImageView!
+    @IBOutlet weak var weatherLabel: UILabel!
+    
+    
+    //PM2.5
     @IBOutlet weak var pm25image: UIImageView!
     @IBOutlet weak var pm25: UILabel!
     @IBOutlet weak var pm10: UILabel!
@@ -25,16 +32,15 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var no2: UILabel!
     @IBOutlet weak var o3: UILabel!
     @IBOutlet weak var co: UILabel!
-
+    
     
     let arrowWidth = 35
     let arrowHight = 35
     
     var locationManager: CLLocationManager!
     var currentLocation: String = "获取地理位置失败"
+    var searchLocation: String = ""
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.locationImg.isHidden = true
@@ -42,12 +48,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         let jsonData = NSData.init(contentsOfFile: path!)
         let json = JSON(jsonData!)
         initLocationManager()
-        updateUI(json: json)
-        
+        updatePM25UI(json: json)
         ceateHeader()
         // Do any additional setup after loading the view.
     }
-    
     
     @IBAction func jumpToChoose(_ sender: Any) {
         let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
@@ -59,23 +63,52 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.present(vc, animated: true, completion: nil)
     }
     
-    func updateUI(json: JSON) {
+    func updatePM25UI(json: JSON) {
         let pm25 = CommonTool.getAverageNum(json: json, string: "pm2_5")
         self.pm25.text = String(pm25)
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: pm25)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: Int(pm25image.frame.origin.y) - Int(Double(arrowHight)/1.7))
     }
     
+    func updateWeatherUI(location: String) {
+        let parameters: Parameters = ["app":"weather.today",
+                                      "format":"json",
+                                      "appkey":UserSetting.Appkey,
+                                      "sign":UserSetting.Sign,
+                                      "weaid":"北京"]
+        if searchLocation != location {
+            Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+                guard self != nil else { return }
+                switch response.result {
+                case .success:
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        DispatchQueue.main.async {
+                            self?.updateWeather(json: json)
+                        }
+                    }
+                case .failure(let errno):
+                    print(errno)
+                }
+            }
+            self.searchLocation = location
+        }
+    }
+    
+    
+    func updateWeather(json: JSON) {
+        self.weatherLabel.text = json["result"]["weather"].stringValue
+        self.scoreView.reloadInputViews()
+    }
+    
+    
     func ceateHeader() {
         self.scoreView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(self.headerRefresh))
     }
     
     func headerRefresh() {
-//        let path = Bundle.main.path(forResource: "pm10", ofType: "json")
-//        let jsonData = NSData.init(contentsOfFile: path!)
-//        let json = JSON(jsonData!)
-//        self.updateUI(json: json)
         print("重新获得pm25的值是")
+        self.updateWeatherUI(location: self.currentLocation)
         self.scoreView.mj_header.endRefreshing()
     }
     
@@ -97,9 +130,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
     }
     
-    
+    //可以添加那里一些限制。比如位置和精度之间的时间跨度。来解决多次调用
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        
         let newLocation: CLLocation? = locations.last
         let locationAge: TimeInterval = -(newLocation?.timestamp.timeIntervalSinceNow)!
         if locationAge.binade > 1.0 {
@@ -127,15 +159,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func displayLocationInfo(placemark: CLPlacemark?) {
         if let containsPlacemark = placemark {
-            
             locationManager.stopUpdatingLocation()
-            
-            let place = (containsPlacemark.name != nil) ? containsPlacemark.name : ""
+            //let place = (containsPlacemark.name != nil) ? containsPlacemark.name : ""
             let locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
             //let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
-            self.currentLocation = "\(place!), \(locality!)"
+            self.currentLocation = "\(locality!)"
             self.locationImg.isHidden = false
             self.userLocationLabel.text = currentLocation
+            self.updateWeatherUI(location: self.currentLocation)
         }
     }
     

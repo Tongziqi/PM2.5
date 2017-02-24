@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01C5FBDB9D51592320B8B679 /* Pods_PM2_5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D670352EFB4D571611A901BE /* Pods_PM2_5.framework */; };
+		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
 		5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM2.5.release.xcconfig"; path = "Pods/Target Support Files/Pods-PM2.5/Pods-PM2.5.release.xcconfig"; sourceTree = "<group>"; };
+		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		5D5161621E546DF4006F512E /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		5D5161631E546DF4006F512E /* ChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseViewController.xib; sourceTree = "<group>"; };
 		5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardVC.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 				3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		5D19BB1B1E5FE3EE00A693FC /* DefaultSetting */ = {
+			isa = PBXGroup;
+			children = (
+				5D19BB1C1E5FE41600A693FC /* UserSetting.swift */,
+			);
+			name = DefaultSetting;
 			sourceTree = "<group>";
 		};
 		5D69CDE31E5EB8DB0004C3D2 /* Onboarding */ = {
@@ -151,6 +161,7 @@
 		5DE004911E3473CD009517CB /* PM2.5 */ = {
 			isa = PBXGroup;
 			children = (
+				5D19BB1B1E5FE3EE00A693FC /* DefaultSetting */,
 				5D69CDE31E5EB8DB0004C3D2 /* Onboarding */,
 				5D80F7B21E5B183800A989D8 /* View */,
 				5D80F7B11E5B17E500A989D8 /* Model */,
@@ -308,6 +319,7 @@
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
 				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,
+				5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */,
 				5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
 				5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */,

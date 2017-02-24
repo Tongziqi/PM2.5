@@ -504,6 +504,8 @@
                         <outlet property="scoreView" destination="3RS-a5-NSD" id="y0t-Oa-ZOH"/>
                         <outlet property="so2" destination="qS9-ZA-FXe" id="oIG-2E-7bq"/>
                         <outlet property="userLocationLabel" destination="384-qA-8t5" id="3hg-Zo-Ups"/>
+                        <outlet property="weatherImage" destination="zXk-I4-S49" id="A1e-Vg-NIG"/>
+                        <outlet property="weatherLabel" destination="ssS-Qn-NYj" id="YP3-Tl-YFg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Co1-wN-Pwm" sceneMemberID="firstResponder"/>

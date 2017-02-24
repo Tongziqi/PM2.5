@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
         let needOnBoard = VersionControl.checkIsRealFirstUse()
-        if !needOnBoard {
+        if needOnBoard {
             window?.rootViewController = self.generateStandardOnboardingVC()
         } else {
             window?.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
