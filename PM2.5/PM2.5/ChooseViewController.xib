@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseViewController" customModule="PM2_5" customModuleProvider="target">
             <connections>
+                <outlet property="editButton" destination="GF7-kS-0ob" id="uKH-eg-fBT"/>
                 <outlet property="searchBar" destination="YQY-2V-BHG" id="8Pf-yb-8My"/>
+                <outlet property="selectAllButton" destination="bgj-ez-3k5" id="VId-oD-7XD"/>
                 <outlet property="tabelView" destination="bw0-mi-VCS" id="qr7-KJ-l1i"/>
                 <outlet property="view" destination="jYD-jK-BQi" id="r4B-Xv-9xg"/>
             </connections>
@@ -26,9 +28,15 @@
                     <state key="normal" title="编辑">
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <connections>
+                        <action selector="editCitys:" destination="-1" eventType="touchUpInside" id="jJj-UO-Cfa"/>
+                    </connections>
                 </button>
                 <searchBar contentMode="redraw" placeholder="请输入城市中文名" translatesAutoresizingMaskIntoConstraints="NO" id="YQY-2V-BHG">
                     <rect key="frame" x="0.0" y="54" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="1H8-oa-Eiw"/>
+                    </constraints>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="tkA-1L-nEb">
@@ -38,14 +46,27 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="638"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mX-ap-TSw">
+                            <rect key="frame" x="0.0" y="594" width="414" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="3eg-SR-Mz8"/>
+                            </constraints>
+                            <state key="normal" title="删除">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
                     </subviews>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="3mX-ap-TSw" secondAttribute="trailing" id="2kA-0K-NZC"/>
+                        <constraint firstAttribute="bottom" secondItem="3mX-ap-TSw" secondAttribute="bottom" id="4YF-Ho-ey5"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="leading" secondItem="tkA-1L-nEb" secondAttribute="leading" id="9AB-S6-Qd3"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="centerY" secondItem="tkA-1L-nEb" secondAttribute="centerY" id="Lj7-6l-cFb"/>
+                        <constraint firstItem="3mX-ap-TSw" firstAttribute="leading" secondItem="tkA-1L-nEb" secondAttribute="leading" id="Q1X-IN-VnV"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="top" secondItem="tkA-1L-nEb" secondAttribute="top" id="SmO-Sn-UdS"/>
                         <constraint firstAttribute="trailing" secondItem="bw0-mi-VCS" secondAttribute="trailing" id="eC8-KJ-rZY"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="centerX" secondItem="tkA-1L-nEb" secondAttribute="centerX" id="hsE-BK-Qc2"/>
-                        <constraint firstAttribute="bottom" secondItem="bw0-mi-VCS" secondAttribute="bottom" id="pNM-JF-5ob"/>
+                        <constraint firstAttribute="bottom" secondItem="bw0-mi-VCS" secondAttribute="bottom" id="yiw-63-4ML"/>
                     </constraints>
                 </scrollView>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgj-ez-3k5">
@@ -55,7 +76,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一个触手可及的距离" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVS-Ib-L60">
-                    <rect key="frame" x="130.66666666666669" y="25.666666666666664" width="153.00000000000006" height="23.999999999999993"/>
+                    <rect key="frame" x="131" y="26" width="153" height="24"/>
                     <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -68,6 +89,7 @@
                 <constraint firstItem="bgj-ez-3k5" firstAttribute="top" secondItem="GF7-kS-0ob" secondAttribute="top" id="Nc3-fY-Qee"/>
                 <constraint firstAttribute="trailing" secondItem="GF7-kS-0ob" secondAttribute="trailing" constant="20" id="NjF-kB-Es3"/>
                 <constraint firstItem="YQY-2V-BHG" firstAttribute="top" secondItem="bgj-ez-3k5" secondAttribute="bottom" id="QuR-9W-M4a"/>
+                <constraint firstItem="bgj-ez-3k5" firstAttribute="baseline" secondItem="GF7-kS-0ob" secondAttribute="baseline" id="TFy-Kq-ALu"/>
                 <constraint firstAttribute="bottom" secondItem="tkA-1L-nEb" secondAttribute="bottom" id="q1J-8b-CEa"/>
                 <constraint firstItem="tkA-1L-nEb" firstAttribute="trailing" secondItem="YQY-2V-BHG" secondAttribute="trailing" id="rkt-WS-Ovo"/>
                 <constraint firstItem="bgj-ez-3k5" firstAttribute="leading" secondItem="jYD-jK-BQi" secondAttribute="leading" constant="20" id="rvZ-cE-vIV"/>

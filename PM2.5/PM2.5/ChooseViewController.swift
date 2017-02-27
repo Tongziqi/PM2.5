@@ -9,12 +9,15 @@
 import UIKit
 
 class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
+
     let cellId = "CityListCellTableViewCell"
     var locationCity: String? = nil
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabelView: UITableView!
 
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var selectAllButton: UIButton!
     // 闭包传值
     typealias InputClosureType = (String) -> Void // 定义一个闭包类型（typealias：特定的函数类型函数类型）
     var backClosure: InputClosureType? // 接收上个页面穿过来的闭包块
@@ -59,9 +62,12 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         searchBar.delegate = nil
     }
     
-    
+    @IBAction func editCitys(_ sender: Any) {
+        print("点击的编辑按钮")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+
         return 3
     }
     
