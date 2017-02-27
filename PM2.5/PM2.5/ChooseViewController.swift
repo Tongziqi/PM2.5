@@ -152,7 +152,6 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                     self.backClosure!(tempString!)
                 }
             }
-            cities.append(city)
             self.saveCity()
             self.dismiss(animated: true, completion: nil);
         }  else if indexPath.section == 2 {

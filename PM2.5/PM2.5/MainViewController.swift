@@ -59,7 +59,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         vc.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
             self.locationImg.isHidden = true
-            self.currentLocation = input
+            self.searchLocation = input
             self.updateWeatherUI(location: input)
         }
         self.present(vc, animated: true, completion: nil)
@@ -77,23 +77,18 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                                       "format":"json",
                                       "appkey":UserSetting.Appkey,
                                       "sign":UserSetting.Sign,
-                                      "weaid":self.currentLocation]
-        if searchLocation != location {
-            Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
-                guard self != nil else { return }
-                switch response.result {
-                case .success:
-                    if let value = response.result.value{
-                        let json = JSON(value)
-                        DispatchQueue.main.async {
-                            self?.updateWeather(json: json)
-                        }
-                    }
-                case .failure(let errno):
-                    print(errno)
+                                      "weaid":location]
+        Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+            guard self != nil else { return }
+            switch response.result {
+            case .success:
+                if let value = response.result.value{
+                    let json = JSON(value)
+                    self?.updateWeather(json: json)
                 }
+            case .failure(let errno):
+                print(errno)
             }
-            self.searchLocation = location
         }
     }
     
@@ -113,7 +108,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func headerRefresh() {
         print("重新获得pm25的值是")
-        self.updateWeatherUI(location: self.currentLocation)
+        self.updateWeatherUI(location: self.searchLocation)
         self.scoreView.mj_header.endRefreshing()
     }
     
@@ -173,7 +168,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             }
             self.currentLocation = "\(locality!)"
             self.locationImg.isHidden = false
-
+            
             self.userLocationLabel.text = currentLocation
             self.updateWeatherUI(location: self.currentLocation)
         }
