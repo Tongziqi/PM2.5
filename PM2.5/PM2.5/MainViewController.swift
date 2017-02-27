@@ -99,6 +99,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
         self.weatherLabel.text = testWeatherLabel
         self.scoreView.reloadInputViews()
+        self.showHub(text: self.searchLocation + "数据更新完毕")
     }
     
     

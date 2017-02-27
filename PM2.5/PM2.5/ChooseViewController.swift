@@ -12,9 +12,9 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     let cellId = "CityListCellTableViewCell"
     var locationCity: String? = nil
     
-    @IBOutlet weak var tabelView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    @IBOutlet weak var tabelView: UITableView!
+
     // 闭包传值
     typealias InputClosureType = (String) -> Void // 定义一个闭包类型（typealias：特定的函数类型函数类型）
     var backClosure: InputClosureType? // 接收上个页面穿过来的闭包块
@@ -39,8 +39,27 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tabelView?.estimatedRowHeight = 100
         let cellNib = UINib(nibName: cellId, bundle: nil)
         self.tabelView.register(cellNib, forCellReuseIdentifier: cellId)
+        self.tabelView.allowsMultipleSelection = true
+        
+        let backBtn = UIButton(type: UIButtonType.custom)
+        backBtn.setImage(UIImage(named: "back"), for: UIControlState())
+        backBtn.setImage(UIImage(named: "backpress"), for:  .highlighted)
+        
+        backBtn.titleLabel?.isHidden = true
+        backBtn.addTarget(self, action: #selector(self.leftpushTo), for: .touchUpInside)
+        backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
+        backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+
+        backBtn.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
+        
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(customView: backBtn)
+
         
         print(cities)
+    }
+    
+    func leftpushTo() {
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,7 +93,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
-
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
@@ -99,7 +118,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         if indexPath.section == 0 {
             var cellZero = tableView.cellForRow(at: indexPath) as? CityListCellTableViewCell
             if cellZero == nil {
-                 cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
+                cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
             }
             cellZero?.labelOfCity.text = locationCity ?? ""
             cellZero?.locatedLabel.isHidden = true
@@ -206,10 +225,14 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if searchBar.text != ""{
+        if indexPath.section == 0 {
             return false
-        }else{
-            return true
+        } else {
+            if searchBar.text != ""{
+                return false
+            }else{
+                return true
+            }
         }
     }
     
