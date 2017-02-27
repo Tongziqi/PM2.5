@@ -30,6 +30,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadData()
+        self.title = "测试"
         self.tabelView.separatorStyle = .none
         //设置代理
         self.searchBar.delegate = self
@@ -40,22 +41,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         let cellNib = UINib(nibName: cellId, bundle: nil)
         self.tabelView.register(cellNib, forCellReuseIdentifier: cellId)
         self.tabelView.allowsMultipleSelection = true
-        
-        let backBtn = UIButton(type: UIButtonType.custom)
-        backBtn.setImage(UIImage(named: "back"), for: UIControlState())
-        backBtn.setImage(UIImage(named: "backpress"), for:  .highlighted)
-        
-        backBtn.titleLabel?.isHidden = true
-        backBtn.addTarget(self, action: #selector(self.leftpushTo), for: .touchUpInside)
-        backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
-        backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-
-        backBtn.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
-        
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(customView: backBtn)
-
-        
-        print(cities)
+                
     }
     
     func leftpushTo() {
@@ -260,5 +246,9 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             return city.cityCN.lowercased().contains(searchText.lowercased())
         })
         tabelView.reloadData()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.searchBar.resignFirstResponder()
     }
 }

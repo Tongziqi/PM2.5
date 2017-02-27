@@ -21,15 +21,21 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" placeholder="请输入城市中文名(左滑删除)" translatesAutoresizingMaskIntoConstraints="NO" id="YQY-2V-BHG">
-                    <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GF7-kS-0ob">
+                    <rect key="frame" x="357" y="20" width="37" height="34"/>
+                    <state key="normal" title="编辑">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <searchBar contentMode="redraw" placeholder="请输入城市中文名" translatesAutoresizingMaskIntoConstraints="NO" id="YQY-2V-BHG">
+                    <rect key="frame" x="0.0" y="54" width="414" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="tkA-1L-nEb">
-                    <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                    <rect key="frame" x="0.0" y="98" width="414" height="638"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bw0-mi-VCS">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="638"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
                     </subviews>
@@ -42,15 +48,33 @@
                         <constraint firstAttribute="bottom" secondItem="bw0-mi-VCS" secondAttribute="bottom" id="pNM-JF-5ob"/>
                     </constraints>
                 </scrollView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgj-ez-3k5">
+                    <rect key="frame" x="20" y="20" width="37" height="34"/>
+                    <state key="normal" title="全选">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一个触手可及的距离" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVS-Ib-L60">
+                    <rect key="frame" x="130.66666666666669" y="25.666666666666664" width="153.00000000000006" height="23.999999999999993"/>
+                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="UVS-Ib-L60" firstAttribute="top" secondItem="GF7-kS-0ob" secondAttribute="top" constant="5.6666666666666288" id="74c-A7-Gv0"/>
                 <constraint firstItem="YQY-2V-BHG" firstAttribute="leading" secondItem="jYD-jK-BQi" secondAttribute="leading" id="KdY-9R-7y9"/>
-                <constraint firstItem="YQY-2V-BHG" firstAttribute="top" secondItem="jYD-jK-BQi" secondAttribute="top" constant="20" id="g4h-bE-RQs"/>
+                <constraint firstItem="bgj-ez-3k5" firstAttribute="top" secondItem="GF7-kS-0ob" secondAttribute="top" id="Nc3-fY-Qee"/>
+                <constraint firstAttribute="trailing" secondItem="GF7-kS-0ob" secondAttribute="trailing" constant="20" id="NjF-kB-Es3"/>
+                <constraint firstItem="YQY-2V-BHG" firstAttribute="top" secondItem="bgj-ez-3k5" secondAttribute="bottom" id="QuR-9W-M4a"/>
                 <constraint firstAttribute="bottom" secondItem="tkA-1L-nEb" secondAttribute="bottom" id="q1J-8b-CEa"/>
                 <constraint firstItem="tkA-1L-nEb" firstAttribute="trailing" secondItem="YQY-2V-BHG" secondAttribute="trailing" id="rkt-WS-Ovo"/>
+                <constraint firstItem="bgj-ez-3k5" firstAttribute="leading" secondItem="jYD-jK-BQi" secondAttribute="leading" constant="20" id="rvZ-cE-vIV"/>
                 <constraint firstItem="tkA-1L-nEb" firstAttribute="top" secondItem="YQY-2V-BHG" secondAttribute="bottom" id="saB-gp-J9y"/>
                 <constraint firstAttribute="trailing" secondItem="YQY-2V-BHG" secondAttribute="trailing" id="t0M-yy-JEa"/>
+                <constraint firstItem="UVS-Ib-L60" firstAttribute="centerX" secondItem="jYD-jK-BQi" secondAttribute="centerX" id="v2g-TE-kek"/>
+                <constraint firstItem="GF7-kS-0ob" firstAttribute="top" secondItem="jYD-jK-BQi" secondAttribute="top" constant="20" id="vhQ-vD-3QV"/>
                 <constraint firstItem="tkA-1L-nEb" firstAttribute="leading" secondItem="YQY-2V-BHG" secondAttribute="leading" id="xVm-mt-ee0"/>
             </constraints>
             <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
