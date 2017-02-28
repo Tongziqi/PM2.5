@@ -104,13 +104,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         }
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        UITableViewHeaderFooterView
-//    }
-  
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.black
-    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
@@ -120,16 +114,13 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             if cellZero == nil {
                 cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
             }
-            //cellZero?.contentView.layer.cornerRadius = 20
             cellZero?.labelOfCity.text = locationCity ?? ""
             cellZero?.locatedLabel.isHidden = true
-            cellZero?.locationImg.isHidden = false
+            cellZero?.contentView.layer.cornerRadius = 20
             return cellZero!
         } else if indexPath.section == 1 {
             cell?.locatedLabel.text = "您定位过的城市"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
-            cell?.cityLocation.isHidden = false
-
             return cell!
         } else if indexPath.section == 2 {
             let city: City

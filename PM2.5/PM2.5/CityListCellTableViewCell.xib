@@ -18,10 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cellDefalut" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-tq-Hqj">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windbag" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-tq-Hqj">
                         <rect key="frame" x="23" y="7" width="28" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="6aT-11-iBW"/>
@@ -31,7 +31,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja2-aa-M9E">
                         <rect key="frame" x="137" y="6" width="31" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="hS5-Q4-AAG">
@@ -60,23 +60,22 @@
                             <constraint firstAttribute="width" constant="27" id="eXU-Od-GPy"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
-                        <color key="textColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWY-3I-RBJ">
                         <rect key="frame" x="111" y="9" width="8" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-12-1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bis-mi-mWP">
                         <rect key="frame" x="137" y="25" width="62" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="LLN-Vw-qKW" firstAttribute="firstBaseline" secondItem="bis-mi-mWP" secondAttribute="baseline" id="2iz-pf-V0E"/>
                     <constraint firstItem="hS5-Q4-AAG" firstAttribute="leading" secondItem="ja2-aa-M9E" secondAttribute="trailing" constant="24" id="5sV-H4-g6n"/>
@@ -99,7 +98,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="cityLocation" destination="fb6-tq-Hqj" id="xsh-ud-lFz"/>
+                <outlet property="cityLocationimage" destination="fb6-tq-Hqj" id="7Pb-FD-vee"/>
                 <outlet property="labelOfCity" destination="ja2-aa-M9E" id="ynd-hK-dbN"/>
                 <outlet property="locatedLabel" destination="LLN-Vw-qKW" id="TxD-t7-Oro"/>
                 <outlet property="locationImg" destination="hS5-Q4-AAG" id="f5z-j2-XrD"/>
@@ -107,7 +106,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cellDefalut" width="154" height="144"/>
         <image name="location" width="32" height="32"/>
+        <image name="windbag" width="112" height="108"/>
     </resources>
 </document>

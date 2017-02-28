@@ -11,12 +11,17 @@ import UIKit
 class CityListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var labelOfCity: UILabel!
     @IBOutlet weak var locationImg: UIImageView!
-    @IBOutlet weak var cityLocation: UIImageView!
+    @IBOutlet weak var cityLocationimage: UIImageView!
     @IBOutlet weak var locatedLabel: UILabel!
+    
+    
+    var bgView: UIView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -32,15 +37,15 @@ class CityListCellTableViewCell: UITableViewCell {
     }
     
     func initdata() {
-        cityLocation.image = UIImage(named: "cityLocation-1")
+        cityLocationimage.image = UIImage(named: "umbrella")
         locationImg.image = UIImage(named: "location")
+        locationImg.isHidden = true
         locatedLabel.textColor = UIColor.gray
         locatedLabel.text = ""
         labelOfCity.text = ""
-        locationImg.isHidden = true
-        cityLocation.isHidden = false
         selectionStyle = UITableViewCellSelectionStyle.none
-        //contentView.layer.cornerRadius = 20
+        contentView.layer.cornerRadius = 20
+        
     }
     
     // 解决 ios8 tableview 自适应大小的时候，第一次展现的时候不生效的问题。
@@ -49,5 +54,7 @@ class CityListCellTableViewCell: UITableViewCell {
         //        self.contentView.layoutSubviews()
         self.contentView.layoutIfNeeded()
     }
+    
+    
     
 }
