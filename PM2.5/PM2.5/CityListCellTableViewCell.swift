@@ -38,7 +38,9 @@ class CityListCellTableViewCell: UITableViewCell {
         locatedLabel.text = ""
         labelOfCity.text = ""
         locationImg.isHidden = true
+        cityLocation.isHidden = false
         selectionStyle = UITableViewCellSelectionStyle.none
+        //contentView.layer.cornerRadius = 20
     }
     
     // 解决 ios8 tableview 自适应大小的时候，第一次展现的时候不生效的问题。

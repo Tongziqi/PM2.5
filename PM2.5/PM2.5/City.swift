@@ -24,5 +24,5 @@ class City: NSObject,NSCoding{
   func encode(with aCoder: NSCoder) {
     aCoder.encode(cityCN, forKey: "CityCN")
   }
-  
+    
 }
