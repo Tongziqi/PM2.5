@@ -11,9 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseViewController" customModule="PM2_5" customModuleProvider="target">
             <connections>
-                <outlet property="editButton" destination="GF7-kS-0ob" id="uKH-eg-fBT"/>
+                <outlet property="editButton" destination="GF7-kS-0ob" id="1hj-WU-4yF"/>
                 <outlet property="searchBar" destination="YQY-2V-BHG" id="8Pf-yb-8My"/>
-                <outlet property="selectAllButton" destination="bgj-ez-3k5" id="VId-oD-7XD"/>
                 <outlet property="tabelView" destination="bw0-mi-VCS" id="qr7-KJ-l1i"/>
                 <outlet property="view" destination="jYD-jK-BQi" id="r4B-Xv-9xg"/>
             </connections>
@@ -29,7 +28,7 @@
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="editCitys:" destination="-1" eventType="touchUpInside" id="jJj-UO-Cfa"/>
+                        <action selector="editCity:" destination="-1" eventType="touchUpInside" id="vQ9-GV-6cz"/>
                     </connections>
                 </button>
                 <searchBar contentMode="redraw" placeholder="请输入城市中文名" translatesAutoresizingMaskIntoConstraints="NO" id="YQY-2V-BHG">
@@ -46,24 +45,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="638"/>
                             <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3mX-ap-TSw">
-                            <rect key="frame" x="0.0" y="594" width="414" height="44"/>
-                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="3eg-SR-Mz8"/>
-                            </constraints>
-                            <state key="normal" title="删除">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="3mX-ap-TSw" secondAttribute="trailing" id="2kA-0K-NZC"/>
-                        <constraint firstAttribute="bottom" secondItem="3mX-ap-TSw" secondAttribute="bottom" id="4YF-Ho-ey5"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="leading" secondItem="tkA-1L-nEb" secondAttribute="leading" id="9AB-S6-Qd3"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="centerY" secondItem="tkA-1L-nEb" secondAttribute="centerY" id="Lj7-6l-cFb"/>
-                        <constraint firstItem="3mX-ap-TSw" firstAttribute="leading" secondItem="tkA-1L-nEb" secondAttribute="leading" id="Q1X-IN-VnV"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="top" secondItem="tkA-1L-nEb" secondAttribute="top" id="SmO-Sn-UdS"/>
                         <constraint firstAttribute="trailing" secondItem="bw0-mi-VCS" secondAttribute="trailing" id="eC8-KJ-rZY"/>
                         <constraint firstItem="bw0-mi-VCS" firstAttribute="centerX" secondItem="tkA-1L-nEb" secondAttribute="centerX" id="hsE-BK-Qc2"/>

@@ -11,6 +11,7 @@ import UIKit
 class CityListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var labelOfCity: UILabel!
     @IBOutlet weak var locationImg: UIImageView!
+    @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var cityLocationimage: UIImageView!
     @IBOutlet weak var locatedLabel: UILabel!
     
@@ -44,11 +45,11 @@ class CityListCellTableViewCell: UITableViewCell {
         locatedLabel.text = ""
         labelOfCity.text = ""
         selectionStyle = UITableViewCellSelectionStyle.none
-        //contentView.layer.cornerRadius = 20
-//        contentView.layer.shadowColor = colorWithHex(0xCCCDCF).cgColor
-//        contentView.layer.shadowOffset = CGSize(width: 0, height: 5)
-//        contentView.layer.shadowOpacity = 2
-//        contentView.layer.shadowRadius = 4
+        defaultView.layer.cornerRadius = 20
+        defaultView.layer.shadowColor = colorWithHex(0xCCCDCF).cgColor
+        defaultView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        defaultView.layer.shadowOpacity = 0.3
+        defaultView.layer.shadowRadius = 2
     }
     
     func colorWithHex(_ hex: Int, alpha: CGFloat = 1.0) -> UIColor {

@@ -34,25 +34,14 @@
                                     <constraint firstAttribute="height" constant="46" id="P9N-t8-iUx"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jli-FX-yph">
-                                <rect key="frame" x="0.0" y="44" width="320" height="1"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="6cU-iz-FKr"/>
-                                    <constraint firstAttribute="width" constant="320" id="Cm1-IC-Zo9"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Jli-FX-yph" secondAttribute="bottom" constant="1" id="Liz-Nb-iqb"/>
                             <constraint firstItem="FRk-sp-GgD" firstAttribute="leading" secondItem="HMG-c2-VIO" secondAttribute="leading" id="Lpt-hm-yZI"/>
-                            <constraint firstAttribute="trailing" secondItem="Jli-FX-yph" secondAttribute="trailing" id="XnT-kd-oaW"/>
                             <constraint firstAttribute="bottom" secondItem="FRk-sp-GgD" secondAttribute="bottom" id="dQm-kZ-YnW"/>
                             <constraint firstAttribute="height" constant="46" id="hm1-kB-AZj"/>
                             <constraint firstAttribute="trailing" secondItem="FRk-sp-GgD" secondAttribute="trailing" id="ogP-Ww-ID7"/>
                             <constraint firstAttribute="width" constant="320" id="qRF-3Y-iKy"/>
-                            <constraint firstItem="Jli-FX-yph" firstAttribute="leading" secondItem="HMG-c2-VIO" secondAttribute="leading" id="rbd-3d-Oek"/>
                             <constraint firstItem="FRk-sp-GgD" firstAttribute="top" secondItem="HMG-c2-VIO" secondAttribute="top" id="zMc-e8-CCq"/>
                         </constraints>
                     </view>
@@ -139,6 +128,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="cityLocationimage" destination="fb6-tq-Hqj" id="7Pb-FD-vee"/>
+                <outlet property="defaultView" destination="HMG-c2-VIO" id="aba-3g-Jky"/>
                 <outlet property="labelOfCity" destination="ja2-aa-M9E" id="ynd-hK-dbN"/>
                 <outlet property="locatedLabel" destination="LLN-Vw-qKW" id="TxD-t7-Oro"/>
                 <outlet property="locationImg" destination="hS5-Q4-AAG" id="f5z-j2-XrD"/>

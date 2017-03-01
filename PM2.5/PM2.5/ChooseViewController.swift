@@ -13,11 +13,11 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     let cellId = "CityListCellTableViewCell"
     var locationCity: String? = nil
     
+
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabelView: UITableView!
-
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var selectAllButton: UIButton!
+    
     // 闭包传值
     typealias InputClosureType = (String) -> Void // 定义一个闭包类型（typealias：特定的函数类型函数类型）
     var backClosure: InputClosureType? // 接收上个页面穿过来的闭包块
@@ -33,7 +33,6 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadData()
-        self.title = "测试"
         self.tabelView.separatorStyle = .none
         //设置代理
         self.searchBar.delegate = self
@@ -43,13 +42,19 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tabelView?.estimatedRowHeight = 100
         let cellNib = UINib(nibName: cellId, bundle: nil)
         self.tabelView.register(cellNib, forCellReuseIdentifier: cellId)
-        self.tabelView.allowsMultipleSelection = true
-                
     }
     
-    func leftpushTo() {
-        let _ = self.navigationController?.popViewController(animated: true)
+    @IBAction func editCity(_ sender: Any) {
+        if self.editButton.titleLabel?.text! == "完成" {
+            self.editButton.setTitle("编辑", for: UIControlState.normal)
+            self.tabelView.isEditing = false
+        } else {
+            self.editButton.setTitle("完成", for: UIControlState.normal)
+            self.tabelView.isEditing = true
+            self.saveCity()
+        }
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,9 +67,6 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         searchBar.delegate = nil
     }
     
-    @IBAction func editCitys(_ sender: Any) {
-        print("点击的编辑按钮")
-    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
 
@@ -103,7 +105,6 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             return 0.001
         }
     }
-    
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,6 +122,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         } else if indexPath.section == 1 {
             cell?.locatedLabel.text = "您定位过的城市"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
+            cell?.tintColor = UIColor.black
             return cell!
         } else if indexPath.section == 2 {
             let city: City
