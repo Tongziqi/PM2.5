@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
 
@@ -14,6 +15,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     var locationCity: String? = nil
     
 
+    @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabelView: UITableView!
     @IBOutlet weak var editButton: UIButton!
@@ -34,6 +36,11 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         super.viewDidLoad()
         self.loadData()
         self.tabelView.separatorStyle = .none
+        self.frontLabel.textColor = UIColor.flatBlack
+        self.searchBar.layer.borderWidth = 1
+        self.searchBar.layer.borderColor = UIColor.flatWhite.cgColor
+        self.searchBar.barTintColor = UIColor.flatWhite
+        self.editButton.setTitleColor(UIColor.flatBlack, for: UIControlState.normal)
         //设置代理
         self.searchBar.delegate = self
         self.tabelView.delegate = self
@@ -133,7 +140,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 city = filteredCities[indexPath.row]
                 cell?.labelOfCity?.text = city.cityCN
                 cell?.locatedLabel.text = "点击查询该城市"
-                cell?.locatedLabel.textColor = UIColor.green
+                cell?.locatedLabel.textColor = UIColor.flatOrange
                 return cell!
             } else {
                 city = cities[indexPath.row]

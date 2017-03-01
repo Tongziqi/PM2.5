@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseViewController" customModule="PM2_5" customModuleProvider="target">
             <connections>
                 <outlet property="editButton" destination="GF7-kS-0ob" id="1hj-WU-4yF"/>
+                <outlet property="frontLabel" destination="UVS-Ib-L60" id="Ofj-Ti-t6k"/>
                 <outlet property="searchBar" destination="YQY-2V-BHG" id="8Pf-yb-8My"/>
                 <outlet property="tabelView" destination="bw0-mi-VCS" id="qr7-KJ-l1i"/>
                 <outlet property="view" destination="jYD-jK-BQi" id="r4B-Xv-9xg"/>

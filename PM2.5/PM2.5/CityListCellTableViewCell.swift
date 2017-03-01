@@ -41,7 +41,7 @@ class CityListCellTableViewCell: UITableViewCell {
         cityLocationimage.image = UIImage(named: "umbrella")
         locationImg.image = UIImage(named: "location")
         locationImg.isHidden = true
-        locatedLabel.textColor = UIColor.gray
+        locatedLabel.textColor = UIColor.flatGray
         locatedLabel.text = ""
         labelOfCity.text = ""
         selectionStyle = UITableViewCellSelectionStyle.none
