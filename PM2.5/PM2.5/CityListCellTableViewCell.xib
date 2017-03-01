@@ -30,7 +30,6 @@
                                     <accessibilityTraits key="traits" none="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="O4m-5A-mcr"/>
                                     <constraint firstAttribute="height" constant="46" id="P9N-t8-iUx"/>
                                 </constraints>
                             </imageView>
@@ -39,9 +38,7 @@
                         <constraints>
                             <constraint firstItem="FRk-sp-GgD" firstAttribute="leading" secondItem="HMG-c2-VIO" secondAttribute="leading" id="Lpt-hm-yZI"/>
                             <constraint firstAttribute="bottom" secondItem="FRk-sp-GgD" secondAttribute="bottom" id="dQm-kZ-YnW"/>
-                            <constraint firstAttribute="height" constant="46" id="hm1-kB-AZj"/>
                             <constraint firstAttribute="trailing" secondItem="FRk-sp-GgD" secondAttribute="trailing" id="ogP-Ww-ID7"/>
-                            <constraint firstAttribute="width" constant="320" id="qRF-3Y-iKy"/>
                             <constraint firstItem="FRk-sp-GgD" firstAttribute="top" secondItem="HMG-c2-VIO" secondAttribute="top" id="zMc-e8-CCq"/>
                         </constraints>
                     </view>
