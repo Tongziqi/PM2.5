@@ -48,9 +48,11 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         if self.editButton.titleLabel?.text! == "完成" {
             self.editButton.setTitle("编辑", for: UIControlState.normal)
             self.tabelView.isEditing = false
+            tabelView.reloadData()
         } else {
             self.editButton.setTitle("完成", for: UIControlState.normal)
             self.tabelView.isEditing = true
+            tabelView.reloadData()
             self.saveCity()
         }
     }
@@ -117,12 +119,13 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             cellZero?.labelOfCity.text = locationCity ?? ""
             cellZero?.locatedLabel.isHidden = true
-            cellZero?.contentView.layer.cornerRadius = 20
             return cellZero!
         } else if indexPath.section == 1 {
             cell?.locatedLabel.text = "您定位过的城市"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
-            cell?.tintColor = UIColor.black
+            if self.tabelView.isEditing {
+                cell?.locatedLabel.text = ""
+            }
             return cell!
         } else if indexPath.section == 2 {
             let city: City

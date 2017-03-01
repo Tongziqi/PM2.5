@@ -15,6 +15,7 @@ import Alamofire
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
+    @IBOutlet weak var labelSize: NSLayoutConstraint!
     @IBOutlet weak var scoreView: UIScrollView!
     @IBOutlet weak var userLocationLabel: UILabel!
     @IBOutlet weak var locationImg: UIButton!
@@ -36,6 +37,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     let arrowWidth = 35
     let arrowHight = 35
+    var arrLocationY: Int?
     
     var locationManager: CLLocationManager!
     var currentLocation: String = "获取地理位置失败"
@@ -43,6 +45,26 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 适配
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenHeight = screenSize.height
+        arrLocationY = Int(pm25image.frame.origin.y) - Int(Double(arrowHight)/1.7)
+        switch screenHeight {
+        case 480.0:
+            labelSize.constant = 30
+            arrLocationY = arrLocationY! - 20
+        case 568.0:
+            labelSize.constant = 40
+            arrLocationY = arrLocationY! - 10
+        case 667.0:
+            labelSize.constant = 50
+        case 736.0:
+            labelSize.constant = 50
+        default:
+            break
+        }
+        
+        
         self.locationImg.isHidden = true
         let path = Bundle.main.path(forResource: "pm25", ofType: "json")
         let jsonData = NSData.init(contentsOfFile: path!)
@@ -69,7 +91,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         let pm25 = CommonTool.getAverageNum(json: json, string: "pm2_5")
         self.pm25.text = String(pm25)
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: pm25)
-        self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: Int(pm25image.frame.origin.y) - Int(Double(arrowHight)/1.7))
+        self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
     }
     
     func updateWeatherUI(location: String) {
