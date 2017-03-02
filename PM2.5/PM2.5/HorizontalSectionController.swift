@@ -34,7 +34,7 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
     }
 
     func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 50)
+        return CGSize(width: collectionContext!.containerSize.width, height: collectionContext!.containerSize.height)
     }
 
     func cellForItem(at index: Int) -> UICollectionViewCell {

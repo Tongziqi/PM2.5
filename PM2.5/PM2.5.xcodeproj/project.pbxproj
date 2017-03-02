@@ -11,8 +11,6 @@
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
-		5D68933C1E67D7D400694491 /* IGListKitTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68933A1E67D7D400694491 /* IGListKitTestViewController.swift */; };
-		5D68933D1E67D7D400694491 /* IGListKitTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D68933B1E67D7D400694491 /* IGListKitTestViewController.xib */; };
 		5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68933E1E67F10500694491 /* HorizontalSectionController.swift */; };
 		5D6893431E67F35000694491 /* EmbeddedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6893421E67F35000694491 /* EmbeddedCollectionViewCell.swift */; };
 		5D6893451E67F38D00694491 /* EmbeddedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */; };
@@ -41,8 +39,6 @@
 		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		5D5161621E546DF4006F512E /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		5D5161631E546DF4006F512E /* ChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseViewController.xib; sourceTree = "<group>"; };
-		5D68933A1E67D7D400694491 /* IGListKitTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IGListKitTestViewController.swift; path = PM2.5/IGListKitTestViewController.swift; sourceTree = "<group>"; };
-		5D68933B1E67D7D400694491 /* IGListKitTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IGListKitTestViewController.xib; path = PM2.5/IGListKitTestViewController.xib; sourceTree = "<group>"; };
 		5D68933E1E67F10500694491 /* HorizontalSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalSectionController.swift; path = PM2.5/HorizontalSectionController.swift; sourceTree = "<group>"; };
 		5D6893421E67F35000694491 /* EmbeddedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmbeddedCollectionViewCell.swift; path = PM2.5/EmbeddedCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmbeddedSectionController.swift; path = PM2.5/EmbeddedSectionController.swift; sourceTree = "<group>"; };
@@ -102,8 +98,6 @@
 		5D68934A1E67F57200694491 /* IGListKitView */ = {
 			isa = PBXGroup;
 			children = (
-				5D68933A1E67D7D400694491 /* IGListKitTestViewController.swift */,
-				5D68933B1E67D7D400694491 /* IGListKitTestViewController.xib */,
 				5D68933E1E67F10500694491 /* HorizontalSectionController.swift */,
 				5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */,
 				5D6893421E67F35000694491 /* EmbeddedCollectionViewCell.swift */,
@@ -289,7 +283,6 @@
 				5D6893521E68015700694491 /* WeatherUICollectionViewCell.xib in Resources */,
 				5D80F7A81E5AE80A00A989D8 /* Citys.xml in Resources */,
 				5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */,
-				5D68933D1E67D7D400694491 /* IGListKitTestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +342,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
-				5D68933C1E67D7D400694491 /* IGListKitTestViewController.swift in Sources */,
 				5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */,
 				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,

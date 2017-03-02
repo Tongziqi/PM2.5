@@ -22,7 +22,7 @@ class WeatherUICollectionViewCell: UICollectionViewCell {
     }
     
     func initdata() {
-        self.image?.image = UIImage(named: "umbrella")
+        self.image?.image = UIImage(named: "partly-cloudy")
         self.dataLabel?.textColor = UIColor.flatGray
         self.dataLabel?.text = "2017-02-01"
         self.temptureLabel?.text = "56°/ 87°"

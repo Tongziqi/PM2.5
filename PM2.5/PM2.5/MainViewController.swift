@@ -12,8 +12,9 @@ import CoreLocation
 import PKHUD
 import MJRefresh
 import Alamofire
+import IGListKit
 
-class MainViewController: UIViewController,CLLocationManagerDelegate {
+class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdapterDataSource {
     
     @IBOutlet weak var labelSize: NSLayoutConstraint!
     @IBOutlet weak var scoreView: UIScrollView!
@@ -24,7 +25,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var weatherImage: UIImageView!
     @IBOutlet weak var weatherLabel: UILabel!
     
-    
     //PM2.5
     @IBOutlet weak var pm25image: UIImageView!
     @IBOutlet weak var pm25: UILabel!
@@ -34,7 +34,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var o3: UILabel!
     @IBOutlet weak var co: UILabel!
     
-    
     let arrowWidth = 35
     let arrowHight = 35
     var arrLocationY: Int?
@@ -42,6 +41,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var currentLocation: String = "获取地理位置失败"
     var searchLocation: String = ""
+    
+    lazy var adapter: IGListAdapter = {
+        return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
+    }()
+    let collectionView = IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let data = [7] as [Any]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +69,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             break
         }
         
-        
         self.locationImg.isHidden = true
         let path = Bundle.main.path(forResource: "pm25", ofType: "json")
         let jsonData = NSData.init(contentsOfFile: path!)
@@ -73,18 +77,48 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         updatePM25UI(json: json)
         ceateHeader()
         // Do any additional setup after loading the view.
+        
+        
+        view.addSubview(collectionView)
+        adapter.collectionView = collectionView
+        adapter.collectionView?.backgroundColor = UIColor.clear
+        adapter.dataSource = self
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = CGRect(x: 0, y: self.view.bounds.height - 150, width: self.view.bounds.width, height: self.view.bounds.width)
+    }
+    
+    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
+        return data as! [IGListDiffable]
+    }
+    
+    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+        //水平
+        return HorizontalSectionController()
+    }
+    
+    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
+        return nil
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func jumpToChoose(_ sender: Any) {
-//        let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
-//        vc.locationCity = self.currentLocation
-//        vc.setBackMyClosure { (input: String) in
-//            self.userLocationLabel.text = input
-//            self.locationImg.isHidden = true
-//            self.searchLocation = input
-//            self.updateWeatherUI(location: input)
-//        }
-        let vc = IGListKitTestViewController(nibName: "IGListKitTestViewController", bundle: nil)
+        let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
+        vc.locationCity = self.currentLocation
+        vc.setBackMyClosure { (input: String) in
+            self.userLocationLabel.text = input
+            self.locationImg.isHidden = true
+            self.searchLocation = input
+            self.updateWeatherUI(location: input)
+        }
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -196,11 +230,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             self.userLocationLabel.text = currentLocation
             self.updateWeatherUI(location: self.currentLocation)
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     

@@ -30,14 +30,13 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
     }
 
     func sizeForItem(at index: Int) -> CGSize {        
-        return CGSize(width: 100, height: 40)
+        return CGSize(width: 120, height: 70)
     }
 
     func cellForItem(at index: Int) -> UICollectionViewCell {
         
         let cell = collectionContext?.dequeueReusableCell(withNibName: "WeatherUICollectionViewCell", bundle: nil, for: self, at: index) as? WeatherUICollectionViewCell
         cell?.initdata()
-        //cell?.backgroundColor = UIColor.randomFlat
         return cell!
     }
 
