@@ -7,12 +7,24 @@
 //
 
 import UIKit
+import IGListKit
+import ChameleonFramework
 
 class WeatherUICollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var temptureLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
+    
+    func initdata() {
+        self.image?.image = UIImage(named: "umbrella")
+        self.dataLabel?.textColor = UIColor.flatGray
+        self.dataLabel?.text = "2017-02-01"
+        self.temptureLabel?.text = "56°/ 87°"
+    }
 }

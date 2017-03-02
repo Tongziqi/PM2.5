@@ -16,9 +16,6 @@ class CityListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var locatedLabel: UILabel!
     
     
-    var bgView: UIView!
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

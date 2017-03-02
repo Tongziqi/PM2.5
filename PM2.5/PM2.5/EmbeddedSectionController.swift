@@ -31,15 +31,15 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
 
     func sizeForItem(at index: Int) -> CGSize {
         let height = collectionContext?.containerSize.height ?? 0
-        return CGSize(width: height, height: height)
+        return CGSize(width: 200, height: 80)
     }
 
     func cellForItem(at index: Int) -> UICollectionViewCell {
-        let cell = collectionContext!.dequeueReusableCell(of: CenterLabelCell.self, for: self, at: index) as! CenterLabelCell
-        let value = number ?? 0
-        cell.label.text = "\(value + 1)"
-        cell.backgroundColor = UIColor.randomFlat
-        return cell
+        
+        let cell = collectionContext?.dequeueReusableCell(withNibName: "WeatherUICollectionViewCell", bundle: nil, for: self, at: index) as? WeatherUICollectionViewCell
+        cell?.initdata()
+        cell?.backgroundColor = UIColor.randomFlat
+        return cell!
     }
 
     func didUpdate(to object: Any) {

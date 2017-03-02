@@ -16,7 +16,6 @@
 		5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68933E1E67F10500694491 /* HorizontalSectionController.swift */; };
 		5D6893431E67F35000694491 /* EmbeddedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6893421E67F35000694491 /* EmbeddedCollectionViewCell.swift */; };
 		5D6893451E67F38D00694491 /* EmbeddedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */; };
-		5D6893471E67F3A500694491 /* CenterLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6893461E67F3A500694491 /* CenterLabelCell.swift */; };
 		5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68934F1E68015700694491 /* WeatherUICollectionViewCell.swift */; };
 		5D6893521E68015700694491 /* WeatherUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6893501E68015700694491 /* WeatherUICollectionViewCell.xib */; };
 		5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */; };
@@ -47,7 +46,6 @@
 		5D68933E1E67F10500694491 /* HorizontalSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalSectionController.swift; path = PM2.5/HorizontalSectionController.swift; sourceTree = "<group>"; };
 		5D6893421E67F35000694491 /* EmbeddedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmbeddedCollectionViewCell.swift; path = PM2.5/EmbeddedCollectionViewCell.swift; sourceTree = "<group>"; };
 		5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmbeddedSectionController.swift; path = PM2.5/EmbeddedSectionController.swift; sourceTree = "<group>"; };
-		5D6893461E67F3A500694491 /* CenterLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenterLabelCell.swift; path = PM2.5/CenterLabelCell.swift; sourceTree = "<group>"; };
 		5D68934F1E68015700694491 /* WeatherUICollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherUICollectionViewCell.swift; sourceTree = "<group>"; };
 		5D6893501E68015700694491 /* WeatherUICollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherUICollectionViewCell.xib; sourceTree = "<group>"; };
 		5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardVC.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				5D68933E1E67F10500694491 /* HorizontalSectionController.swift */,
 				5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */,
 				5D6893421E67F35000694491 /* EmbeddedCollectionViewCell.swift */,
-				5D6893461E67F3A500694491 /* CenterLabelCell.swift */,
 				5D68934F1E68015700694491 /* WeatherUICollectionViewCell.swift */,
 				5D6893501E68015700694491 /* WeatherUICollectionViewCell.xib */,
 			);
@@ -352,7 +349,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
-				5D6893471E67F3A500694491 /* CenterLabelCell.swift in Sources */,
 				5D68933C1E67D7D400694491 /* IGListKitTestViewController.swift in Sources */,
 				5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */,
 				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,

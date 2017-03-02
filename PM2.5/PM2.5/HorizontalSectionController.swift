@@ -28,12 +28,14 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
         return adapter
     }()
 
+    
+    //多少行
     func numberOfItems() -> Int {
         return 1
     }
 
     func sizeForItem(at index: Int) -> CGSize {
-        return CGSize(width: collectionContext!.containerSize.width, height: 150)
+        return CGSize(width: collectionContext!.containerSize.width, height: 100)
     }
 
     func cellForItem(at index: Int) -> UICollectionViewCell {

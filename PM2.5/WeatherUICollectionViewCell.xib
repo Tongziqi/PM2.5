@@ -59,6 +59,12 @@
                 <constraint firstAttribute="bottom" secondItem="Qug-ah-JjZ" secondAttribute="bottom" id="adN-EB-Ne1"/>
                 <constraint firstAttribute="trailing" secondItem="Qug-ah-JjZ" secondAttribute="trailing" id="wOY-v0-aKc"/>
             </constraints>
+            <connections>
+                <outlet property="dataLabel" destination="a94-hw-s70" id="swe-4c-99d"/>
+                <outlet property="image" destination="AXU-NH-Y87" id="Z6L-h6-OXn"/>
+                <outlet property="temptureLabel" destination="prI-TM-XpO" id="Qup-mk-Exf"/>
+                <outlet property="view" destination="Qug-ah-JjZ" id="Vev-e7-NKI"/>
+            </connections>
             <point key="canvasLocation" x="27" y="52"/>
         </collectionViewCell>
     </objects>
