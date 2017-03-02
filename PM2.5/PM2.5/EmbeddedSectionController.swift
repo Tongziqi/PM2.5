@@ -22,23 +22,22 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
 
     override init() {
         super.init()
-        self.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        self.inset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
     }
 
     func numberOfItems() -> Int {
         return 1
     }
 
-    func sizeForItem(at index: Int) -> CGSize {
-        let height = collectionContext?.containerSize.height ?? 0
-        return CGSize(width: 200, height: 80)
+    func sizeForItem(at index: Int) -> CGSize {        
+        return CGSize(width: 100, height: 40)
     }
 
     func cellForItem(at index: Int) -> UICollectionViewCell {
         
         let cell = collectionContext?.dequeueReusableCell(withNibName: "WeatherUICollectionViewCell", bundle: nil, for: self, at: index) as? WeatherUICollectionViewCell
         cell?.initdata()
-        cell?.backgroundColor = UIColor.randomFlat
+        //cell?.backgroundColor = UIColor.randomFlat
         return cell!
     }
 

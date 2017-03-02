@@ -76,14 +76,15 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     @IBAction func jumpToChoose(_ sender: Any) {
-        let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
-        vc.locationCity = self.currentLocation
-        vc.setBackMyClosure { (input: String) in
-            self.userLocationLabel.text = input
-            self.locationImg.isHidden = true
-            self.searchLocation = input
-            self.updateWeatherUI(location: input)
-        }
+//        let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
+//        vc.locationCity = self.currentLocation
+//        vc.setBackMyClosure { (input: String) in
+//            self.userLocationLabel.text = input
+//            self.locationImg.isHidden = true
+//            self.searchLocation = input
+//            self.updateWeatherUI(location: input)
+//        }
+        let vc = IGListKitTestViewController(nibName: "IGListKitTestViewController", bundle: nil)
         self.present(vc, animated: true, completion: nil)
     }
     
