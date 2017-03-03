@@ -79,7 +79,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         // Do any additional setup after loading the view.
         
         
-        view.addSubview(collectionView)
+        self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.collectionView?.backgroundColor = UIColor.clear
         adapter.dataSource = self
@@ -88,7 +88,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.frame = CGRect(x: 0, y: self.view.bounds.height - 150, width: self.view.bounds.width, height: self.view.bounds.width)
+        collectionView.frame = CGRect(x: 0, y: self.view.bounds.height - 150, width: self.view.bounds.width, height: 70)
     }
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
