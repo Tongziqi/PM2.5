@@ -37,6 +37,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     let arrowWidth = 35
     let arrowHight = 35
     var arrLocationY: Int?
+    let locationTag = 99
     
     var locationManager: CLLocationManager!
     var currentLocation: String = "获取地理位置失败"
@@ -70,14 +71,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         }
         
         self.locationImg.isHidden = true
-        let path = Bundle.main.path(forResource: "pm25", ofType: "json")
-        let jsonData = NSData.init(contentsOfFile: path!)
-        let json = JSON(jsonData!)
         initLocationManager()
-        updatePM25UI(json: json)
         ceateHeader()
         // Do any additional setup after loading the view.
-        
         
         self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
@@ -96,7 +92,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        //水平
         return HorizontalSectionController()
     }
     
@@ -122,12 +117,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         self.present(vc, animated: true, completion: nil)
     }
     
-    func updatePM25UI(json: JSON) {
-        let pm25 = CommonTool.getAverageNum(json: json, string: "pm2_5")
-        self.pm25.text = String(pm25)
-        let distence = CommonTool.pm25ChangeIntoFrame(pm25: pm25)
-        self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
-    }
+
     
     func updateWeatherUI(location: String) {
         let parameters: Parameters = ["app":"weather.today",
@@ -143,6 +133,28 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
                     let json = JSON(value)
                     self?.updateWeather(json: json)
                 }
+                self?.updatePm25UI(location: location)
+            case .failure(let errno):
+                print(errno)
+            }
+        }
+    }
+    
+    func updatePm25UI(location: String){
+        let parameters: Parameters = ["app":"weather.pm25",
+                                      "format":"json",
+                                      "appkey":UserSetting.Appkey,
+                                      "sign":UserSetting.Sign,
+                                      "weaid":location]
+        Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+            guard self != nil else { return }
+            switch response.result {
+            case .success:
+                if let value = response.result.value{
+                    let json = JSON(value)
+                    self?.updatePM25(json: json)
+                    
+                }
             case .failure(let errno):
                 print(errno)
             }
@@ -150,13 +162,24 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     }
     
     
+    
+    func updatePM25(json: JSON) {
+        let aqi: String = json["result"]["aqi"].stringValue
+        self.pm25.text = aqi
+        self.scoreView.reloadInputViews()
+        let aqi_int = Int.init(aqi)
+        
+        let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi_int!)
+        self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
+        self.showHub(text: self.searchLocation + "数据更新完毕")
+    }
+    
+    
     func updateWeather(json: JSON) {
-        let testWeatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + " " + json["result"]["temperature"].stringValue
+        let weatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + " " + json["result"]["temperature"].stringValue
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
-        self.weatherLabel.text = testWeatherLabel
-        self.scoreView.reloadInputViews()
-        self.showHub(text: self.searchLocation + "数据更新完毕")
+        self.weatherLabel.text = weatherLabel
     }
     
     
@@ -175,6 +198,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     func updateArrow(locationX: Int, locationY: Int) {
         let imageView = UIImageView(image:UIImage(named:"arrow2"))
         imageView.frame = CGRect(x:locationX, y:locationY, width:35, height:35)
+        imageView.tag = self.locationTag
+        for subView in self.scoreView.subviews {
+            if subView.tag == self.locationTag {
+                subView.removeFromSuperview()
+            }
+        }
         self.scoreView.addSubview(imageView)
     }
     
