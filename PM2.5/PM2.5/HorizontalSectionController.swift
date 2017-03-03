@@ -48,7 +48,9 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
         number = object as? Int
     }
 
-    func didSelectItem(at index: Int) {}
+    func didSelectItem(at index: Int) {
+        
+    }
 
     //MARK: IGListAdapterDataSource
 

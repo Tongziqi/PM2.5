@@ -112,14 +112,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
             self.userLocationLabel.text = input
             self.locationImg.isHidden = true
             self.searchLocation = input
-            self.updateWeatherUI(location: input)
+            self.updateWeather(location: input)
         }
         self.present(vc, animated: true, completion: nil)
     }
     
 
     
-    func updateWeatherUI(location: String) {
+    func updateWeather(location: String) {
         HUD.show(.progress)
         let parameters: Parameters = ["app":"weather.today",
                                       "format":"json",
@@ -132,19 +132,19 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
             case .success:
                 if let value = response.result.value{
                     let json = JSON(value)
-                    self?.updateWeather(json: json)
+                    self?.updateWeatherUI(json: json)
                 }
-                self?.updatePm25UI(location: location)
+                self?.updatePm25(location: location)
             case .failure(let errno):
                 HUD.hide()
-                self?.showHub(text: "数据获取失败")
+                self?.showHub(text: "实时数据获取失败")
                 print(errno)
             }
         }
 
     }
     
-    func updatePm25UI(location: String){
+    func updatePm25(location: String){
         let parameters: Parameters = ["app":"weather.pm25",
                                       "format":"json",
                                       "appkey":UserSetting.Appkey,
@@ -156,20 +156,56 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
             case .success:
                 if let value = response.result.value{
                     let json = JSON(value)
-                    self?.updatePM25(json: json)
-                    
+                    self?.updatePM25UI(json: json)
                 }
+                self?.updataForecastWeather(location: location)
             case .failure(let errno):
                 HUD.hide()
-                self?.showHub(text: "数据获取失败")
+                self?.showHub(text: "pm2.5数据获取失败")
                 print(errno)
             }
         }
     }
     
+    func updataForecastWeather(location: String){
+        let parameters: Parameters = ["app":"weather.future",
+                                      "format":"json",
+                                      "appkey":UserSetting.Appkey,
+                                      "sign":UserSetting.Sign,
+                                      "weaid":location]
+        Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+            guard self != nil else { return }
+            switch response.result {
+            case .success:
+                if let value = response.result.value{
+                    let json = JSON(value)
+                    self?.updateForecastUI(json: json)
+                }
+            case .failure(let errno):
+                HUD.hide()
+                self?.showHub(text: "未来天气数据获取失败")
+                print(errno)
+            }
+        }
+        
+    }
+    
+    func updateForecastUI(json: JSON) {
+        let days: String = json["result"][0]["days"].stringValue
+        let temperature: String = json["result"][0]["temperature"].stringValue
+        let weather: String = json["result"][0]["weather"].stringValue
+        
+        //self.collectionView
+        
+        print(days + temperature + weather)
+        HUD.hide()
+        self.showHub(text: self.searchLocation + "数据更新完毕")
+
+    }
     
     
-    func updatePM25(json: JSON) {
+    
+    func updatePM25UI(json: JSON) {
         let aqi: String = json["result"]["aqi"].stringValue
         self.pm25.text = aqi
         self.scoreView.reloadInputViews()
@@ -177,12 +213,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi_int!)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
-        HUD.hide()
-        self.showHub(text: self.searchLocation + "数据更新完毕")
     }
     
     
-    func updateWeather(json: JSON) {
+    func updateWeatherUI(json: JSON) {
         let weatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + " " + json["result"]["temperature"].stringValue
         let weather_curr: String = json["result"]["weather_curr"].stringValue
         self.weatherImage.image = UIImage(named: weather_curr)
@@ -191,6 +225,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         self.weatherLabel.text = weatherLabel
     }
     
+
+    
     
     func ceateHeader() {
         self.scoreView.mj_header = MJRefreshNormalHeader.init(refreshingTarget: self, refreshingAction: #selector(self.headerRefresh))
@@ -198,7 +234,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     
     func headerRefresh() {
         print("重新获得pm25的值是")
-        self.updateWeatherUI(location: self.searchLocation)
+        self.updateWeather(location: self.searchLocation)
         self.scoreView.mj_header.endRefreshing()
     }
     
@@ -266,7 +302,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
             self.locationImg.isHidden = false
             
             self.userLocationLabel.text = currentLocation
-            self.updateWeatherUI(location: self.currentLocation)
+            self.updateWeather(location: self.currentLocation)
         }
     }
     
