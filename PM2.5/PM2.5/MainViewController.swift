@@ -120,6 +120,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
 
     
     func updateWeatherUI(location: String) {
+        HUD.show(.progress)
         let parameters: Parameters = ["app":"weather.today",
                                       "format":"json",
                                       "appkey":UserSetting.Appkey,
@@ -135,9 +136,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
                 }
                 self?.updatePm25UI(location: location)
             case .failure(let errno):
+                HUD.hide()
+                self?.showHub(text: "数据获取失败")
                 print(errno)
             }
         }
+
     }
     
     func updatePm25UI(location: String){
@@ -156,6 +160,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
                     
                 }
             case .failure(let errno):
+                HUD.hide()
+                self?.showHub(text: "数据获取失败")
                 print(errno)
             }
         }
@@ -171,6 +177,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi_int!)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
+        HUD.hide()
         self.showHub(text: self.searchLocation + "数据更新完毕")
     }
     
