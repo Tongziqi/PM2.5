@@ -184,6 +184,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     
     func updateWeather(json: JSON) {
         let weatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + " " + json["result"]["temperature"].stringValue
+        let weather_curr: String = json["result"]["weather_curr"].stringValue
+        self.weatherImage.image = UIImage(named: weather_curr)
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
         self.weatherLabel.text = weatherLabel
