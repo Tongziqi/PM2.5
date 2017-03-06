@@ -14,7 +14,7 @@ import MJRefresh
 import Alamofire
 import IGListKit
 
-class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdapterDataSource {
+class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBOutlet weak var labelSize: NSLayoutConstraint!
     @IBOutlet weak var scoreView: UIScrollView!
@@ -43,12 +43,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     var currentLocation: String = "获取地理位置失败"
     var searchLocation: String = ""
     
+    
+    let loader = ForecastDataLoader()
+    let collectionView = IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
-    let collectionView = IGListCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    let data = [7] as [Any]
-    
+    //let data = [7] as [Any]
     override func viewDidLoad() {
         super.viewDidLoad()
         // 适配
@@ -75,6 +76,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         ceateHeader()
         // Do any additional setup after loading the view.
         
+        loader.loadDefault()
         self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.collectionView?.backgroundColor = UIColor.clear
@@ -86,20 +88,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         super.viewDidLayoutSubviews()
         collectionView.frame = CGRect(x: 0, y: self.view.bounds.height - 150, width: self.view.bounds.width, height: 70)
     }
-    
-    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        return data as! [IGListDiffable]
-    }
-    
-    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        return HorizontalSectionController()
-    }
-    
-    func emptyView(for listAdapter: IGListAdapter) -> UIView? {
-        return nil
-    }
-    
-    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -191,13 +180,15 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     }
     
     func updateForecastUI(json: JSON) {
-        let days: String = json["result"][0]["days"].stringValue
-        let temperature: String = json["result"][0]["temperature"].stringValue
-        let weather: String = json["result"][0]["weather"].stringValue
-        
-        //self.collectionView
-        
-        print(days + temperature + weather)
+//        let days: String = json["result"][0]["days"].stringValue
+//        let temperature: String = json["result"][0]["temperature"].stringValue
+//        let weather: String = json["result"][0]["weather"].stringValue
+//        
+//        //self.collectionView
+//        
+//        print(days + temperature + weather)
+        loader.loadLatest(json: json)
+        self.scoreView.reloadInputViews()
         HUD.hide()
         self.showHub(text: self.searchLocation + "数据更新完毕")
 
@@ -208,9 +199,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
     func updatePM25UI(json: JSON) {
         let aqi: String = json["result"]["aqi"].stringValue
         self.pm25.text = aqi
-        self.scoreView.reloadInputViews()
         let aqi_int = Int.init(aqi)
-        
+        //self.scoreView.reloadInputViews()
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi_int!)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
     }
@@ -306,15 +296,16 @@ class MainViewController: UIViewController,CLLocationManagerDelegate, IGListAdap
         }
     }
     
+}
+
+extension MainViewController: IGListAdapterDataSource {
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
+        return  loader.datas as [IGListDiffable]
+    }
     
+    func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
+        return HorizontalSectionController()
+    }
+    func emptyView(for listAdapter: IGListAdapter) -> UIView? { return nil }
 }

@@ -19,7 +19,9 @@ import ChameleonFramework
 final class HorizontalSectionController: IGListSectionController, IGListSectionType, IGListAdapterDataSource {
 
     var number: Int?
-    var dataList: [Int: [String]]? = [Int: [String]]()
+    var entry: ForecastEntry!
+    
+    let loader = ForecastDataLoader()
 
     lazy var adapter: IGListAdapter = {
         let adapter = IGListAdapter(updater: IGListAdapterUpdater(),
@@ -47,7 +49,8 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
 
     func didUpdate(to object: Any) {
         //dataList = object as? [Int: [String]]
-        number = object as? Int
+        //number = object as? Int
+        entry = object as? ForecastEntry
     }
 
     func didSelectItem(at index: Int) {
@@ -56,17 +59,15 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
 
     //MARK: IGListAdapterDataSource
     
-    ///     let cast = ["Vivien", "Marlon", "Kim", "Karl"]
-    ///     let lowercaseNames = cast.map { $0.lowercaseString }
-    ///     // 'lowercaseNames' == ["vivien", "marlon", "kim", "karl"]
-    ///     let letterCounts = cast.map { $0.characters.count }
-    ///     // 'letterCounts' == [6, 6, 3, 4]
     
 
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
         //guard let dataList = dataList else { return [] }
-        guard let number = number else { return [] }
-        return (0..<number).map { $0 as IGListDiffable }
+//        guard let number = number else { return [] }
+//        return (0..<number).map { $0 as IGListDiffable }
+        loader.loadDefault()
+        return  loader.datas as [IGListDiffable]
+
     }
 
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
