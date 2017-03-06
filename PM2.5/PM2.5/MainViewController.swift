@@ -49,7 +49,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
-    let data = [1] as [Any]
+    
+    var data = ["beijing"] as [Any]
+    var forecastJson: JSON = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // 适配
@@ -75,11 +78,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         initLocationManager()
         ceateHeader()
         // Do any additional setup after loading the view.
-        loader.loadDefault()
         self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.collectionView?.backgroundColor = UIColor.clear
         adapter.dataSource = self
+        
+        data = [self.searchLocation] as [Any]
+
+        
     }
     
     
@@ -167,6 +173,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             case .success:
                 if let value = response.result.value{
                     let json = JSON(value)
+                    self?.forecastJson = json
                     self?.updateForecastUI(json: json)
                 }
             case .failure(let errno):
@@ -186,8 +193,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
 //        //self.collectionView
 //        
 //        print(days + temperature + weather)
-        loader.loadLatest(json: json)
+        //loader.loadLatest(json: json)
+        data.remove(at: 0)
+        data.append(self.searchLocation)
         self.scoreView.reloadInputViews()
+        self.collectionView.reloadInputViews()
+        self.adapter.performUpdates(animated: true, completion: nil)
+        
         HUD.hide()
         self.showHub(text: self.searchLocation + "数据更新完毕")
 
@@ -301,12 +313,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
 extension MainViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        //return  loader.datas as [IGListDiffable]
+        //这个不是有几行，而是类似的一个 key，如果有不一样的key，就添加一行，本文用搜索的城市名作为key
         return data as! [IGListDiffable]
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        return HorizontalSectionController()
+        return HorizontalSectionController(json: forecastJson)
     }
     func emptyView(for listAdapter: IGListAdapter) -> UIView? { return nil }
 }

@@ -32,6 +32,10 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
         return adapter
     }()
 
+    init(json: JSON) {
+        self.json = json
+    }
+    
     
     func numberOfItems() -> Int {
         return 1
@@ -60,10 +64,14 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
     //MARK: IGListAdapterDataSource
     
     
+    // 这个水平的cell里面拥有的7个天气
 
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        loader.loadDefault()
-        loader.loadLatest(json: json)
+        if json != [] {
+            loader.loadLatest(json: json)
+        } else {
+            loader.loadDefault()
+        }
         return  loader.datas as [IGListDiffable]
     }
 
