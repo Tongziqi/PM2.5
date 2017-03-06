@@ -49,7 +49,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     lazy var adapter: IGListAdapter = {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
-    //let data = [7] as [Any]
+    let data = [1] as [Any]
     override func viewDidLoad() {
         super.viewDidLoad()
         // 适配
@@ -75,7 +75,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         initLocationManager()
         ceateHeader()
         // Do any additional setup after loading the view.
-        
         loader.loadDefault()
         self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
@@ -213,6 +212,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
         self.weatherLabel.text = weatherLabel
+        
     }
     
 
@@ -301,7 +301,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
 extension MainViewController: IGListAdapterDataSource {
     
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        return  loader.datas as [IGListDiffable]
+        //return  loader.datas as [IGListDiffable]
+        return data as! [IGListDiffable]
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {

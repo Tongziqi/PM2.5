@@ -15,10 +15,11 @@
 import UIKit
 import IGListKit
 import ChameleonFramework
+import SwiftyJSON
 
 final class HorizontalSectionController: IGListSectionController, IGListSectionType, IGListAdapterDataSource {
-
-    var number: Int?
+    
+    var json: JSON = []
     var entry: ForecastEntry!
     
     let loader = ForecastDataLoader()
@@ -42,14 +43,13 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
 
     func cellForItem(at index: Int) -> UICollectionViewCell {
         
+        // 水平的cell
         let cell = collectionContext!.dequeueReusableCell(of: EmbeddedCollectionViewCell.self, for: self, at: index) as! EmbeddedCollectionViewCell
         adapter.collectionView = cell.collectionView
         return cell
     }
 
     func didUpdate(to object: Any) {
-        //dataList = object as? [Int: [String]]
-        //number = object as? Int
         entry = object as? ForecastEntry
     }
 
@@ -62,12 +62,9 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
     
 
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
-        //guard let dataList = dataList else { return [] }
-//        guard let number = number else { return [] }
-//        return (0..<number).map { $0 as IGListDiffable }
         loader.loadDefault()
+        loader.loadLatest(json: json)
         return  loader.datas as [IGListDiffable]
-
     }
 
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {

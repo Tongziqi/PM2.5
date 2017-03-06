@@ -18,7 +18,7 @@ import ChameleonFramework
 
 final class EmbeddedSectionController: IGListSectionController, IGListSectionType {
 
-    var number: Int?
+    var entry: ForecastEntry!
 
     override init() {
         super.init()
@@ -36,12 +36,14 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
     func cellForItem(at index: Int) -> UICollectionViewCell {
         
         let cell = collectionContext?.dequeueReusableCell(withNibName: "WeatherUICollectionViewCell", bundle: nil, for: self, at: index) as? WeatherUICollectionViewCell
+        //cell?.dataLabel.text = entry.dataLabel
+        //cell?.temptureLabel.text = entry.highLable! + "°/" + entry.lowLabel! + "°"
         cell?.initdata()
         return cell!
     }
 
     func didUpdate(to object: Any) {
-        number = object as? Int
+        entry = object as? ForecastEntry
     }
 
     func didSelectItem(at index: Int) {}

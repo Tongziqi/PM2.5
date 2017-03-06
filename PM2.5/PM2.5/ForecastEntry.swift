@@ -12,13 +12,18 @@ import IGListKit
 
 class ForecastEntry: IGListDiffable {
     
-    let image: UIImage
-    let dataLabel: String
-    let highLable: String
-    let lowLabel: String
+    var image: UIImage? = UIImage(named: "晴天")
+    var dataLabel: String? = ""
+    var highLable: String? = ""
+    var lowLabel: String? = ""
     
     init(image: UIImage, dataLabel: String, highLable: String, lowLabel: String) {
         self.image = image
+        self.dataLabel = dataLabel
+        self.highLable = highLable
+        self.lowLabel = lowLabel
+    }
+    init(dataLabel: String, highLable: String, lowLabel: String) {
         self.dataLabel = dataLabel
         self.highLable = highLable
         self.lowLabel = lowLabel
