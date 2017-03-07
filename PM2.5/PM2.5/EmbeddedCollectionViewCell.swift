@@ -26,11 +26,14 @@ class EmbeddedCollectionViewCell: UICollectionViewCell {
         view.alwaysBounceVertical = false
         view.alwaysBounceHorizontal = true
         self.contentView.addSubview(view)
+        
         return view
     }()
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
         collectionView.frame = contentView.frame
     }
 

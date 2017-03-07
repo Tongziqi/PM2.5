@@ -78,6 +78,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         initLocationManager()
         ceateHeader()
         // Do any additional setup after loading the view.
+
         self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.collectionView?.backgroundColor = UIColor.clear
