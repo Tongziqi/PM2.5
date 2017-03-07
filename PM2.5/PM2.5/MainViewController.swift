@@ -186,20 +186,11 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func updateForecastUI(json: JSON) {
-//        let days: String = json["result"][0]["days"].stringValue
-//        let temperature: String = json["result"][0]["temperature"].stringValue
-//        let weather: String = json["result"][0]["weather"].stringValue
-//        
-//        //self.collectionView
-//        
-//        print(days + temperature + weather)
-        //loader.loadLatest(json: json)
         data.remove(at: 0)
-        data.append(self.searchLocation)
+        //这里面生成一个随机数，保证每次获得的都不一样
+        data.append(self.searchLocation + String(arc4random()))
         self.scoreView.reloadInputViews()
-        self.collectionView.reloadInputViews()
         self.adapter.performUpdates(animated: true, completion: nil)
-        
         HUD.hide()
         self.showHub(text: self.searchLocation + "数据更新完毕")
 
@@ -236,7 +227,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func headerRefresh() {
         print("重新获得pm25的值是")
-        self.updateWeather(location: self.searchLocation)
+        if self.searchLocation != "" {
+            self.updateWeather(location: self.searchLocation)
+        }
         self.scoreView.mj_header.endRefreshing()
     }
     
@@ -304,6 +297,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             self.locationImg.isHidden = false
             
             self.userLocationLabel.text = currentLocation
+            self.searchLocation = currentLocation
             self.updateWeather(location: self.currentLocation)
         }
     }
