@@ -29,14 +29,20 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017-02-01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a94-hw-s70">
-                                <rect key="frame" x="55" y="14.5" width="62" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <rect key="frame" x="55" y="14.5" width="57" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="56°/ 87°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prI-TM-XpO">
-                                <rect key="frame" x="55" y="41.5" width="44.5" height="13.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <rect key="frame" x="55" y="43" width="41" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多云转晴" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZc-Sz-Tbz">
+                                <rect key="frame" x="55" y="28" width="41" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -45,8 +51,10 @@
                         <constraints>
                             <constraint firstItem="a94-hw-s70" firstAttribute="leading" secondItem="AXU-NH-Y87" secondAttribute="trailing" constant="10" id="4od-fa-haG"/>
                             <constraint firstItem="AXU-NH-Y87" firstAttribute="leading" secondItem="Qug-ah-JjZ" secondAttribute="leading" constant="5" id="AC6-K2-7W5"/>
+                            <constraint firstItem="gZc-Sz-Tbz" firstAttribute="centerY" secondItem="Qug-ah-JjZ" secondAttribute="centerY" constant="-1" id="JYe-CD-CYW"/>
                             <constraint firstItem="a94-hw-s70" firstAttribute="top" secondItem="AXU-NH-Y87" secondAttribute="top" id="OMw-7T-S9r"/>
                             <constraint firstItem="prI-TM-XpO" firstAttribute="leading" secondItem="a94-hw-s70" secondAttribute="leading" id="a3x-h3-hDC"/>
+                            <constraint firstItem="gZc-Sz-Tbz" firstAttribute="leading" secondItem="a94-hw-s70" secondAttribute="leading" id="pJK-m8-pFE"/>
                             <constraint firstItem="prI-TM-XpO" firstAttribute="bottom" secondItem="AXU-NH-Y87" secondAttribute="bottom" id="pyB-Xp-Z1g"/>
                             <constraint firstItem="AXU-NH-Y87" firstAttribute="centerY" secondItem="Qug-ah-JjZ" secondAttribute="centerY" id="tnl-Nt-e6m"/>
                         </constraints>
@@ -64,6 +72,7 @@
                 <outlet property="image" destination="AXU-NH-Y87" id="Z6L-h6-OXn"/>
                 <outlet property="temptureLabel" destination="prI-TM-XpO" id="Qup-mk-Exf"/>
                 <outlet property="view" destination="Qug-ah-JjZ" id="Vev-e7-NKI"/>
+                <outlet property="weather" destination="gZc-Sz-Tbz" id="o07-zK-k7W"/>
             </connections>
             <point key="canvasLocation" x="27" y="52"/>
         </collectionViewCell>

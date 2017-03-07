@@ -41,6 +41,7 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
         cell?.image.image = entry.image
         cell?.dataLabel.text = entry.dataLabel
         cell?.temptureLabel.text = entry.highLable! + "°/" + entry.lowLabel! + "°"
+        cell?.weather.text = entry.weatherLabel
         return cell!
     }
 

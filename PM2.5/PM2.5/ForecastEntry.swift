@@ -16,8 +16,10 @@ class ForecastEntry: IGListDiffable {
     var dataLabel: String? = ""
     var highLable: String? = ""
     var lowLabel: String? = ""
+    var weatherLabel: String? = ""
     
-    init(image: UIImage, dataLabel: String, highLable: String, lowLabel: String) {
+    init(image: UIImage, dataLabel: String, highLable: String, lowLabel: String, weatherLabel: String) {
+        self.weatherLabel = weatherLabel
         self.image = image
         self.dataLabel = dataLabel
         self.highLable = highLable
