@@ -38,7 +38,9 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
     func cellForItem(at index: Int) -> UICollectionViewCell {
         
         let cell = collectionContext?.dequeueReusableCell(withNibName: "WeatherUICollectionViewCell", bundle: nil, for: self, at: index) as? WeatherUICollectionViewCell
-        cell?.image.image = entry.image
+        if UserSetting.WeatherCondition.contains(entry.imageString!) {
+            cell?.image.image = UIImage(named: entry.imageString!)
+        }
         cell?.dataLabel.text = entry.dataLabel
         cell?.temptureLabel.text = entry.highLable! + "°/" + entry.lowLabel! + "°"
         cell?.weather.text = entry.weatherLabel

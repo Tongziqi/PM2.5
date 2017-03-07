@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qug-ah-JjZ">
                         <rect key="frame" x="0.0" y="0.0" width="120" height="70"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="大雪" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-NH-Y87">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="多云" translatesAutoresizingMaskIntoConstraints="NO" id="AXU-NH-Y87">
                                 <rect key="frame" x="5" y="15" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="BJL-Lo-m4Y"/>
@@ -78,6 +78,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="大雪" width="121" height="124"/>
+        <image name="多云" width="130" height="117"/>
     </resources>
 </document>

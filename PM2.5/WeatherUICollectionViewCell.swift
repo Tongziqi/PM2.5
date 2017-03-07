@@ -23,7 +23,7 @@ class WeatherUICollectionViewCell: UICollectionViewCell {
     }
     
     func initdata() {
-        self.image?.image = UIImage(named: "大雪")
+        self.image?.image = UIImage(named: "多云")
         self.dataLabel?.textColor = UIColor.flatGray
         self.weather?.text = "大雪"
         self.dataLabel?.text = "2017-02-01"
