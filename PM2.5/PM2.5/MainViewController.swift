@@ -74,6 +74,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             break
         }
         
+        // 准备添加分享功能
+        
         self.locationImg.isHidden = true
         initLocationManager()
         ceateHeader()
