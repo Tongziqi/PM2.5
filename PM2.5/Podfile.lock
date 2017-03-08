@@ -7,8 +7,15 @@ PODS:
   - Kingfisher (3.3.1)
   - MGSwipeTableCell (1.5.6)
   - MJRefresh (3.1.12)
+  - MOBFoundation (2.0.11)
   - Onboard (2.3.1)
   - PKHUD (4.2.0)
+  - ShareSDK3 (3.3.2):
+    - ShareSDK3/ShareSDK (= 3.3.2)
+  - ShareSDK3/ShareSDK (3.3.2)
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.3.2)
+  - ShareSDK3/ShareSDKPlatforms/WeChat (3.3.2)
+  - ShareSDK3/ShareSDKUI (3.3.2)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -18,8 +25,13 @@ DEPENDENCIES:
   - Kingfisher (~> 3.3.1)
   - MGSwipeTableCell
   - MJRefresh
+  - MOBFoundation (~> 2.0.8)
   - Onboard
   - PKHUD (~> 4.2.0)
+  - ShareSDK3 (~> 3.3.2)
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo
+  - ShareSDK3/ShareSDKPlatforms/WeChat
+  - ShareSDK3/ShareSDKUI
   - SwiftyJSON (~> 3.1.4)
 
 EXTERNAL SOURCES:
@@ -38,10 +50,12 @@ SPEC CHECKSUMS:
   Kingfisher: 4d943445768c60fe5de314619a8ab07ec761ae5b
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
+  MOBFoundation: e213065e65eebd8146ab29d10a8445dc8f385091
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
+  ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 5cc8a4bf6dfecdd0f7e73de3d7ce5eab3f20acf6
+PODFILE CHECKSUM: 687acc60ecd0c21d9c61ea539b2e4f12e06bd8d1
 
 COCOAPODS: 1.2.0

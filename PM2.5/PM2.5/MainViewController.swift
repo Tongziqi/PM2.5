@@ -52,7 +52,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     var data = ["beijing"] as [Any]
     var forecastJson: JSON = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 适配
@@ -80,14 +80,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         initLocationManager()
         ceateHeader()
         // Do any additional setup after loading the view.
-
+        
         self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.collectionView?.backgroundColor = UIColor.clear
         adapter.dataSource = self
         
         data = [self.searchLocation] as [Any]
-
+        
         
     }
     
@@ -96,7 +96,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         super.viewDidLayoutSubviews()
         collectionView.frame = CGRect(x: 0, y: self.view.bounds.height - 150, width: self.view.bounds.width, height: 70)
     }
- 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -105,7 +105,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBAction func jumpToChoose(_ sender: Any) {
         let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
         let vc = UINavigationController(rootViewController: chooseViewController)
-
+        
         chooseViewController.locationCity = self.currentLocation
         chooseViewController.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
@@ -116,7 +116,29 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.present(vc, animated: true, completion: nil)
     }
     
-
+    
+    @IBAction func shareButton(_ sender: Any) {
+        let shareParames = NSMutableDictionary()
+        shareParames.ssdkSetupShareParams(byText: "测试",
+                                          images : UIImage(named: "晴"),
+                                          url : NSURL(string:"https://tongxiaotuo.me") as URL!,
+                                          title : "测试标题",
+                                          type : SSDKContentType.image)
+        
+        //2.进行分享
+        ShareSDK.share(SSDKPlatformType.typeSinaWeibo, parameters: shareParames) { (state : SSDKResponseState, nil, entity : SSDKContentEntity?, error :Error?) in
+            
+            switch state{
+                
+            case SSDKResponseState.success: print("分享成功")
+            case SSDKResponseState.fail:    print("授权失败,错误描述:\(error)")
+            case SSDKResponseState.cancel:  print("操作取消")
+                
+            default:
+                break
+            }
+        }
+    }
     
     func updateWeather(location: String) {
         HUD.show(.progress)
@@ -140,7 +162,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 print(errno)
             }
         }
-
+        
     }
     
     func updatePm25(location: String){
@@ -198,7 +220,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.adapter.performUpdates(animated: true, completion: nil)
         HUD.hide()
         self.showHub(text: self.searchLocation + "数据更新完毕")
-
+        
     }
     
     
@@ -223,7 +245,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-
+    
     
     
     func ceateHeader() {

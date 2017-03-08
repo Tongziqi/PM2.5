@@ -133,7 +133,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beijing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="384-qA-8t5">
-                                                <rect key="frame" x="155" y="28" width="48.5" height="19"/>
+                                                <rect key="frame" x="155" y="28" width="49" height="19"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <color key="textColor" red="0.70196078429999997" green="0.74509803919999995" blue="0.76078431369999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -237,21 +237,27 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUr-qx-Wiq">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUr-qx-Wiq">
                                                 <rect key="frame" x="0.0" y="14" width="65" height="46"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="Detail"/>
                                                 <connections>
                                                     <action selector="jumpToChoose:" destination="TJY-HS-ez5" eventType="touchUpInside" id="VaA-qh-dQc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygf-Uc-oK7">
-                                                <rect key="frame" x="206.5" y="24.5" width="20" height="20"/>
+                                                <rect key="frame" x="207" y="25" width="20" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="kqA-je-zBK"/>
                                                     <constraint firstAttribute="height" constant="20" id="pxQ-4c-6bk"/>
                                                 </constraints>
                                                 <state key="normal" image="location"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3F8-Uy-pqb">
+                                                <rect key="frame" x="326" y="26" width="18" height="22"/>
+                                                <state key="normal" image="menu_share"/>
+                                                <connections>
+                                                    <action selector="shareButton:" destination="TJY-HS-ez5" eventType="touchUpInside" id="EYx-qn-KWI"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -259,8 +265,10 @@
                                             <constraint firstItem="qS9-ZA-FXe" firstAttribute="top" secondItem="c03-3T-M5t" secondAttribute="bottom" constant="6" id="01C-1G-lTR"/>
                                             <constraint firstItem="YaB-No-mue" firstAttribute="top" secondItem="C7u-7K-eVg" secondAttribute="bottom" constant="6" id="0mI-50-Pnd"/>
                                             <constraint firstItem="sga-qH-xMn" firstAttribute="top" secondItem="cWg-Bi-orm" secondAttribute="bottom" constant="6" id="0o1-VQ-eRT"/>
+                                            <constraint firstItem="3F8-Uy-pqb" firstAttribute="centerY" secondItem="384-qA-8t5" secondAttribute="centerY" id="1rC-T7-PUB"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="top" secondItem="0hH-RB-0YO" secondAttribute="bottom" constant="8" symbolic="YES" id="4Cu-fc-AbQ"/>
                                             <constraint firstItem="ssS-Qn-NYj" firstAttribute="leading" secondItem="zXk-I4-S49" secondAttribute="trailing" constant="15" id="69E-OO-9hX"/>
+                                            <constraint firstAttribute="trailing" secondItem="3F8-Uy-pqb" secondAttribute="trailing" constant="15" id="7Vk-cr-g4G"/>
                                             <constraint firstItem="384-qA-8t5" firstAttribute="top" secondItem="8ft-Xv-H0z" secondAttribute="top" constant="28" id="8bA-wc-wC3"/>
                                             <constraint firstItem="zXk-I4-S49" firstAttribute="top" secondItem="384-qA-8t5" secondAttribute="bottom" constant="16" id="BU3-Pv-PHs"/>
                                             <constraint firstAttribute="centerX" secondItem="384-qA-8t5" secondAttribute="centerX" constant="0.5" id="D59-qz-2yt"/>
@@ -269,6 +277,7 @@
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="leading" secondItem="eAh-la-Vgr" secondAttribute="trailing" constant="5" id="FqB-yt-5QG"/>
                                             <constraint firstItem="Xe5-Jm-JT8" firstAttribute="top" secondItem="sga-qH-xMn" secondAttribute="bottom" constant="9" id="M52-cD-bXa"/>
                                             <constraint firstItem="c03-3T-M5t" firstAttribute="top" secondItem="Sdl-ds-RDb" secondAttribute="bottom" constant="10" id="Mqt-3Z-iwV"/>
+                                            <constraint firstItem="384-qA-8t5" firstAttribute="leading" secondItem="FUr-qx-Wiq" secondAttribute="trailing" constant="90" id="Nqh-cV-3sa"/>
                                             <constraint firstItem="7yT-up-Hru" firstAttribute="top" secondItem="Is9-hy-wTe" secondAttribute="bottom" constant="6" id="O9b-uO-tzf"/>
                                             <constraint firstItem="JVG-sI-qaB" firstAttribute="leading" secondItem="sga-qH-xMn" secondAttribute="leading" id="ONT-F4-3vJ"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="top" relation="lessThanOrEqual" secondItem="0hH-RB-0YO" secondAttribute="bottom" constant="8" id="ORa-E7-yrd"/>
@@ -295,12 +304,15 @@
                                             <constraint firstItem="Is9-hy-wTe" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" constant="-70" id="edG-gV-6mP"/>
                                             <constraint firstAttribute="centerX" secondItem="YaB-No-mue" secondAttribute="centerX" constant="70" id="opI-E3-TrT"/>
                                             <constraint firstItem="sga-qH-xMn" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" id="oq3-M8-tGT"/>
+                                            <constraint firstItem="3F8-Uy-pqb" firstAttribute="centerY" secondItem="FUr-qx-Wiq" secondAttribute="centerY" id="p1a-9W-DfD"/>
                                             <constraint firstItem="0hH-RB-0YO" firstAttribute="top" secondItem="ssS-Qn-NYj" secondAttribute="bottom" constant="22" id="pXO-Iw-lwq"/>
                                             <constraint firstAttribute="centerX" secondItem="0hH-RB-0YO" secondAttribute="centerX" constant="1" id="qOs-2N-JGd"/>
                                             <constraint firstItem="ygf-Uc-oK7" firstAttribute="centerY" secondItem="384-qA-8t5" secondAttribute="centerY" constant="-3" id="r7f-Ja-vl5"/>
                                             <constraint firstItem="C7u-7K-eVg" firstAttribute="top" secondItem="Sdl-ds-RDb" secondAttribute="bottom" constant="10" id="t28-kT-tXF"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="centerY" secondItem="eAh-la-Vgr" secondAttribute="centerY" constant="1" id="t8M-bZ-vzw"/>
                                             <constraint firstItem="Ria-0J-Gnl" firstAttribute="leading" secondItem="Sdl-ds-RDb" secondAttribute="trailing" constant="11" id="teJ-Qj-gjX"/>
+                                            <constraint firstItem="FUr-qx-Wiq" firstAttribute="leading" secondItem="8ft-Xv-H0z" secondAttribute="leading" id="wCD-Oq-17b"/>
+                                            <constraint firstItem="zXk-I4-S49" firstAttribute="top" secondItem="FUr-qx-Wiq" secondAttribute="bottom" constant="3" id="wOF-2G-Lqv"/>
                                             <constraint firstItem="ssS-Qn-NYj" firstAttribute="centerY" secondItem="zXk-I4-S49" secondAttribute="centerY" constant="-0.5" id="wmc-7w-wMH"/>
                                             <constraint firstAttribute="centerX" secondItem="eAh-la-Vgr" secondAttribute="centerX" constant="125.5" id="zwD-dz-SJe"/>
                                         </constraints>
@@ -349,6 +361,7 @@
         <image name="Detail" width="45" height="45"/>
         <image name="heatindex" width="820" height="66"/>
         <image name="location" width="32" height="32"/>
+        <image name="menu_share" width="18" height="18"/>
         <image name="多云" width="130" height="117"/>
     </resources>
 </document>
