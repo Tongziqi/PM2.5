@@ -11,8 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseViewController" customModule="PM2_5" customModuleProvider="target">
             <connections>
-                <outlet property="editButton" destination="GF7-kS-0ob" id="1hj-WU-4yF"/>
-                <outlet property="frontLabel" destination="UVS-Ib-L60" id="Ofj-Ti-t6k"/>
                 <outlet property="searchBar" destination="YQY-2V-BHG" id="8Pf-yb-8My"/>
                 <outlet property="tabelView" destination="bw0-mi-VCS" id="qr7-KJ-l1i"/>
                 <outlet property="view" destination="jYD-jK-BQi" id="r4B-Xv-9xg"/>
@@ -23,24 +21,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GF7-kS-0ob">
-                    <rect key="frame" x="357" y="20" width="37" height="34"/>
-                    <state key="normal" title="编辑">
-                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="editCity:" destination="-1" eventType="touchUpInside" id="vQ9-GV-6cz"/>
-                    </connections>
-                </button>
                 <searchBar contentMode="redraw" placeholder="请输入城市中文名" translatesAutoresizingMaskIntoConstraints="NO" id="YQY-2V-BHG">
-                    <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="tkA-1L-nEb">
-                    <rect key="frame" x="0.0" y="92" width="414" height="644"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="692"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bw0-mi-VCS">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="644"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                             <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </tableView>
                     </subviews>
@@ -54,26 +43,16 @@
                         <constraint firstAttribute="bottom" secondItem="bw0-mi-VCS" secondAttribute="bottom" id="yiw-63-4ML"/>
                     </constraints>
                 </scrollView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一个触手可及的距离" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVS-Ib-L60">
-                    <rect key="frame" x="131" y="20" width="153" height="24"/>
-                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="YQY-2V-BHG" firstAttribute="top" secondItem="UVS-Ib-L60" secondAttribute="bottom" constant="4" id="2iF-bt-szp"/>
                 <constraint firstItem="YQY-2V-BHG" firstAttribute="leading" secondItem="jYD-jK-BQi" secondAttribute="leading" id="KdY-9R-7y9"/>
-                <constraint firstAttribute="trailing" secondItem="GF7-kS-0ob" secondAttribute="trailing" constant="20" id="NjF-kB-Es3"/>
+                <constraint firstItem="YQY-2V-BHG" firstAttribute="top" secondItem="jYD-jK-BQi" secondAttribute="top" id="kBP-fZ-DmW"/>
                 <constraint firstAttribute="bottom" secondItem="tkA-1L-nEb" secondAttribute="bottom" id="q1J-8b-CEa"/>
                 <constraint firstItem="tkA-1L-nEb" firstAttribute="trailing" secondItem="YQY-2V-BHG" secondAttribute="trailing" id="rkt-WS-Ovo"/>
                 <constraint firstItem="tkA-1L-nEb" firstAttribute="top" secondItem="YQY-2V-BHG" secondAttribute="bottom" id="saB-gp-J9y"/>
                 <constraint firstAttribute="trailing" secondItem="YQY-2V-BHG" secondAttribute="trailing" id="t0M-yy-JEa"/>
-                <constraint firstItem="UVS-Ib-L60" firstAttribute="centerX" secondItem="jYD-jK-BQi" secondAttribute="centerX" id="v2g-TE-kek"/>
-                <constraint firstItem="GF7-kS-0ob" firstAttribute="top" secondItem="jYD-jK-BQi" secondAttribute="top" constant="20" id="vhQ-vD-3QV"/>
                 <constraint firstItem="tkA-1L-nEb" firstAttribute="leading" secondItem="YQY-2V-BHG" secondAttribute="leading" id="xVm-mt-ee0"/>
-                <constraint firstItem="UVS-Ib-L60" firstAttribute="top" secondItem="GF7-kS-0ob" secondAttribute="top" id="xfG-cl-FJ1"/>
             </constraints>
             <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>

@@ -15,10 +15,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     var locationCity: String? = nil
     
 
-    @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabelView: UITableView!
-    @IBOutlet weak var editButton: UIButton!
     
     // 闭包传值
     typealias InputClosureType = (String) -> Void // 定义一个闭包类型（typealias：特定的函数类型函数类型）
@@ -36,24 +34,20 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = " 测试"
+        self.title = "选择城市"
         
-        let backBtn = UIButton(type: UIButtonType.custom)
-        backBtn.setImage(UIImage(named: "back"), for: UIControlState())
-        backBtn.setImage(UIImage(named: "backpress"), for:  .highlighted)
-        backBtn.addTarget(self, action: #selector(self.leftpushTo), for: .touchUpInside)
-        backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
-        backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
-        backBtn.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
-        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(customView: backBtn)
+        // 设定半透明
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = UIColor.flatBlueDark
+        // 添加做后退和编辑
+        self.addBack()
+        self.addEdit()
         
         self.loadData()
         self.tabelView.separatorStyle = .none
-        self.frontLabel.textColor = UIColor.flatBlack
         self.searchBar.layer.borderWidth = 1
         self.searchBar.layer.borderColor = UIColor.flatWhite.cgColor
         self.searchBar.barTintColor = UIColor.flatWhite
-        self.editButton.setTitleColor(UIColor.flatBlack, for: UIControlState.normal)
         //设置代理
         self.searchBar.delegate = self
         self.tabelView.delegate = self
@@ -68,15 +62,31 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         let _ =  self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func editCity(_ sender: Any) {
-        if self.editButton.titleLabel?.text! == "完成" {
-            self.editButton.setTitle("编辑", for: UIControlState.normal)
+    func addBack() {
+        let backBtn = UIButton(type: UIButtonType.custom)
+        backBtn.setImage(UIImage(named: "back"), for: UIControlState())
+        backBtn.setImage(UIImage(named: "backpress"), for:  .highlighted)
+        backBtn.addTarget(self, action: #selector(self.leftpushTo), for: .touchUpInside)
+        backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left
+        backBtn.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
+        backBtn.frame = CGRect(x: 0, y: 0, width: 10, height: 18)
+        self.navigationItem.leftBarButtonItem =  UIBarButtonItem(customView: backBtn)
+    }
+    
+    func addEdit() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editCity))
+    }
+    
+    
+     func editCity() {
+        if self.navigationItem.rightBarButtonItem?.title == "完成" {
+            self.navigationItem.rightBarButtonItem?.title = "编辑"
             self.tabelView.isEditing = false
-            tabelView.reloadData()
+            self.tabelView.reloadData()
         } else {
-            self.editButton.setTitle("完成", for: UIControlState.normal)
+            self.navigationItem.rightBarButtonItem?.title = "完成"
             self.tabelView.isEditing = true
-            tabelView.reloadData()
+            self.tabelView.reloadData()
             self.saveCity()
         }
     }
