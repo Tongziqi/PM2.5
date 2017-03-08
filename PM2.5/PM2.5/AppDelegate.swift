@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
                                     appInfo?.ssdkSetupSinaWeibo(byAppKey: "3002096572",
                                                                 appSecret : "334c0245b2824769cfb89516bd81e645",
-                                                                redirectUri : "https://tongxiaotuo.me",
+                                                                redirectUri : "https://www.sharesdk.cn",
                                                                 authType: SSDKAuthTypeBoth)
                                     break
                                 case SSDKPlatformType.typeWechat:
