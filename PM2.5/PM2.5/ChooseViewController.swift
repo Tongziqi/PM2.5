@@ -38,7 +38,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         
         // 设定半透明
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationController?.navigationBar.tintColor = UIColor.flatBlueDark
+        self.navigationController?.navigationBar.tintColor = UIColor.flatBlack
         // 添加做后退和编辑
         self.addBack()
         self.addEdit()
