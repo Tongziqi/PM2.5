@@ -119,21 +119,24 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func shareButton(_ sender: Any) {
         let shareParames = NSMutableDictionary()
-        shareParames.ssdkSetupShareParams(byText: "测试",
-                                          images : UIImage(named: "晴"),
+        shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
+                                          images : UIImage(named: "defaultCloud"),
                                           url : NSURL(string:"https://tongxiaotuo.me") as URL!,
                                           title : "测试标题",
-                                          type : SSDKContentType.image)
+                                          type : SSDKContentType.auto)
         
         //2.进行分享
         ShareSDK.share(SSDKPlatformType.typeSinaWeibo, parameters: shareParames) { (state : SSDKResponseState, nil, entity : SSDKContentEntity?, error :Error?) in
             
             switch state{
-                
-            case SSDKResponseState.success: print("分享成功")
-            case SSDKResponseState.fail:    print("授权失败,错误描述:\(error)")
-            case SSDKResponseState.cancel:  print("操作取消")
-                
+            case SSDKResponseState.success:
+                print("分享成功")
+                self.showHub(text: "分享成功")
+            case SSDKResponseState.fail:
+                print("授权失败,错误描述:\(error)")
+            case SSDKResponseState.cancel:
+                print("操作取消")
+                self.showHub(text: "操作取消")
             default:
                 break
             }
@@ -165,7 +168,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
     }
     
-    func updatePm25(location: String){
+    func updatePm25(location: String) {
         let parameters: Parameters = ["app":"weather.pm25",
                                       "format":"json",
                                       "appkey":UserSetting.Appkey,
@@ -188,7 +191,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }
     }
     
-    func updataForecastWeather(location: String){
+    func updataForecastWeather(location: String) {
         let parameters: Parameters = ["app":"weather.future",
                                       "format":"json",
                                       "appkey":UserSetting.Appkey,
