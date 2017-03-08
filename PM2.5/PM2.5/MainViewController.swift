@@ -101,9 +101,11 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     @IBAction func jumpToChoose(_ sender: Any) {
-        let vc = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
-        vc.locationCity = self.currentLocation
-        vc.setBackMyClosure { (input: String) in
+        let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
+        let vc = UINavigationController(rootViewController: chooseViewController)
+
+        chooseViewController.locationCity = self.currentLocation
+        chooseViewController.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
             self.locationImg.isHidden = true
             self.searchLocation = input
