@@ -24,8 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ShareSDK.registerApp("1bea6cb22f93c",
                              activePlatforms: [SSDKPlatformType.typeSinaWeibo.rawValue,
                                                SSDKPlatformType.typeQQ.rawValue,
-                                               SSDKPlatformType.typeWechat.rawValue,
-                                               SSDKPlatformType.typeSMS.rawValue,],
+                                               SSDKPlatformType.typeWechat.rawValue],
                              onImport: {(platform : SSDKPlatformType) -> Void in
                                 switch platform{
                                 case SSDKPlatformType.typeSinaWeibo:

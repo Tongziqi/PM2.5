@@ -16,6 +16,7 @@ import IGListKit
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var labelSize: NSLayoutConstraint!
     @IBOutlet weak var scoreView: UIScrollView!
     @IBOutlet weak var userLocationLabel: UILabel!
@@ -37,6 +38,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     let arrowWidth = 35
     let arrowHight = 35
     var arrLocationY: Int?
+    var collectionViewHeight: CGFloat? = 150
     let locationTag = 99
     
     var locationManager: CLLocationManager!
@@ -50,6 +52,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         return IGListAdapter(updater: IGListAdapterUpdater(), viewController: self, workingRangeSize: 0)
     }()
     
+    // 数据源
     var data = ["beijing"] as [Any]
     var forecastJson: JSON = []
     
@@ -63,9 +66,11 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         case 480.0:
             labelSize.constant = 30
             arrLocationY = arrLocationY! - 20
+            collectionViewHeight = 100
         case 568.0:
             labelSize.constant = 40
             arrLocationY = arrLocationY! - 10
+            collectionViewHeight = 120
         case 667.0:
             labelSize.constant = 50
         case 736.0:
@@ -73,9 +78,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         default:
             break
         }
-        
-        // 准备添加分享功能
-        
         self.locationImg.isHidden = true
         initLocationManager()
         ceateHeader()
@@ -88,13 +90,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
         data = [self.searchLocation] as [Any]
         
-        
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.frame = CGRect(x: 0, y: self.view.bounds.height - 150, width: self.view.bounds.width, height: 70)
+        collectionView.frame = CGRect(x: 0, y: self.view.bounds.height - self.collectionViewHeight!, width: self.view.bounds.width, height: 70)
     }
     
     override func didReceiveMemoryWarning() {
@@ -118,6 +119,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     @IBAction func shareButton(_ sender: Any) {
+        
         let shareParames = NSMutableDictionary()
         shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
                                           images : UIImage(named: "defaultCloud"),
@@ -125,8 +127,27 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                                           title : "测试标题",
                                           type : SSDKContentType.auto)
         
-        //2.进行分享
-        ShareSDK.share(SSDKPlatformType.typeSinaWeibo, parameters: shareParames) { (state : SSDKResponseState, nil, entity : SSDKContentEntity?, error :Error?) in
+        shareParames.ssdkEnableUseClientShare()
+
+        
+//        // items: [SSDKPlatformType.typeSinaWeibo,SSDKPlatformType.typeWechat],
+//        ShareSDK.showShareActionSheet(shareButton, items: nil, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, Bool) in
+//            switch state{
+//                
+//            
+//                
+//            case SSDKResponseState.success:
+//                print("分享成功")
+//                self.showHub(text: "分享成功")
+//            case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
+//            case SSDKResponseState.cancel:  print("分享取消")
+//                
+//            default:
+//                break
+//            }
+//        }
+        ShareSDK.share(SSDKPlatformType.typeSinaWeibo, parameters: shareParames) {
+            (state : SSDKResponseState, nil, entity : SSDKContentEntity?, error :Error?) in
             
             switch state{
             case SSDKResponseState.success:
@@ -142,7 +163,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             }
         }
     }
-    
     func updateWeather(location: String) {
         HUD.show(.progress)
         let parameters: Parameters = ["app":"weather.today",

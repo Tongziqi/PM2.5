@@ -348,6 +348,7 @@
                         <outlet property="pm25" destination="YaB-No-mue" id="H3h-Lp-KIn"/>
                         <outlet property="pm25image" destination="Sdl-ds-RDb" id="0dU-Xj-3gC"/>
                         <outlet property="scoreView" destination="3RS-a5-NSD" id="y0t-Oa-ZOH"/>
+                        <outlet property="shareButton" destination="3F8-Uy-pqb" id="2FG-xM-jn6"/>
                         <outlet property="so2" destination="qS9-ZA-FXe" id="oIG-2E-7bq"/>
                         <outlet property="userLocationLabel" destination="384-qA-8t5" id="3hg-Zo-Ups"/>
                         <outlet property="weatherImage" destination="zXk-I4-S49" id="A1e-Vg-NIG"/>
