@@ -24,13 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ShareSDK.registerApp("1bea6cb22f93c",
                              activePlatforms: [SSDKPlatformType.typeSinaWeibo.rawValue,
                                                SSDKPlatformType.typeQQ.rawValue,
-                                               SSDKPlatformType.typeWechat.rawValue],
+                                               SSDKPlatformType.subTypeWechatTimeline.rawValue,
+                                               SSDKPlatformType.subTypeWechatSession.rawValue],
                              onImport: {(platform : SSDKPlatformType) -> Void in
                                 switch platform{
                                 case SSDKPlatformType.typeSinaWeibo:
                                     ShareSDKConnector.connectWeibo(WeiboSDK.classForCoder())
                                 case SSDKPlatformType.typeWechat:
                                     ShareSDKConnector.connectWeChat(WXApi.classForCoder())
+                                case SSDKPlatformType.typeQQ:
+                                    ShareSDKConnector.connectQQ(QQApiInterface.classForCoder(), tencentOAuthClass: TencentOAuth.classForCoder())
                                 default:
                                     break
                                 }
@@ -48,6 +51,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     //设置微信应用信息
                                     //暂时空缺
                                     appInfo?.ssdkSetupWeChat(byAppId: "", appSecret: "")
+                                    break
+                                    
+                                case SSDKPlatformType.typeQQ:
+                                    
+                                    appInfo?.ssdkSetupQQ(byAppId: "", appKey: "", authType:  SSDKAuthTypeBoth)
                                     break
                                     
                                 default:

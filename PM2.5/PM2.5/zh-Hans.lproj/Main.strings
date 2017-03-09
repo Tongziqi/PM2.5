@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Beijing"; ObjectID = "384-qA-8t5"; */
+"384-qA-8t5.text" = "Beijing";
+
+/* Class = "UILabel"; text = "HIGH"; ObjectID = "7xK-n4-W3H"; */
+"7xK-n4-W3H.text" = "HIGH";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "7yT-up-Hru"; */
+"7yT-up-Hru.text" = "30";
+
+/* Class = "UILabel"; text = " PM2.5"; ObjectID = "C7u-7K-eVg"; */
+"C7u-7K-eVg.text" = " PM2.5";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "JVG-sI-qaB"; */
+"JVG-sI-qaB.text" = "30";
+
+/* Class = "UILabel"; text = "500"; ObjectID = "Ria-0J-Gnl"; */
+"Ria-0J-Gnl.text" = "500";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "YaB-No-mue"; */
+"YaB-No-mue.text" = "30";
+
+/* Class = "UILabel"; text = "PM10"; ObjectID = "cWg-Bi-orm"; */
+"cWg-Bi-orm.text" = "PM10";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "eAh-la-Vgr"; */
+"eAh-la-Vgr.text" = "0";
+
+/* Class = "UILabel"; text = "CO"; ObjectID = "pvl-S3-l6l"; */
+"pvl-S3-l6l.text" = "CO";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "qS9-ZA-FXe"; */
+"qS9-ZA-FXe.text" = "30";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "sga-qH-xMn"; */
+"sga-qH-xMn.text" = "30";
+
+/* Class = "UILabel"; text = "LOW"; ObjectID = "smb-yS-Of1"; */
+"smb-yS-Of1.text" = "LOW";
+
+/* Class = "UILabel"; text = "Default Weather"; ObjectID = "ssS-Qn-NYj"; */
+"ssS-Qn-NYj.text" = "Default Weather";
+
+/* Class = "UILabel"; text = "30"; ObjectID = "w3L-Jx-OXV"; */
+"w3L-Jx-OXV.text" = "30";

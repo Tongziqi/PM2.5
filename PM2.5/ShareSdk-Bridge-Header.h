@@ -18,8 +18,17 @@
 #import <ShareSDKUI/ShareSDK+SSUI.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 
+// 自定义分享菜单栏需要导入的头文件
+#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
+//自定义分享编辑界面所需要导入的头文件
+#import <ShareSDKUI/SSUIEditorViewStyle.h>
+
 //微信SDK头文件
 #import "WXApi.h"
 
 //新浪微博SDK头文件
 #import "WeiboSDK.h"
+
+//腾讯开放平台（对应QQ和QQ空间）SDK头文件
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>

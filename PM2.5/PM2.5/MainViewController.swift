@@ -119,7 +119,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     @IBAction func shareButton(_ sender: Any) {
-        
+
         let shareParames = NSMutableDictionary()
         shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
                                           images : UIImage(named: "defaultCloud"),
@@ -128,10 +128,18 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                                           type : SSDKContentType.auto)
         
         shareParames.ssdkEnableUseClientShare()
+        // 自定义分享菜单
+        SSUIShareActionSheetStyle.setCancelButtonLabel(UIColor.flatBlack)
+        SSUIShareActionSheetStyle.setItemNameColor(UIColor.flatBlack)
+        SSUIShareActionSheetStyle.setItemNameFont(UIFont.boldSystemFont(ofSize: 10))
+        
         
         let items: [Any] = [
             SSDKPlatformType.typeSinaWeibo.rawValue,
-            SSDKPlatformType.typeWechat.rawValue
+            SSDKPlatformType.subTypeWechatSession.rawValue,
+            SSDKPlatformType.subTypeWechatTimeline.rawValue,
+            SSDKPlatformType.subTypeQQFriend.rawValue,
+            SSDKPlatformType.subTypeQZone.rawValue
         ]
         
         let sheet: SSUIShareActionSheetController = ShareSDK.showShareActionSheet(shareButton, items: items, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, end: Bool) in
@@ -147,7 +155,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 break
             }
         }
-        sheet.directSharePlatforms.remove(SSDKPlatformType.typeWechat.rawValue)
+        // 不跳转编辑页面
         sheet.directSharePlatforms.add(SSDKPlatformType.typeSinaWeibo.rawValue)
     }
     

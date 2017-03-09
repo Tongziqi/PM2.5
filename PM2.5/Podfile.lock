@@ -13,6 +13,7 @@ PODS:
   - ShareSDK3 (3.3.2):
     - ShareSDK3/ShareSDK (= 3.3.2)
   - ShareSDK3/ShareSDK (3.3.2)
+  - ShareSDK3/ShareSDKPlatforms/QQ (3.3.2)
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.3.2)
   - ShareSDK3/ShareSDKPlatforms/WeChat (3.3.2)
   - ShareSDK3/ShareSDKUI (3.3.2)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Onboard
   - PKHUD (~> 4.2.0)
   - ShareSDK3 (~> 3.3.2)
+  - ShareSDK3/ShareSDKPlatforms/QQ
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo
   - ShareSDK3/ShareSDKPlatforms/WeChat
   - ShareSDK3/ShareSDKUI
@@ -56,6 +58,6 @@ SPEC CHECKSUMS:
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 5ea8e8240db9a164732889b1b86cec22d13d1b6c
+PODFILE CHECKSUM: da107d1179180ddb8ce1b897c67f26f14d78f1b7
 
 COCOAPODS: 1.2.0
