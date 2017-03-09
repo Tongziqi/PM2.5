@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 case SSDKPlatformType.typeWechat:
                                     //设置微信应用信息
                                     //暂时空缺
-                                    appInfo?.ssdkSetupWeChat(byAppId: "", appSecret: "")
+                                    appInfo?.ssdkSetupWeChat(byAppId: "wx9f631c284d30ab79", appSecret: "334c0245b2824769cfb89516bd81e645")
                                     break
                                     
                                 case SSDKPlatformType.typeQQ:

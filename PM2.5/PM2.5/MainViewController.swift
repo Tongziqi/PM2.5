@@ -123,7 +123,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         let shareParames = NSMutableDictionary()
         shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
                                           images : UIImage(named: "defaultCloud"),
-                                          url : NSURL(string:"https://tongxiaotuo.me") as URL!,
+                                          url : NSURL(string:"https://pm25.date") as URL!,
                                           title : "测试标题",
                                           type : SSDKContentType.auto)
         
