@@ -128,41 +128,30 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                                           type : SSDKContentType.auto)
         
         shareParames.ssdkEnableUseClientShare()
-
         
-//        // items: [SSDKPlatformType.typeSinaWeibo,SSDKPlatformType.typeWechat],
-//        ShareSDK.showShareActionSheet(shareButton, items: nil, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, Bool) in
-//            switch state{
-//                
-//            
-//                
-//            case SSDKResponseState.success:
-//                print("分享成功")
-//                self.showHub(text: "分享成功")
-//            case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
-//            case SSDKResponseState.cancel:  print("分享取消")
-//                
-//            default:
-//                break
-//            }
-//        }
-        ShareSDK.share(SSDKPlatformType.typeSinaWeibo, parameters: shareParames) {
-            (state : SSDKResponseState, nil, entity : SSDKContentEntity?, error :Error?) in
+        let items: [Any] = [
+            SSDKPlatformType.typeSinaWeibo.rawValue,
+            SSDKPlatformType.typeWechat.rawValue
+        ]
+        
+        let sheet: SSUIShareActionSheetController = ShareSDK.showShareActionSheet(shareButton, items: items, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, end: Bool) in
             
             switch state{
             case SSDKResponseState.success:
                 print("分享成功")
                 self.showHub(text: "分享成功")
-            case SSDKResponseState.fail:
-                print("授权失败,错误描述:\(error)")
-            case SSDKResponseState.cancel:
-                print("操作取消")
-                self.showHub(text: "操作取消")
+            case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
+            case SSDKResponseState.cancel:  print("分享取消")
+                
             default:
                 break
             }
         }
+        sheet.directSharePlatforms.remove(SSDKPlatformType.typeWechat.rawValue)
+        sheet.directSharePlatforms.add(SSDKPlatformType.typeSinaWeibo.rawValue)
     }
+    
+    
     func updateWeather(location: String) {
         HUD.show(.progress)
         let parameters: Parameters = ["app":"weather.today",
