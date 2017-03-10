@@ -96,7 +96,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         checkNetConnection()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkNetConnection), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-
         
     }
     
@@ -153,6 +152,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBAction func jumpToChoose(_ sender: Any) {
         let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
         let vc = UINavigationController(rootViewController: chooseViewController)
+        
+        
         
         chooseViewController.locationCity = self.currentLocation
         chooseViewController.setBackMyClosure { (input: String) in

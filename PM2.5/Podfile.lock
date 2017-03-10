@@ -3,6 +3,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - ENSwiftSideMenu (0.1.1)
   - IGListKit (2.0.0)
   - Kingfisher (3.3.1)
   - MGSwipeTableCell (1.5.6)
@@ -23,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
+  - ENSwiftSideMenu (from `https://github.com/evnaz/ENSwiftSideMenu.git`)
   - IGListKit (~> 2.0.0)
   - Kingfisher (~> 3.3.1)
   - MGSwipeTableCell
@@ -41,15 +43,21 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
+  ENSwiftSideMenu:
+    :git: https://github.com/evnaz/ENSwiftSideMenu.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
     :git: https://github.com/ViccAlexander/Chameleon.git
+  ENSwiftSideMenu:
+    :commit: 8c233e69959aee550846d3e801c16bedd491453c
+    :git: https://github.com/evnaz/ENSwiftSideMenu.git
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  ENSwiftSideMenu: a934caefbe811e4925f172009349da4a49901307
   IGListKit: ee255e4e61865bc3e01ca96b690c5435c2887849
   Kingfisher: 4d943445768c60fe5de314619a8ab07ec761ae5b
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
@@ -61,6 +69,6 @@ SPEC CHECKSUMS:
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: d2121ff0ef86a19fc2fe05693d6736d23c636ffb
+PODFILE CHECKSUM: 41cda9e2e6f175b3829bfe5cc8a3ea6ded0fb046
 
 COCOAPODS: 1.2.0
