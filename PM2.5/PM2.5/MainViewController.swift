@@ -316,7 +316,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updateWeatherUI(json: JSON) {
-        let weatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + " " + json["result"]["temperature"].stringValue
+        let weatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + "\n" + json["result"]["temperature"].stringValue
         let weather_curr: String = json["result"]["weather_curr"].stringValue
         self.weatherImage.image = UIImage(named: weather_curr)
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
