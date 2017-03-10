@@ -14,6 +14,7 @@ import MJRefresh
 import Alamofire
 import IGListKit
 import Reachability
+import SideMenu
 
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
@@ -96,7 +97,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         checkNetConnection()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkNetConnection), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
-        
     }
     
     
@@ -151,18 +151,32 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func jumpToChoose(_ sender: Any) {
         let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
-        let vc = UINavigationController(rootViewController: chooseViewController)
-        
-        
-        
         chooseViewController.locationCity = self.currentLocation
         chooseViewController.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
             self.locationImg.isHidden = true
             self.searchLocation = input
             self.updateWeather(location: input)
-        }
-        self.present(vc, animated: true, completion: nil)
+            }
+            let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
+            menuLeftNavigationController.leftSide = true
+            SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+            SideMenuManager.menuShadowColor =  UIColor.clear
+            SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
+            //        let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
+            //        let vc = UINavigationController(rootViewController: chooseViewController)
+            //
+            //
+            //
+            //        chooseViewController.locationCity = self.currentLocation
+            //        chooseViewController.setBackMyClosure { (input: String) in
+            //            self.userLocationLabel.text = input
+            //            self.locationImg.isHidden = true
+            //            self.searchLocation = input
+            //            self.updateWeather(location: input)
+            //        }
+            //self.present(vc, animated: true, completion: nil)
+            self.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
     

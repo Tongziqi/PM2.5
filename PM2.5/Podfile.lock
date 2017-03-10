@@ -3,7 +3,6 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - ENSwiftSideMenu (0.1.1)
   - IGListKit (2.0.0)
   - Kingfisher (3.3.1)
   - MGSwipeTableCell (1.5.6)
@@ -19,12 +18,12 @@ PODS:
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.3.2)
   - ShareSDK3/ShareSDKPlatforms/WeChat (3.3.2)
   - ShareSDK3/ShareSDKUI (3.3.2)
+  - SideMenu (2.2.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - ENSwiftSideMenu (from `https://github.com/evnaz/ENSwiftSideMenu.git`)
   - IGListKit (~> 2.0.0)
   - Kingfisher (~> 3.3.1)
   - MGSwipeTableCell
@@ -38,26 +37,21 @@ DEPENDENCIES:
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo
   - ShareSDK3/ShareSDKPlatforms/WeChat
   - ShareSDK3/ShareSDKUI
+  - SideMenu
   - SwiftyJSON (~> 3.1.4)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
-  ENSwiftSideMenu:
-    :git: https://github.com/evnaz/ENSwiftSideMenu.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
     :git: https://github.com/ViccAlexander/Chameleon.git
-  ENSwiftSideMenu:
-    :commit: 8c233e69959aee550846d3e801c16bedd491453c
-    :git: https://github.com/evnaz/ENSwiftSideMenu.git
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  ENSwiftSideMenu: a934caefbe811e4925f172009349da4a49901307
   IGListKit: ee255e4e61865bc3e01ca96b690c5435c2887849
   Kingfisher: 4d943445768c60fe5de314619a8ab07ec761ae5b
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
@@ -67,8 +61,9 @@ SPEC CHECKSUMS:
   PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
+  SideMenu: eeff6b85456c5c6e14165655691d2033f6b24969
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 41cda9e2e6f175b3829bfe5cc8a3ea6ded0fb046
+PODFILE CHECKSUM: 2387a16b22dce987811625b9de183723b5c9fccf
 
 COCOAPODS: 1.2.0
