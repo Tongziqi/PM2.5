@@ -13,6 +13,8 @@ import PKHUD
 import MJRefresh
 import Alamofire
 import IGListKit
+import Reachability
+
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
@@ -34,6 +36,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var no2: UILabel!
     @IBOutlet weak var o3: UILabel!
     @IBOutlet weak var co: UILabel!
+    
     
     let arrowWidth = 35
     let arrowHight = 35
@@ -90,6 +93,32 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
         data = [self.searchLocation] as [Any]
         
+        checkNetConnection()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.checkNetConnection), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+
+        
+    }
+    
+    
+    func checkNetConnection() {
+        let reachability = Reachability.forInternetConnection()
+        
+        let isReachable  = reachability?.isReachable() ?? false
+        
+        if !isReachable {
+            let alertController = UIAlertController(title: "提示", message: "当前网络不可用，请检查您的网络设置。\n1）Wifi 或 移动蜂窝网络是否打开。\n2）【设置】-【MyPM2.5】中网络设置是否打开。", preferredStyle: UIAlertControllerStyle.alert)
+            let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
+            let okAction = UIAlertAction(title: "去设置", style: UIAlertActionStyle.default, handler: { (action : UIAlertAction) in
+                let url = URL(string:UIApplicationOpenSettingsURLString)
+                if UIApplication.shared.canOpenURL(url!) == true {
+                    UIApplication.shared.openURL(url!)
+                }
+            })
+            alertController.addAction(cancelAction)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     
@@ -146,11 +175,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             
             switch state{
             case SSDKResponseState.success:
-                print("分享成功")
                 self.showHub(text: "分享成功")
             case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
             case SSDKResponseState.cancel:  print("分享取消")
-                
+                self.showHub(text: "分享取消")
             default:
                 break
             }

@@ -7,18 +7,72 @@
 //
 
 import UIKit
+import Reachability
+import PKHUD
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var reach: Reachability?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         buildOnboard()
         registerShareSDK()
+        initReachability()
         // Override point for customization after application launch.
         return true
     }
+    
+    func initReachability() {
+        if reach == nil {
+            reach = Reachability.forInternetConnection()
+            self.reach!.reachableOnWWAN = false
+            NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged), name: NSNotification.Name.reachabilityChanged, object: nil)
+            reach?.startNotifier()
+        }
+    }
+    
+    func reachabilityChanged(notification: NSNotification) {
+        if self.reach!.isReachableViaWiFi() || self.reach!.isReachableViaWWAN() {
+            let text = "网络连接已恢复"
+            let hud = PKHUD()
+            hud.contentView = PKHUDTextView(text: text)
+            hud.show()
+            hud.hide(afterDelay: 1.0)
+        } else {
+            let text = "网络连接已断开"
+            let hud = PKHUD()
+            hud.contentView = PKHUDTextView(text: text)
+            hud.show()
+            hud.hide(afterDelay: 1.0)
+        }
+    }
+    
+
+    
+    
+//    func networkCheck() {
+//        
+//        let reachability = Reachability.forInternetConnection()
+//        
+//        let isReachable  = reachability?.isReachable() ?? false
+//        
+//        if !isReachable {
+//    
+//            networkAlert = UIAlertView()
+//            networkAlert?.title = "提示"
+//            networkAlert?.message = "您的网络好像断了"
+//            networkAlert?.addButton(withTitle: "去设置")
+//            networkAlert?.addButton(withTitle: "不用管")
+//            networkAlert?.cancelButtonIndex = 1
+//            networkAlert?.delegate = self
+//            networkAlert?.show()
+//        }
+//    }
+
+    
     
     func registerShareSDK() {
         ShareSDK.registerApp("1bea6cb22f93c",
@@ -49,13 +103,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                     break
                                 case SSDKPlatformType.typeWechat:
                                     //设置微信应用信息
-                                    //暂时空缺
                                     appInfo?.ssdkSetupWeChat(byAppId: "wx9f631c284d30ab79", appSecret: "334c0245b2824769cfb89516bd81e645")
                                     break
                                     
                                 case SSDKPlatformType.typeQQ:
-                                    
-                                    appInfo?.ssdkSetupQQ(byAppId: "", appKey: "", authType:  SSDKAuthTypeBoth)
+                                    appInfo?.ssdkSetupQQ(byAppId: "1105958311", appKey: "n1r4j6MnvYJR3Du5", authType:  SSDKAuthTypeBoth)
                                     break
                                     
                                 default:
