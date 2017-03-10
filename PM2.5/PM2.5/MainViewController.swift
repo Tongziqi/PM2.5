@@ -107,7 +107,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
         if !isReachable {
             let alertController = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.alert)
-
+            
             //使用kvc更改UIAlertController 富文本
             let alertControllerTitleStr: NSMutableAttributedString = NSMutableAttributedString(string: "提示")
             alertControllerTitleStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.flatBlack, range: NSRange(location: 0, length: alertControllerTitleStr.length))
@@ -121,7 +121,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             alertControllerMessageStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSRange(location: 0, length: alertControllerMessageStr.length))
             alertController.setValue(alertControllerMessageStr, forKey: "attributedMessage")
             
-
+            
             let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
             cancelAction.setValue(UIColor.flatBlack, forKey: "titleTextColor")
             
@@ -157,31 +157,31 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             self.locationImg.isHidden = true
             self.searchLocation = input
             self.updateWeather(location: input)
-            }
-            let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
-            menuLeftNavigationController.leftSide = true
-            SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
-            SideMenuManager.menuShadowColor =  UIColor.clear
-            SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
-            //        let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
-            //        let vc = UINavigationController(rootViewController: chooseViewController)
-            //
-            //
-            //
-            //        chooseViewController.locationCity = self.currentLocation
-            //        chooseViewController.setBackMyClosure { (input: String) in
-            //            self.userLocationLabel.text = input
-            //            self.locationImg.isHidden = true
-            //            self.searchLocation = input
-            //            self.updateWeather(location: input)
-            //        }
-            //self.present(vc, animated: true, completion: nil)
-            self.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+        }
+        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
+        menuLeftNavigationController.leftSide = true
+        SideMenuManager.menuLeftNavigationController = menuLeftNavigationController
+        SideMenuManager.menuShadowColor =  UIColor.clear
+        SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
+        //        let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
+        //        let vc = UINavigationController(rootViewController: chooseViewController)
+        //
+        //
+        //
+        //        chooseViewController.locationCity = self.currentLocation
+        //        chooseViewController.setBackMyClosure { (input: String) in
+        //            self.userLocationLabel.text = input
+        //            self.locationImg.isHidden = true
+        //            self.searchLocation = input
+        //            self.updateWeather(location: input)
+        //        }
+        //self.present(vc, animated: true, completion: nil)
+        self.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
     
     @IBAction func shareButton(_ sender: Any) {
-
+        
         let shareParames = NSMutableDictionary()
         shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
                                           images : UIImage(named: "defaultCloud"),
@@ -211,7 +211,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 self.showHub(text: "分享成功")
             case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
             case SSDKResponseState.cancel:  print("分享取消")
-                self.showHub(text: "分享取消")
+            self.showHub(text: "分享取消")
             default:
                 break
             }
@@ -310,7 +310,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         let aqi: String = json["result"]["aqi"].stringValue
         self.pm25.text = aqi
         let aqi_int = Int.init(aqi)
-        //self.scoreView.reloadInputViews()
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi_int!)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
     }
