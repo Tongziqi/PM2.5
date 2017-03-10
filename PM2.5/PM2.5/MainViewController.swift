@@ -107,14 +107,32 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         let isReachable  = reachability?.isReachable() ?? false
         
         if !isReachable {
-            let alertController = UIAlertController(title: "提示", message: "当前网络不可用，请检查您的网络设置。\n1）Wifi 或 移动蜂窝网络是否打开。\n2）【设置】-【MyPM2.5】中网络设置是否打开。", preferredStyle: UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.alert)
+
+            //使用kvc更改UIAlertController 富文本
+            let alertControllerTitleStr: NSMutableAttributedString = NSMutableAttributedString(string: "提示")
+            alertControllerTitleStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.flatBlack, range: NSRange(location: 0, length: alertControllerTitleStr.length))
+            alertController.setValue(alertControllerTitleStr, forKey: "attributedTitle")
+            
+            let alertControllerMessageStr: NSMutableAttributedString = NSMutableAttributedString(string: "当前网络不可用，请检查您的网络设置。\n1）Wifi 或 移动蜂窝网络是否打开。\n2)【设置】-【MyPM2.5】中网络设置是否打开。")
+            alertControllerMessageStr.addAttribute(NSForegroundColorAttributeName, value: UIColor.flatBlack, range: NSRange(location: 0, length: alertControllerMessageStr.length))
+            alertControllerMessageStr.addAttribute(NSFontAttributeName, value: UIFont.systemFont(ofSize: CGFloat(12)), range: NSRange(location: 0, length: alertControllerMessageStr.length))
+            let style: NSMutableParagraphStyle = NSMutableParagraphStyle()
+            style.alignment = NSTextAlignment.left
+            alertControllerMessageStr.addAttribute(NSParagraphStyleAttributeName, value: style, range: NSRange(location: 0, length: alertControllerMessageStr.length))
+            alertController.setValue(alertControllerMessageStr, forKey: "attributedMessage")
+            
+
             let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
+            cancelAction.setValue(UIColor.flatBlack, forKey: "titleTextColor")
+            
             let okAction = UIAlertAction(title: "去设置", style: UIAlertActionStyle.default, handler: { (action : UIAlertAction) in
                 let url = URL(string:UIApplicationOpenSettingsURLString)
                 if UIApplication.shared.canOpenURL(url!) == true {
                     UIApplication.shared.openURL(url!)
                 }
             })
+            okAction.setValue(UIColor.flatBlack, forKey: "titleTextColor")
             alertController.addAction(cancelAction)
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
