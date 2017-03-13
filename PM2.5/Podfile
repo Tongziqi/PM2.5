@@ -12,6 +12,7 @@ target 'PM2.5’ do
     pod 'Reachability'
     pod 'IGListKit', '~> 2.0.0'
     pod 'SideMenu'
+#pod 'YALSideMenu', '~> 2.0'
 
 # 主模块(必须)
 pod 'ShareSDK3', '~> 3.3.2'
