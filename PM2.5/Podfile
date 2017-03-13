@@ -11,8 +11,7 @@ target 'PM2.5’ do
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'Reachability'
     pod 'IGListKit', '~> 2.0.0'
-#pod 'SideMenu'
-    pod 'YALSideMenu', '~> 2.0'
+#pod 'YALSideMenu', '~> 2.0'
 
 # 主模块(必须)
 pod 'ShareSDK3', '~> 3.3.2'

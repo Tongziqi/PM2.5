@@ -14,7 +14,6 @@ import MJRefresh
 import Alamofire
 import IGListKit
 import Reachability
-import SideMenu
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
