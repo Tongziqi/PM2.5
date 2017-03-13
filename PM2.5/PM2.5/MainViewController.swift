@@ -168,10 +168,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func shareButton(_ sender: Any) {
             let shareParames = NSMutableDictionary()
-            shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
+            shareParames.ssdkSetupShareParams(byText: self.searchLocation + "的PM2.5数据为:" + self.weatherLabel.text!,
                                               images : UIImage(named: "defaultCloud"),
                                               url : NSURL(string:"https://pm25.date") as URL!,
-                                              title : "测试标题",
+                                              title : self.searchLocation + "的PM2.5数据",
                                               type : SSDKContentType.auto)
             
             shareParames.ssdkEnableUseClientShare()
