@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		01C5FBDB9D51592320B8B679 /* Pods_PM2_5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D670352EFB4D571611A901BE /* Pods_PM2_5.framework */; };
+		5D086A591E768DA60045B115 /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A551E768DA60045B115 /* UITableViewVibrantCell.swift */; };
+		5D086A5A1E768DA60045B115 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A561E768DA60045B115 /* SideMenuManager.swift */; };
+		5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A571E768DA60045B115 /* SideMenuTransition.swift */; };
+		5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */; };
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
@@ -35,6 +39,10 @@
 
 /* Begin PBXFileReference section */
 		3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM2.5.release.xcconfig"; path = "Pods/Target Support Files/Pods-PM2.5/Pods-PM2.5.release.xcconfig"; sourceTree = "<group>"; };
+		5D086A551E768DA60045B115 /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewVibrantCell.swift; sourceTree = "<group>"; };
+		5D086A561E768DA60045B115 /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
+		5D086A571E768DA60045B115 /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
+		5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
 		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareSdk-Bridge-Header.h"; sourceTree = "<group>"; };
 		5D32A00C1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -88,6 +96,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D086A541E768D900045B115 /* LeftMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5D086A551E768DA60045B115 /* UITableViewVibrantCell.swift */,
+				5D086A561E768DA60045B115 /* SideMenuManager.swift */,
+				5D086A571E768DA60045B115 /* SideMenuTransition.swift */,
+				5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */,
+			);
+			name = LeftMenu;
+			sourceTree = "<group>";
+		};
 		5D19BB1B1E5FE3EE00A693FC /* DefaultSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +138,7 @@
 		5D6A02061E34C69600AA0F50 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5D086A541E768D900045B115 /* LeftMenu */,
 				5D80F7A91E5AEA3700A989D8 /* ParserXML.swift */,
 				5D6A02071E34C6E000AA0F50 /* CommonTool.swift */,
 				5D69CDE81E5EC9A60004C3D2 /* VersionControl.swift */,
@@ -343,8 +363,12 @@
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
 				5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */,
 				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,
+				5D086A591E768DA60045B115 /* UITableViewVibrantCell.swift in Sources */,
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,
 				5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */,
+				5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */,
+				5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */,
+				5D086A5A1E768DA60045B115 /* SideMenuManager.swift in Sources */,
 				5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */,
 				5DBE7B5E1E6D414000B2E9D0 /* ForecastEntry.swift in Sources */,
 				5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */,
