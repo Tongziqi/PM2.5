@@ -17,6 +17,7 @@ PODS:
   - ShareSDK3/ShareSDKPlatforms/WeChat (3.3.2)
   - ShareSDK3/ShareSDKUI (3.3.2)
   - SwiftyJSON (3.1.4)
+  - YALSideMenu (2.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - ShareSDK3/ShareSDKPlatforms/WeChat
   - ShareSDK3/ShareSDKUI
   - SwiftyJSON (~> 3.1.4)
+  - YALSideMenu (~> 2.0)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -54,7 +56,8 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  YALSideMenu: 4d6b90ea44dcdded18a99e46b676e4ad51d9c6bb
 
-PODFILE CHECKSUM: de2769af25b8e0c135bd914fda53f6b15762bf59
+PODFILE CHECKSUM: f039fb70b1967c97b37661d2cecd4636e67705a2
 
 COCOAPODS: 1.2.0

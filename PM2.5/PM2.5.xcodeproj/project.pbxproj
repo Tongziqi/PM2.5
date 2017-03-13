@@ -12,6 +12,12 @@
 		5D086A5A1E768DA60045B115 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A561E768DA60045B115 /* SideMenuManager.swift */; };
 		5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A571E768DA60045B115 /* SideMenuTransition.swift */; };
 		5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */; };
+		5D086A9D1E76BF760045B115 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A9A1E76BF760045B115 /* MenuViewController.swift */; };
+		5D086AA01E76C00D0045B115 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A9F1E76C00D0045B115 /* UITableViewCell.swift */; };
+		5D086AA41E76C1910045B115 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA11E76C1910045B115 /* AnimationDelegate.swift */; };
+		5D086AA51E76C1910045B115 /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */; };
+		5D086AA61E76C1910045B115 /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */; };
+		5D086AAA1E76C5940045B115 /* MainViewController+Yalantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA91E76C5940045B115 /* MainViewController+Yalantis.swift */; };
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
@@ -43,6 +49,12 @@
 		5D086A561E768DA60045B115 /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
 		5D086A571E768DA60045B115 /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
 		5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
+		5D086A9A1E76BF760045B115 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		5D086A9F1E76C00D0045B115 /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
+		5D086AA11E76C1910045B115 /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
+		5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealAnimator.swift; sourceTree = "<group>"; };
+		5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
+		5D086AA91E76C5940045B115 /* MainViewController+Yalantis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Yalantis.swift"; sourceTree = "<group>"; };
 		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareSdk-Bridge-Header.h"; sourceTree = "<group>"; };
 		5D32A00C1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -107,6 +119,27 @@
 			name = LeftMenu;
 			sourceTree = "<group>";
 		};
+		5D086A8F1E76BDDB0045B115 /* Yalantis */ = {
+			isa = PBXGroup;
+			children = (
+				5D086A9F1E76C00D0045B115 /* UITableViewCell.swift */,
+				5D086A9A1E76BF760045B115 /* MenuViewController.swift */,
+				5D086AA11E76C1910045B115 /* AnimationDelegate.swift */,
+				5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */,
+				5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */,
+			);
+			name = Yalantis;
+			sourceTree = "<group>";
+		};
+		5D086A981E76BF5D0045B115 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5D086A8F1E76BDDB0045B115 /* Yalantis */,
+				5D086A541E768D900045B115 /* LeftMenu */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		5D19BB1B1E5FE3EE00A693FC /* DefaultSetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +171,6 @@
 		5D6A02061E34C69600AA0F50 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				5D086A541E768D900045B115 /* LeftMenu */,
 				5D80F7A91E5AEA3700A989D8 /* ParserXML.swift */,
 				5D6A02071E34C6E000AA0F50 /* CommonTool.swift */,
 				5D69CDE81E5EC9A60004C3D2 /* VersionControl.swift */,
@@ -161,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				5D94BB521E34D2EE00F4CD3D /* MainViewController.swift */,
+				5D086AA91E76C5940045B115 /* MainViewController+Yalantis.swift */,
 				5D5161621E546DF4006F512E /* ChooseViewController.swift */,
 				5D5161631E546DF4006F512E /* ChooseViewController.xib */,
 			);
@@ -208,6 +241,7 @@
 		5DE004911E3473CD009517CB /* PM2.5 */ = {
 			isa = PBXGroup;
 			children = (
+				5D086A981E76BF5D0045B115 /* Menu */,
 				5D68934A1E67F57200694491 /* IGListKitView */,
 				5D19BB1B1E5FE3EE00A693FC /* DefaultSetting */,
 				5D69CDE31E5EB8DB0004C3D2 /* Onboarding */,
@@ -359,21 +393,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D086AA51E76C1910045B115 /* CircularRevealAnimator.swift in Sources */,
 				5DBE7B5C1E6D40B600B2E9D0 /* ForecastDataLoader.swift in Sources */,
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
 				5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */,
 				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,
 				5D086A591E768DA60045B115 /* UITableViewVibrantCell.swift in Sources */,
+				5D086AAA1E76C5940045B115 /* MainViewController+Yalantis.swift in Sources */,
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,
 				5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */,
 				5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */,
+				5D086AA01E76C00D0045B115 /* UITableViewCell.swift in Sources */,
 				5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */,
 				5D086A5A1E768DA60045B115 /* SideMenuManager.swift in Sources */,
 				5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */,
+				5D086AA41E76C1910045B115 /* AnimationDelegate.swift in Sources */,
 				5DBE7B5E1E6D414000B2E9D0 /* ForecastEntry.swift in Sources */,
+				5D086AA61E76C1910045B115 /* CircularRevealTransitionAnimator.swift in Sources */,
 				5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
 				5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */,
+				5D086A9D1E76BF760045B115 /* MenuViewController.swift in Sources */,
 				5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */,
 				5D6893431E67F35000694491 /* EmbeddedCollectionViewCell.swift in Sources */,
 				5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */,
