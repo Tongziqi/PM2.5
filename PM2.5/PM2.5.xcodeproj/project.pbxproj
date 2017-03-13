@@ -17,7 +17,6 @@
 		5D086AA41E76C1910045B115 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA11E76C1910045B115 /* AnimationDelegate.swift */; };
 		5D086AA51E76C1910045B115 /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */; };
 		5D086AA61E76C1910045B115 /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */; };
-		5D086AAA1E76C5940045B115 /* MainViewController+Yalantis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA91E76C5940045B115 /* MainViewController+Yalantis.swift */; };
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
@@ -54,7 +53,6 @@
 		5D086AA11E76C1910045B115 /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
 		5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealAnimator.swift; sourceTree = "<group>"; };
 		5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
-		5D086AA91E76C5940045B115 /* MainViewController+Yalantis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewController+Yalantis.swift"; sourceTree = "<group>"; };
 		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareSdk-Bridge-Header.h"; sourceTree = "<group>"; };
 		5D32A00C1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 			isa = PBXGroup;
 			children = (
 				5D94BB521E34D2EE00F4CD3D /* MainViewController.swift */,
-				5D086AA91E76C5940045B115 /* MainViewController+Yalantis.swift */,
 				5D5161621E546DF4006F512E /* ChooseViewController.swift */,
 				5D5161631E546DF4006F512E /* ChooseViewController.xib */,
 			);
@@ -399,7 +396,6 @@
 				5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */,
 				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,
 				5D086A591E768DA60045B115 /* UITableViewVibrantCell.swift in Sources */,
-				5D086AAA1E76C5940045B115 /* MainViewController+Yalantis.swift in Sources */,
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,
 				5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */,
 				5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */,

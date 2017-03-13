@@ -14,12 +14,10 @@ import MJRefresh
 import Alamofire
 import IGListKit
 import Reachability
-import SideMenu
-
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
-    @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var labelSize: NSLayoutConstraint!
     @IBOutlet weak var scoreView: UIScrollView!
@@ -61,20 +59,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var data = ["beijing"] as [Any]
     var forecastJson: JSON = []
     
-    
-    //Yalantis控件
-    fileprivate var selectedIndex = 0
-    lazy var menuAnimator : MenuTransitionAnimator! = MenuTransitionAnimator(mode: .presentation, shouldPassEventsOutsideMenu: false) { [unowned self] in
-        self.dismiss(animated: true, completion: nil)
-    }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let menu = segue.destination as! MenuViewController
-        menu.selectedItem = selectedIndex
-        menu.delegate = self
-        menu.transitioningDelegate = self
-        menu.modalPresentationStyle = .custom
-    }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,53 +158,54 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             self.searchLocation = input
             self.updateWeather(location: input)
         }
-        let menuRightNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
-        SideMenuManager.menuRightNavigationController = menuRightNavigationController
+        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
+        menuLeftNavigationController.leftSide = true
+        SideMenuManager.menuRightNavigationController = menuLeftNavigationController
         SideMenuManager.menuShadowColor =  UIColor.clear
         SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
-        self.present(SideMenuManager.menuRightNavigationController!, animated: true, completion: nil)
+        self.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
-    //这个把按钮注销掉了
-//    @IBAction func shareButton(_ sender: Any) {
-//        
-//        let shareParames = NSMutableDictionary()
-//        shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
-//                                          images : UIImage(named: "defaultCloud"),
-//                                          url : NSURL(string:"https://pm25.date") as URL!,
-//                                          title : "测试标题",
-//                                          type : SSDKContentType.auto)
-//        
-//        shareParames.ssdkEnableUseClientShare()
-//        // 自定义分享菜单
-//        SSUIShareActionSheetStyle.setCancelButtonLabel(UIColor.flatBlack)
-//        SSUIShareActionSheetStyle.setItemNameColor(UIColor.flatBlack)
-//        SSUIShareActionSheetStyle.setItemNameFont(UIFont.boldSystemFont(ofSize: 10))
-//        
-//        
-//        let items: [Any] = [
-//            SSDKPlatformType.typeSinaWeibo.rawValue,
-//            SSDKPlatformType.subTypeWechatSession.rawValue,
-//            SSDKPlatformType.subTypeWechatTimeline.rawValue,
-//            SSDKPlatformType.subTypeQQFriend.rawValue,
-//            SSDKPlatformType.subTypeQZone.rawValue
-//        ]
-//        
-//        let sheet: SSUIShareActionSheetController = ShareSDK.showShareActionSheet(shareButton, items: items, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, end: Bool) in
-//            
-//            switch state{
-//            case SSDKResponseState.success:
-//                self.showHub(text: "分享成功")
-//            case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
-//            case SSDKResponseState.cancel:  print("分享取消")
-//            self.showHub(text: "分享取消")
-//            default:
-//                break
-//            }
-//        }
-//        // 不跳转编辑页面
-//        sheet.directSharePlatforms.add(SSDKPlatformType.typeSinaWeibo.rawValue)
-//    }
+    @IBAction func shareButton(_ sender: Any) {
+            let shareParames = NSMutableDictionary()
+            shareParames.ssdkSetupShareParams(byText: "测试PM2.5数据",
+                                              images : UIImage(named: "defaultCloud"),
+                                              url : NSURL(string:"https://pm25.date") as URL!,
+                                              title : "测试标题",
+                                              type : SSDKContentType.auto)
+            
+            shareParames.ssdkEnableUseClientShare()
+            // 自定义分享菜单
+            SSUIShareActionSheetStyle.setCancelButtonLabel(UIColor.flatBlack)
+            SSUIShareActionSheetStyle.setItemNameColor(UIColor.flatBlack)
+            SSUIShareActionSheetStyle.setItemNameFont(UIFont.boldSystemFont(ofSize: 10))
+            
+            
+            let items: [Any] = [
+                SSDKPlatformType.typeSinaWeibo.rawValue,
+                SSDKPlatformType.subTypeWechatSession.rawValue,
+                SSDKPlatformType.subTypeWechatTimeline.rawValue,
+                SSDKPlatformType.subTypeQQFriend.rawValue,
+                SSDKPlatformType.subTypeQZone.rawValue
+            ]
+            
+            let sheet: SSUIShareActionSheetController = ShareSDK.showShareActionSheet(shareButton, items: items, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, end: Bool) in
+                
+                switch state{
+                case SSDKResponseState.success:
+                    self.showHub(text: "分享成功")
+                case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
+                case SSDKResponseState.cancel:  print("分享取消")
+                self.showHub(text: "分享取消")
+                default:
+                    break
+                }
+            }
+            // 不跳转编辑页面
+            sheet.directSharePlatforms.add(SSDKPlatformType.typeSinaWeibo.rawValue)
+    }
+    
+
     
     
     func updateWeather(location: String) {
