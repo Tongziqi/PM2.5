@@ -8,15 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		01C5FBDB9D51592320B8B679 /* Pods_PM2_5.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D670352EFB4D571611A901BE /* Pods_PM2_5.framework */; };
+		5D03BA591E791E5500C84313 /* DeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D03BA571E791E5500C84313 /* DeatilViewController.swift */; };
+		5D03BA5E1E79412A00C84313 /* DetailWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D03BA5D1E79412A00C84313 /* DetailWeatherView.swift */; };
+		5D03BA601E79413400C84313 /* DetailWeatherView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D03BA5F1E79413400C84313 /* DetailWeatherView.xib */; };
 		5D086A591E768DA60045B115 /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A551E768DA60045B115 /* UITableViewVibrantCell.swift */; };
 		5D086A5A1E768DA60045B115 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A561E768DA60045B115 /* SideMenuManager.swift */; };
 		5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A571E768DA60045B115 /* SideMenuTransition.swift */; };
 		5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */; };
-		5D086A9D1E76BF760045B115 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A9A1E76BF760045B115 /* MenuViewController.swift */; };
-		5D086AA01E76C00D0045B115 /* UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A9F1E76C00D0045B115 /* UITableViewCell.swift */; };
-		5D086AA41E76C1910045B115 /* AnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA11E76C1910045B115 /* AnimationDelegate.swift */; };
-		5D086AA51E76C1910045B115 /* CircularRevealAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */; };
-		5D086AA61E76C1910045B115 /* CircularRevealTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */; };
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
@@ -44,15 +42,13 @@
 
 /* Begin PBXFileReference section */
 		3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PM2.5.release.xcconfig"; path = "Pods/Target Support Files/Pods-PM2.5/Pods-PM2.5.release.xcconfig"; sourceTree = "<group>"; };
+		5D03BA571E791E5500C84313 /* DeatilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeatilViewController.swift; sourceTree = "<group>"; };
+		5D03BA5D1E79412A00C84313 /* DetailWeatherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailWeatherView.swift; sourceTree = "<group>"; };
+		5D03BA5F1E79413400C84313 /* DetailWeatherView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailWeatherView.xib; sourceTree = "<group>"; };
 		5D086A551E768DA60045B115 /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewVibrantCell.swift; sourceTree = "<group>"; };
 		5D086A561E768DA60045B115 /* SideMenuManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuManager.swift; sourceTree = "<group>"; };
 		5D086A571E768DA60045B115 /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
 		5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
-		5D086A9A1E76BF760045B115 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		5D086A9F1E76C00D0045B115 /* UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableViewCell.swift; sourceTree = "<group>"; };
-		5D086AA11E76C1910045B115 /* AnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationDelegate.swift; sourceTree = "<group>"; };
-		5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealAnimator.swift; sourceTree = "<group>"; };
-		5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularRevealTransitionAnimator.swift; sourceTree = "<group>"; };
 		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareSdk-Bridge-Header.h"; sourceTree = "<group>"; };
 		5D32A00C1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -117,22 +113,9 @@
 			name = LeftMenu;
 			sourceTree = "<group>";
 		};
-		5D086A8F1E76BDDB0045B115 /* Yalantis */ = {
-			isa = PBXGroup;
-			children = (
-				5D086A9F1E76C00D0045B115 /* UITableViewCell.swift */,
-				5D086A9A1E76BF760045B115 /* MenuViewController.swift */,
-				5D086AA11E76C1910045B115 /* AnimationDelegate.swift */,
-				5D086AA21E76C1910045B115 /* CircularRevealAnimator.swift */,
-				5D086AA31E76C1910045B115 /* CircularRevealTransitionAnimator.swift */,
-			);
-			name = Yalantis;
-			sourceTree = "<group>";
-		};
 		5D086A981E76BF5D0045B115 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				5D086A8F1E76BDDB0045B115 /* Yalantis */,
 				5D086A541E768D900045B115 /* LeftMenu */,
 			);
 			name = Menu;
@@ -193,6 +176,7 @@
 				5D94BB521E34D2EE00F4CD3D /* MainViewController.swift */,
 				5D5161621E546DF4006F512E /* ChooseViewController.swift */,
 				5D5161631E546DF4006F512E /* ChooseViewController.xib */,
+				5D03BA571E791E5500C84313 /* DeatilViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -212,6 +196,8 @@
 			children = (
 				5DE0049D1E3473CD009517CB /* LaunchScreen.storyboard */,
 				5DE004981E3473CD009517CB /* Main.storyboard */,
+				5D03BA5D1E79412A00C84313 /* DetailWeatherView.swift */,
+				5D03BA5F1E79413400C84313 /* DetailWeatherView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -329,6 +315,7 @@
 				5D80F7AE1E5B046800A989D8 /* CityListCellTableViewCell.xib in Resources */,
 				5DE0049F1E3473CD009517CB /* LaunchScreen.storyboard in Resources */,
 				5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */,
+				5D03BA601E79413400C84313 /* DetailWeatherView.xib in Resources */,
 				5D6893521E68015700694491 /* WeatherUICollectionViewCell.xib in Resources */,
 				5D80F7A81E5AE80A00A989D8 /* Citys.xml in Resources */,
 				5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */,
@@ -390,7 +377,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D086AA51E76C1910045B115 /* CircularRevealAnimator.swift in Sources */,
 				5DBE7B5C1E6D40B600B2E9D0 /* ForecastDataLoader.swift in Sources */,
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
 				5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */,
@@ -399,20 +385,18 @@
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,
 				5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */,
 				5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */,
-				5D086AA01E76C00D0045B115 /* UITableViewCell.swift in Sources */,
 				5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */,
 				5D086A5A1E768DA60045B115 /* SideMenuManager.swift in Sources */,
 				5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */,
-				5D086AA41E76C1910045B115 /* AnimationDelegate.swift in Sources */,
+				5D03BA591E791E5500C84313 /* DeatilViewController.swift in Sources */,
 				5DBE7B5E1E6D414000B2E9D0 /* ForecastEntry.swift in Sources */,
-				5D086AA61E76C1910045B115 /* CircularRevealTransitionAnimator.swift in Sources */,
 				5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
 				5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */,
-				5D086A9D1E76BF760045B115 /* MenuViewController.swift in Sources */,
 				5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */,
 				5D6893431E67F35000694491 /* EmbeddedCollectionViewCell.swift in Sources */,
 				5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */,
+				5D03BA5E1E79412A00C84313 /* DetailWeatherView.swift in Sources */,
 				5D80F7AD1E5B046800A989D8 /* CityListCellTableViewCell.swift in Sources */,
 				5D6893451E67F38D00694491 /* EmbeddedSectionController.swift in Sources */,
 			);

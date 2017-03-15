@@ -96,7 +96,19 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
         checkNetConnection()
         
+        weatherImage.isUserInteractionEnabled = true
+        weatherLabel.isUserInteractionEnabled = true
+        weatherImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        weatherLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkNetConnection), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func tapped() {
+        let deatilViewController = DeatilViewController()
+        deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+        deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        self.present(deatilViewController, animated: true, completion: nil)
     }
     
     

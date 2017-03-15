@@ -9,6 +9,14 @@
 import Foundation
 import SwiftyJSON
 
+
+public let NavigationH: CGFloat = 64
+public let TabBarH: CGFloat = 49
+public let ScreenWidth: CGFloat = UIScreen.main.bounds.size.width
+public let ScreenHeight: CGFloat = UIScreen.main.bounds.size.height
+public let ScreenBounds: CGRect = UIScreen.main.bounds
+
+
 class CommonTool {
     
     /// 获得传入Json数据中的平均值
