@@ -43,7 +43,7 @@
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windbag" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-tq-Hqj">
-                        <rect key="frame" x="18" y="7" width="28" height="28"/>
+                        <rect key="frame" x="13" y="7" width="28" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="6aT-11-iBW"/>
                             <constraint firstAttribute="width" constant="28" id="jxa-BE-fQX"/>
@@ -69,16 +69,16 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obt-uE-9Ua">
-                        <rect key="frame" x="56" y="0.0" width="1" height="43"/>
+                        <rect key="frame" x="51" y="0.0" width="1" height="43"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="ih0-kT-rFw"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xow-i8-Xzo">
-                        <rect key="frame" x="62" y="8" width="40" height="28"/>
+                        <rect key="frame" x="57" y="8" width="45" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="eXU-Od-GPy"/>
+                            <constraint firstAttribute="width" constant="45" id="eXU-Od-GPy"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="20"/>
                         <nil key="textColor"/>
@@ -100,7 +100,7 @@
                     <constraint firstItem="HMG-c2-VIO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UeD-jC-NA4"/>
                     <constraint firstItem="hS5-Q4-AAG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-10" id="ZRb-pj-tyL"/>
                     <constraint firstItem="obt-uE-9Ua" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="c4k-Wz-iR2"/>
-                    <constraint firstItem="fb6-tq-Hqj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="cR5-a5-RXF"/>
+                    <constraint firstItem="fb6-tq-Hqj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="cR5-a5-RXF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="LLN-Vw-qKW" secondAttribute="trailing" constant="10" id="cxN-c1-YfQ"/>
                     <constraint firstItem="obt-uE-9Ua" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ddj-F8-DU4"/>
                     <constraint firstAttribute="bottom" secondItem="HMG-c2-VIO" secondAttribute="bottom" constant="-3" id="fsm-sn-0mf"/>
