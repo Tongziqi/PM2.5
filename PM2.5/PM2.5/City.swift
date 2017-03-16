@@ -8,7 +8,7 @@
 
 import Foundation
 
-class City: NSObject,NSCoding{
+class City: NSObject,NSCoding {
   var cityCN = ""
 
   override init(){

@@ -36,7 +36,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var no2: UILabel!
     @IBOutlet weak var aqi: UILabel!
     @IBOutlet weak var airConditon: UILabel!
-
+    
     
     let arrowWidth = 35
     let arrowHight = 35
@@ -61,7 +61,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     //读取全部的city，预更新
     var cities = [City]()
-
+    
+    var choosedCities:[String: ChoosedCity] = [:]
+    
+    //var choosedCities = [ChoosedCity]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 适配
@@ -169,7 +174,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func jumpToChoose(_ sender: Any) {
         let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
-        chooseViewController.locationCity = self.currentLocation
+        chooseViewController.locationCity = self.searchLocation
+        chooseViewController.choosedCities = self.choosedCities
         chooseViewController.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
             self.locationImg.isHidden = true
@@ -185,49 +191,52 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     @IBAction func shareButton(_ sender: Any) {
-            let shareParames = NSMutableDictionary()
-            shareParames.ssdkSetupShareParams(byText: self.searchLocation + "的PM2.5数据为:" + self.weatherLabel.text!,
-                                              images : UIImage(named: "defaultCloud"),
-                                              url : NSURL(string:"https://pm25.date") as URL!,
-                                              title : self.searchLocation + "的PM2.5数据",
-                                              type : SSDKContentType.auto)
+        let shareParames = NSMutableDictionary()
+        shareParames.ssdkSetupShareParams(byText: self.searchLocation + "的PM2.5数据为:" + self.weatherLabel.text!,
+                                          images : UIImage(named: "defaultCloud"),
+                                          url : NSURL(string:"https://pm25.date") as URL!,
+                                          title : self.searchLocation + "的PM2.5数据",
+                                          type : SSDKContentType.auto)
+        
+        shareParames.ssdkEnableUseClientShare()
+        // 自定义分享菜单
+        SSUIShareActionSheetStyle.setCancelButtonLabel(UIColor.flatBlack)
+        SSUIShareActionSheetStyle.setItemNameColor(UIColor.flatBlack)
+        SSUIShareActionSheetStyle.setItemNameFont(UIFont.boldSystemFont(ofSize: 10))
+        
+        
+        let items: [Any] = [
+            SSDKPlatformType.typeSinaWeibo.rawValue,
+            SSDKPlatformType.subTypeWechatSession.rawValue,
+            SSDKPlatformType.subTypeWechatTimeline.rawValue,
+            SSDKPlatformType.subTypeQQFriend.rawValue,
+            SSDKPlatformType.subTypeQZone.rawValue
+        ]
+        
+        let sheet: SSUIShareActionSheetController = ShareSDK.showShareActionSheet(shareButton, items: items, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, end: Bool) in
             
-            shareParames.ssdkEnableUseClientShare()
-            // 自定义分享菜单
-            SSUIShareActionSheetStyle.setCancelButtonLabel(UIColor.flatBlack)
-            SSUIShareActionSheetStyle.setItemNameColor(UIColor.flatBlack)
-            SSUIShareActionSheetStyle.setItemNameFont(UIFont.boldSystemFont(ofSize: 10))
-            
-            
-            let items: [Any] = [
-                SSDKPlatformType.typeSinaWeibo.rawValue,
-                SSDKPlatformType.subTypeWechatSession.rawValue,
-                SSDKPlatformType.subTypeWechatTimeline.rawValue,
-                SSDKPlatformType.subTypeQQFriend.rawValue,
-                SSDKPlatformType.subTypeQZone.rawValue
-            ]
-            
-            let sheet: SSUIShareActionSheetController = ShareSDK.showShareActionSheet(shareButton, items: items, shareParams: shareParames) { (state : SSDKResponseState, platformType : SSDKPlatformType, userData : [AnyHashable : Any]?, entity : SSDKContentEntity?, error: Error?, end: Bool) in
-                
-                switch state{
-                case SSDKResponseState.success:
-                    self.showHub(text: "分享成功")
-                case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
-                case SSDKResponseState.cancel:  print("分享取消")
-                self.showHub(text: "分享取消")
-                default:
-                    break
-                }
+            switch state{
+            case SSDKResponseState.success:
+                self.showHub(text: "分享成功")
+            case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
+            case SSDKResponseState.cancel:  print("分享取消")
+            self.showHub(text: "分享取消")
+            default:
+                break
             }
-            // 不跳转编辑页面
-            sheet.directSharePlatforms.add(SSDKPlatformType.typeSinaWeibo.rawValue)
+        }
+        // 不跳转编辑页面
+        sheet.directSharePlatforms.add(SSDKPlatformType.typeSinaWeibo.rawValue)
     }
     
-
+    
     
     
     func updateWeather(location: String) {
         HUD.show(.progress)
+        //清空一下缓存
+        self.choosedCities.removeAll()
+        
         let parameters: Parameters = ["key":UserSetting.newAppkey,
                                       "city":location]
         Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
@@ -236,8 +245,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             case .success:
                 if let value = response.result.value{
                     let json = JSON(value)
-                    self?.updateWeatherUI(json: json)
                     
+                    let choosedCity: ChoosedCity = ChoosedCity.init(city: location, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
+                    
+                    self?.choosedCities[location] = choosedCity
+                    
+                    self?.updateWeatherUI(json: json)
                     let futurejson: JSON = json["result"][0]["future"]
                     self?.forecastJson = futurejson
                 }
@@ -263,14 +276,39 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                     self?.updatePM25UI(json: json)
                 }
                 self?.updateForecastUI(json: (self?.forecastJson)!)
-
+                
             case .failure(let errno):
                 HUD.hide()
                 self?.showHub(text: "pm2.5数据获取失败")
                 print(errno)
             }
         }
+        self.updateChoosedCity(citys: (self.cities))
     }
+    
+    
+    func updateChoosedCity(citys: [City]) {
+        for city in citys {
+            let parameters: Parameters = ["key":UserSetting.newAppkey,
+                                          "city":city.cityCN]
+            Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+                guard self != nil else { return }
+                switch response.result {
+                case .success:
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        let choosedCity: ChoosedCity = ChoosedCity.init(city: city.cityCN, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
+                        self?.choosedCities[city.cityCN] = choosedCity
+                    }
+                case .failure(let errno):
+                    HUD.hide()
+                    self?.showHub(text: "实时数据获取失败")
+                    print(errno)
+                }
+            }
+        }
+    }
+    
     
     func updateForecastUI(json: JSON) {
         data.remove(at: 0)
@@ -282,7 +320,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.showHub(text: self.searchLocation + "数据更新完毕")
         
     }
-    
     
     
     func updatePM25UI(json: JSON) {

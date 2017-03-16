@@ -13,7 +13,6 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
 
     let cellId = "CityListCellTableViewCell"
     var locationCity: String? = nil
-    
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabelView: UITableView!
@@ -26,6 +25,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     var cities = [City]()
+    var choosedCities:[String: ChoosedCity] = [:]
     var filteredCities = [City]()
     var parserCities = [City]()
     var parserXML: ParserXML!
@@ -154,10 +154,18 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             cellZero?.labelOfCity.text = locationCity ?? ""
             cellZero?.locatedLabel.isHidden = true
+            cellZero?.cityLocationimage.image = UIImage(named: (self.choosedCities[self.locationCity!]?.weather)!)
+            cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
+            cellZero?.temperatureLabel.text = self.choosedCities[self.locationCity!]?.temperature
+            
             return cellZero!
         } else if indexPath.section == 1 {
             cell?.locatedLabel.text = "您定位过的城市"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
+            cell?.cityLocationimage.image = UIImage(named: (self.choosedCities[cities[indexPath.row].cityCN]?.weather)!)
+            cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind
+            cell?.temperatureLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.temperature
+            
             if self.tabelView.isEditing {
                 cell?.locatedLabel.text = ""
             }

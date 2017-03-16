@@ -14,7 +14,8 @@ class CityListCellTableViewCell: UITableViewCell {
     @IBOutlet weak var defaultView: UIView!
     @IBOutlet weak var cityLocationimage: UIImageView!
     @IBOutlet weak var locatedLabel: UILabel!
-    
+    @IBOutlet weak var windLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,6 +42,8 @@ class CityListCellTableViewCell: UITableViewCell {
         locatedLabel.textColor = UIColor.flatGray
         locatedLabel.text = ""
         labelOfCity.text = ""
+        temperatureLabel.text = ""
+        windLabel.text = ""
         selectionStyle = UITableViewCellSelectionStyle.none
         defaultView.layer.cornerRadius = 20
         defaultView.layer.shadowColor = colorWithHex(0xCCCDCF).cgColor
