@@ -43,7 +43,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.addBack()
         self.addEdit()
         
-        self.loadData()
+        cities = CommonTool.loadData(cities: &cities)
+        //self.loadData()
         self.tabelView.separatorStyle = .none
         self.searchBar.layer.borderWidth = 1
         self.searchBar.layer.borderColor = UIColor.flatWhite.cgColor
@@ -87,7 +88,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             self.navigationItem.rightBarButtonItem?.title = "完成"
             self.tabelView.isEditing = true
             self.tabelView.reloadData()
-            self.saveCity()
+            CommonTool.saveCity(cities: cities)
         }
     }
     
@@ -204,7 +205,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                     self.backClosure!(tempString!)
                 }
             }
-            self.saveCity()
+            CommonTool.saveCity(cities: cities)
             self.dismiss(animated: true, completion: nil);
         }  else if indexPath.section == 2 {
             let city: City
@@ -232,38 +233,10 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             if !weatherExist {
                 cities.append(city)
             }
-            self.saveCity()
+            CommonTool.saveCity(cities: cities)
             self.dismiss(animated: true, completion: nil);
         }
         
-    }
-    
-    fileprivate func documentsDirectory() -> String{
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        return paths[0]
-    }
-    
-    fileprivate func dataFilePath() -> String{
-        return (documentsDirectory() as NSString).appendingPathComponent("Cities.plist")
-    }
-    
-    func saveCity(){
-        let data = NSMutableData()
-        let archiver = NSKeyedArchiver(forWritingWith: data)
-        archiver.encode(cities, forKey: "Cities")
-        archiver.finishEncoding()
-        data.write(toFile: dataFilePath(), atomically: true)
-    }
-    
-    func loadData(){
-        let path = dataFilePath()
-        if FileManager.default.fileExists(atPath: path) {
-            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)){
-                let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
-                cities = unarchiver.decodeObject(forKey: "Cities") as! [City]
-                unarchiver.finishDecoding()
-            }
-        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

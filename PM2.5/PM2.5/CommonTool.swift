@@ -38,4 +38,35 @@ class CommonTool {
         return 199 * pm25 / 500
     }
     
+    
+    class func documentsDirectory() -> String{
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        return paths[0]
+    }
+    
+    class func dataFilePath() -> String{
+        return (documentsDirectory() as NSString).appendingPathComponent("Cities.plist")
+    }
+    
+    class func saveCity(cities: [City]){
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(cities, forKey: "Cities")
+        archiver.finishEncoding()
+        data.write(toFile: dataFilePath(), atomically: true)
+    }
+    
+    class func loadData( cities: inout [City]) -> [City]{
+        let path = dataFilePath()
+        if FileManager.default.fileExists(atPath: path) {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: path)){
+                let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+                cities = unarchiver.decodeObject(forKey: "Cities") as! [City]
+                unarchiver.finishDecoding()
+            }
+        }
+        
+        return cities
+    }
+    
 }

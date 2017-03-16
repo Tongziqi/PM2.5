@@ -59,6 +59,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var data = ["beijing"] as [Any]
     var forecastJson: JSON = []
     
+    //读取全部的city，预更新
+    var cities = [City]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +85,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             break
         }
         self.locationImg.isHidden = true
+        
+        cities = CommonTool.loadData(cities: &cities)
+        
         initLocationManager()
         ceateHeader()
         // Do any additional setup after loading the view.
