@@ -42,7 +42,7 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
             cell?.image.image = UIImage(named: entry.imageString!)
         }
         cell?.dataLabel.text = entry.dataLabel
-        cell?.temptureLabel.text = entry.highLable! + "°/" + entry.lowLabel! + "°"
+        cell?.temptureLabel.text = entry.temperature
         cell?.weather.text = entry.weatherLabel
         return cell!
     }

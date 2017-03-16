@@ -49,31 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             hud.hide(afterDelay: 1.0)
         }
     }
-    
 
-    
-    
-//    func networkCheck() {
-//        
-//        let reachability = Reachability.forInternetConnection()
-//        
-//        let isReachable  = reachability?.isReachable() ?? false
-//        
-//        if !isReachable {
-//    
-//            networkAlert = UIAlertView()
-//            networkAlert?.title = "提示"
-//            networkAlert?.message = "您的网络好像断了"
-//            networkAlert?.addButton(withTitle: "去设置")
-//            networkAlert?.addButton(withTitle: "不用管")
-//            networkAlert?.cancelButtonIndex = 1
-//            networkAlert?.delegate = self
-//            networkAlert?.show()
-//        }
-//    }
-
-    
-    
     func registerShareSDK() {
         ShareSDK.registerApp("1bea6cb22f93c",
                              activePlatforms: [SSDKPlatformType.typeSinaWeibo.rawValue,

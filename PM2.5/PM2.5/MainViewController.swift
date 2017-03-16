@@ -34,9 +34,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var pm10: UILabel!
     @IBOutlet weak var so2: UILabel!
     @IBOutlet weak var no2: UILabel!
-    @IBOutlet weak var o3: UILabel!
-    @IBOutlet weak var co: UILabel!
-    
+    @IBOutlet weak var aqi: UILabel!
+    @IBOutlet weak var airConditon: UILabel!
+
     
     let arrowWidth = 35
     let arrowHight = 35
@@ -109,6 +109,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
         deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         self.present(deatilViewController, animated: true, completion: nil)
+        
     }
     
     
@@ -222,18 +223,18 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func updateWeather(location: String) {
         HUD.show(.progress)
-        let parameters: Parameters = ["app":"weather.today",
-                                      "format":"json",
-                                      "appkey":UserSetting.Appkey,
-                                      "sign":UserSetting.Sign,
-                                      "weaid":location]
-        Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+        let parameters: Parameters = ["key":UserSetting.newAppkey,
+                                      "city":location]
+        Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
             guard self != nil else { return }
             switch response.result {
             case .success:
                 if let value = response.result.value{
                     let json = JSON(value)
                     self?.updateWeatherUI(json: json)
+                    
+                    let futurejson: JSON = json["result"][0]["future"]
+                    self?.forecastJson = futurejson
                 }
                 self?.updatePm25(location: location)
             case .failure(let errno):
@@ -246,12 +247,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func updatePm25(location: String) {
-        let parameters: Parameters = ["app":"weather.pm25",
-                                      "format":"json",
-                                      "appkey":UserSetting.Appkey,
-                                      "sign":UserSetting.Sign,
-                                      "weaid":location]
-        Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+        let parameters: Parameters = ["key":UserSetting.newAppkey,
+                                      "city":location]
+        Alamofire.request(UserSetting.newAqiUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
             guard self != nil else { return }
             switch response.result {
             case .success:
@@ -259,37 +257,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                     let json = JSON(value)
                     self?.updatePM25UI(json: json)
                 }
-                self?.updataForecastWeather(location: location)
+                self?.updateForecastUI(json: (self?.forecastJson)!)
+
             case .failure(let errno):
                 HUD.hide()
                 self?.showHub(text: "pm2.5数据获取失败")
                 print(errno)
             }
         }
-    }
-    
-    func updataForecastWeather(location: String) {
-        let parameters: Parameters = ["app":"weather.future",
-                                      "format":"json",
-                                      "appkey":UserSetting.Appkey,
-                                      "sign":UserSetting.Sign,
-                                      "weaid":location]
-        Alamofire.request(UserSetting.WeatherTodayUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
-            guard self != nil else { return }
-            switch response.result {
-            case .success:
-                if let value = response.result.value{
-                    let json = JSON(value)
-                    self?.forecastJson = json
-                    self?.updateForecastUI(json: json)
-                }
-            case .failure(let errno):
-                HUD.hide()
-                self?.showHub(text: "未来天气数据获取失败")
-                print(errno)
-            }
-        }
-        
     }
     
     func updateForecastUI(json: JSON) {
@@ -306,22 +281,33 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updatePM25UI(json: JSON) {
-        let aqi: String = json["result"]["aqi"].stringValue
-        self.pm25.text = aqi
-        let aqi_int = Int.init(aqi)
-        let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi_int!)
+        let pm25: Int = json["result"][0]["pm25"].intValue
+        let pm10: Int = json["result"][0]["pm10"].intValue
+        let no2: Int = json["result"][0]["no2"].intValue
+        let so2: Int = json["result"][0]["so2"].intValue
+        let aqi: Int = json["result"][0]["aqi"].intValue
+        let airCondition: String = json["result"][0]["quality"].stringValue
+        
+        
+        self.pm25.text = String(pm25)
+        self.pm10.text = String(pm10)
+        self.no2.text = String(no2)
+        self.so2.text = String(so2)
+        self.aqi.text = String(aqi)
+        self.airConditon.text = airCondition
+        
+        let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
     }
     
     
     func updateWeatherUI(json: JSON) {
-        let weatherLabel: String = json["result"]["days"].stringValue + "\n" + json["result"]["weather"].stringValue + "\n" + json["result"]["temperature"].stringValue
-        let weather_curr: String = json["result"]["weather_curr"].stringValue
+        let weatherLabel: String = json["result"][0]["date"].stringValue + "\n" + json["result"][0]["weather"].stringValue + json["result"][0]["temperature"].stringValue + "\n" + json["result"][0]["wind"].stringValue
+        let weather_curr: String = json["result"][0]["weather"].stringValue
         self.weatherImage.image = UIImage(named: weather_curr)
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
         self.weatherLabel.text = weatherLabel
-        
     }
     
     

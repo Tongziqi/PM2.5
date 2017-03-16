@@ -28,8 +28,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ft-Xv-H0z">
                                         <rect key="frame" x="8" y="0.0" width="359" height="647"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" PM2.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7u-7K-eVg">
-                                                <rect key="frame" x="86" y="272" width="47" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" AQI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7u-7K-eVg">
+                                                <rect key="frame" x="96" y="272" width="28" height="20"/>
                                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                                 <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -43,8 +43,8 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWg-Bi-orm">
-                                                <rect key="frame" x="165" y="272" width="36" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM2.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWg-Bi-orm">
+                                                <rect key="frame" x="162" y="272" width="42" height="20"/>
                                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                                 <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -58,24 +58,10 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c03-3T-M5t">
-                                                <rect key="frame" x="236" y="272" width="27" height="20"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="SO">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="14" name="PingFangSC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="2">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="12" name="PingFangSC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PM10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c03-3T-M5t">
+                                                <rect key="frame" x="232" y="272" width="36" height="20"/>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                                <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hH-RB-0YO">
@@ -194,20 +180,98 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xe5-Jm-JT8">
-                                                <rect key="frame" x="171" y="327" width="18" height="20"/>
+                                                <rect key="frame" x="164" y="327" width="32" height="20"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="O">
+                                                    <fragment content=" SO">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="NSColor" red="0.52941000000000005" green="0.52941000000000005" blue="0.52941000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <font key="NSFont" size="14" name="PingFangSC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                <tabStops>
+                                                                    <textTab alignment="left" location="28">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="56">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="84">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="112">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="140">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="168">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="196">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="224">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="252">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="280">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="308">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="336">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                </tabStops>
+                                                            </paragraphStyle>
                                                         </attributes>
                                                     </fragment>
-                                                    <fragment content="3">
+                                                    <fragment content="2">
                                                         <attributes>
-                                                            <color key="NSColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="NSColor" red="0.52941000000000005" green="0.52941000000000005" blue="0.52941000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <font key="NSFont" size="12" name="PingFangSC-Regular"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                <tabStops>
+                                                                    <textTab alignment="left" location="28">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="56">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="84">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="112">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="140">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="168">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="196">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="224">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="252">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="280">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="308">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                    <textTab alignment="left" location="336">
+                                                                        <options/>
+                                                                    </textTab>
+                                                                </tabStops>
+                                                            </paragraphStyle>
                                                         </attributes>
                                                     </fragment>
                                                 </attributedString>
@@ -217,21 +281,6 @@
                                                 <rect key="frame" x="162" y="353" width="35" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="bKk-ZJ-VBB"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvl-S3-l6l">
-                                                <rect key="frame" x="239" y="327" width="21" height="20"/>
-                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
-                                                <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3L-Jx-OXV">
-                                                <rect key="frame" x="232" y="353" width="35" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="35" id="cQJ-qM-IQf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,12 +303,27 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kn0-t3-5bK">
-                                                <rect key="frame" x="325" y="25.5" width="24" height="24"/>
+                                                <rect key="frame" x="325" y="26" width="24" height="24"/>
                                                 <state key="normal" image="share"/>
                                                 <connections>
                                                     <action selector="shareButton:" destination="TJY-HS-ez5" eventType="touchUpInside" id="nvI-GD-Xva"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="空气状况" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-W4-SHa">
+                                                <rect key="frame" x="221" y="330" width="58" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="重度污染" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXf-Yi-jvw">
+                                                <rect key="frame" x="221" y="353" width="56" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="dJw-hX-plQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -268,11 +332,11 @@
                                             <constraint firstItem="sga-qH-xMn" firstAttribute="top" secondItem="cWg-Bi-orm" secondAttribute="bottom" constant="6" id="0o1-VQ-eRT"/>
                                             <constraint firstAttribute="trailing" secondItem="kn0-t3-5bK" secondAttribute="trailing" constant="10" id="1sH-IR-6gv"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="top" secondItem="0hH-RB-0YO" secondAttribute="bottom" constant="8" symbolic="YES" id="4Cu-fc-AbQ"/>
+                                            <constraint firstItem="VXf-Yi-jvw" firstAttribute="top" secondItem="m4I-W4-SHa" secondAttribute="bottom" constant="6" id="4Wt-IF-Njz"/>
                                             <constraint firstItem="ssS-Qn-NYj" firstAttribute="leading" secondItem="zXk-I4-S49" secondAttribute="trailing" constant="15" id="69E-OO-9hX"/>
                                             <constraint firstItem="384-qA-8t5" firstAttribute="top" secondItem="8ft-Xv-H0z" secondAttribute="top" constant="28" id="8bA-wc-wC3"/>
                                             <constraint firstItem="zXk-I4-S49" firstAttribute="top" secondItem="384-qA-8t5" secondAttribute="bottom" constant="16" id="BU3-Pv-PHs"/>
                                             <constraint firstAttribute="centerX" secondItem="384-qA-8t5" secondAttribute="centerX" constant="0.5" id="D59-qz-2yt"/>
-                                            <constraint firstItem="pvl-S3-l6l" firstAttribute="top" secondItem="qS9-ZA-FXe" secondAttribute="bottom" constant="9" id="DR4-Vw-5IP"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="height" secondItem="eAh-la-Vgr" secondAttribute="height" constant="18" id="Dq0-CP-Z2u"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="leading" secondItem="eAh-la-Vgr" secondAttribute="trailing" constant="5" id="FqB-yt-5QG"/>
                                             <constraint firstItem="Xe5-Jm-JT8" firstAttribute="top" secondItem="sga-qH-xMn" secondAttribute="bottom" constant="9" id="M52-cD-bXa"/>
@@ -284,7 +348,6 @@
                                             <constraint firstItem="qS9-ZA-FXe" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" constant="70" id="Oz3-gK-ykC"/>
                                             <constraint firstAttribute="centerX" secondItem="smb-yS-Of1" secondAttribute="centerX" constant="124.5" id="QUI-6C-pnE"/>
                                             <constraint firstAttribute="centerX" secondItem="Sdl-ds-RDb" secondAttribute="centerX" id="R2x-PC-8V2"/>
-                                            <constraint firstItem="pvl-S3-l6l" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" constant="70" id="RPL-Pv-zkx"/>
                                             <constraint firstAttribute="centerX" secondItem="ssS-Qn-NYj" secondAttribute="centerX" constant="-45" id="SdE-pc-1cW"/>
                                             <constraint firstItem="7xK-n4-W3H" firstAttribute="top" secondItem="Ria-0J-Gnl" secondAttribute="bottom" constant="-2" id="U1J-NI-D8r"/>
                                             <constraint firstItem="7yT-up-Hru" firstAttribute="leading" secondItem="YaB-No-mue" secondAttribute="leading" id="UWk-6e-8ld"/>
@@ -292,18 +355,18 @@
                                             <constraint firstAttribute="centerX" secondItem="c03-3T-M5t" secondAttribute="centerX" constant="-70" id="Uv8-xf-bF9"/>
                                             <constraint firstAttribute="centerX" secondItem="C7u-7K-eVg" secondAttribute="centerX" constant="70" id="VH6-QZ-0kI"/>
                                             <constraint firstItem="ygf-Uc-oK7" firstAttribute="leading" secondItem="384-qA-8t5" secondAttribute="trailing" constant="3" id="XrC-Kg-azW"/>
-                                            <constraint firstItem="w3L-Jx-OXV" firstAttribute="leading" secondItem="qS9-ZA-FXe" secondAttribute="leading" id="Y88-fX-tyh"/>
                                             <constraint firstItem="JVG-sI-qaB" firstAttribute="top" secondItem="Xe5-Jm-JT8" secondAttribute="bottom" constant="6" id="aC4-7k-xPH"/>
                                             <constraint firstItem="cWg-Bi-orm" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" constant="3" id="bQo-YT-lFn"/>
                                             <constraint firstItem="Xe5-Jm-JT8" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" id="cRl-eV-Nct"/>
                                             <constraint firstItem="Is9-hy-wTe" firstAttribute="top" secondItem="YaB-No-mue" secondAttribute="bottom" constant="9" id="cTY-eO-2ji"/>
-                                            <constraint firstItem="w3L-Jx-OXV" firstAttribute="top" secondItem="pvl-S3-l6l" secondAttribute="bottom" constant="6" id="d4v-dO-LL6"/>
                                             <constraint firstItem="7xK-n4-W3H" firstAttribute="leading" secondItem="Ria-0J-Gnl" secondAttribute="leading" id="dAQ-67-bhu"/>
                                             <constraint firstItem="smb-yS-Of1" firstAttribute="top" secondItem="eAh-la-Vgr" secondAttribute="bottom" constant="-1" id="dar-S3-8tY"/>
                                             <constraint firstItem="cWg-Bi-orm" firstAttribute="top" secondItem="Sdl-ds-RDb" secondAttribute="bottom" constant="10" id="e4H-FH-ab2"/>
                                             <constraint firstItem="Is9-hy-wTe" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" constant="-70" id="edG-gV-6mP"/>
                                             <constraint firstItem="FUr-qx-Wiq" firstAttribute="leading" secondItem="8ft-Xv-H0z" secondAttribute="leading" constant="10" id="fsf-YC-dAt"/>
                                             <constraint firstItem="FUr-qx-Wiq" firstAttribute="centerY" secondItem="384-qA-8t5" secondAttribute="centerY" id="gfw-r7-jsY"/>
+                                            <constraint firstItem="VXf-Yi-jvw" firstAttribute="leading" secondItem="m4I-W4-SHa" secondAttribute="leading" id="huK-4z-fOD"/>
+                                            <constraint firstItem="m4I-W4-SHa" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" constant="70" id="hvL-P3-zhs"/>
                                             <constraint firstAttribute="centerX" secondItem="YaB-No-mue" secondAttribute="centerX" constant="70" id="opI-E3-TrT"/>
                                             <constraint firstItem="sga-qH-xMn" firstAttribute="centerX" secondItem="8ft-Xv-H0z" secondAttribute="centerX" id="oq3-M8-tGT"/>
                                             <constraint firstItem="0hH-RB-0YO" firstAttribute="top" secondItem="ssS-Qn-NYj" secondAttribute="bottom" constant="22" id="pXO-Iw-lwq"/>
@@ -312,6 +375,7 @@
                                             <constraint firstItem="C7u-7K-eVg" firstAttribute="top" secondItem="Sdl-ds-RDb" secondAttribute="bottom" constant="10" id="t28-kT-tXF"/>
                                             <constraint firstItem="Sdl-ds-RDb" firstAttribute="centerY" secondItem="eAh-la-Vgr" secondAttribute="centerY" constant="1" id="t8M-bZ-vzw"/>
                                             <constraint firstItem="Ria-0J-Gnl" firstAttribute="leading" secondItem="Sdl-ds-RDb" secondAttribute="trailing" constant="11" id="teJ-Qj-gjX"/>
+                                            <constraint firstItem="m4I-W4-SHa" firstAttribute="centerY" secondItem="Xe5-Jm-JT8" secondAttribute="centerY" constant="1" id="vmN-Sn-jaA"/>
                                             <constraint firstItem="ssS-Qn-NYj" firstAttribute="centerY" secondItem="zXk-I4-S49" secondAttribute="centerY" constant="-0.5" id="wmc-7w-wMH"/>
                                             <constraint firstAttribute="centerX" secondItem="eAh-la-Vgr" secondAttribute="centerX" constant="125.5" id="zwD-dz-SJe"/>
                                         </constraints>
@@ -336,18 +400,18 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="co" destination="w3L-Jx-OXV" id="Dub-UI-Mg5"/>
+                        <outlet property="airConditon" destination="VXf-Yi-jvw" id="onw-OT-o9K"/>
+                        <outlet property="aqi" destination="YaB-No-mue" id="XLt-FV-XmW"/>
                         <outlet property="labelSize" destination="Y5e-sd-JJJ" id="aoY-tr-a2j"/>
                         <outlet property="locationImg" destination="ygf-Uc-oK7" id="GTv-q2-1BW"/>
-                        <outlet property="no2" destination="7yT-up-Hru" id="oFp-e5-IMf"/>
-                        <outlet property="o3" destination="JVG-sI-qaB" id="KXr-J0-Mpm"/>
-                        <outlet property="pm10" destination="sga-qH-xMn" id="PUY-vB-bpt"/>
-                        <outlet property="pm25" destination="YaB-No-mue" id="H3h-Lp-KIn"/>
+                        <outlet property="no2" destination="7yT-up-Hru" id="Off-dY-fix"/>
+                        <outlet property="pm10" destination="qS9-ZA-FXe" id="zws-Mu-3Tm"/>
+                        <outlet property="pm25" destination="sga-qH-xMn" id="jPK-cj-YbQ"/>
                         <outlet property="pm25image" destination="Sdl-ds-RDb" id="0dU-Xj-3gC"/>
                         <outlet property="scoreView" destination="3RS-a5-NSD" id="y0t-Oa-ZOH"/>
                         <outlet property="searchButton" destination="FUr-qx-Wiq" id="UlU-i8-9yy"/>
                         <outlet property="shareButton" destination="kn0-t3-5bK" id="iwo-jz-I7y"/>
-                        <outlet property="so2" destination="qS9-ZA-FXe" id="oIG-2E-7bq"/>
+                        <outlet property="so2" destination="JVG-sI-qaB" id="aDi-SM-DFI"/>
                         <outlet property="userLocationLabel" destination="384-qA-8t5" id="3hg-Zo-Ups"/>
                         <outlet property="weatherImage" destination="zXk-I4-S49" id="A1e-Vg-NIG"/>
                         <outlet property="weatherLabel" destination="ssS-Qn-NYj" id="YP3-Tl-YFg"/>

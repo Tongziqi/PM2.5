@@ -14,6 +14,12 @@ class UserSetting: NSObject {
     static let Sign: String! = "0cb4e1d9a759db575d36cb5db8f2ac69"
     static let WeatherTodayUrl: String! = "https://sapi.k780.com/"
     
+    static let newWeatherUrl: String! = "http://apicloud.mob.com/v1/weather/query"
+    static let newAqiUrl: String! = "https://apicloud.mob.com/environment/query"
+    static let newAppkey: String! = "1c2506cc3a934"
+    
+    
+    
     static let WeatherCondition: [String] = ["晴","多云","阴","阵雨","雷阵雨","暴雪","暴雨-大暴雨","暴雨","大暴雨-特大暴雨","大暴雨","大雪-暴雪","大雪","大雨-暴雨","大雨","冻雨","多云转晴","多云转阴","浮城","雷阵雨","雷阵雨伴有冰雹","霾","强沙尘暴","沙尘暴","特大暴雨","雾","小雪-中雪","小雪","小雨-中雨","小雨","扬沙","雨夹雪","阵雪","阵雨","中雪-大雪","中雪","中雨-大雨","中雨"]
 }
 
