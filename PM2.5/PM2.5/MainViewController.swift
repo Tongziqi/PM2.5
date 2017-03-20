@@ -289,28 +289,26 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func updateChoosedCity(citys: [City]) {
         
-        
-        let parameters: Parameters = ["key":UserSetting.newAppkey,
-                                      "city":self.currentLocation]
-        Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
-            guard self != nil else { return }
-            switch response.result {
-            case .success:
-                if let value = response.result.value{
-                    let json = JSON(value)
-                    let choosedCity: ChoosedCity = ChoosedCity.init(city: self!.currentLocation, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
-                    self?.choosedCities[(self?.currentLocation)!] = choosedCity
+        if self.currentLocation != "获取地理位置失败" {
+            let parameters: Parameters = ["key":UserSetting.newAppkey,
+                                        "city":self.currentLocation]
+            Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+                guard self != nil else { return }
+                switch response.result {
+                case .success:
+                    if let value = response.result.value{
+                        let json = JSON(value)
+                        let choosedCity: ChoosedCity = ChoosedCity.init(city: self!.currentLocation, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
+                        self?.choosedCities[(self?.currentLocation)!] = choosedCity
+                        
+                    }
+                case .failure(let errno):
+                    HUD.hide()
+                    self?.showHub(text: "实时数据获取失败")
+                    print(errno)
                 }
-            case .failure(let errno):
-                HUD.hide()
-                self?.showHub(text: "实时数据获取失败")
-                print(errno)
             }
         }
-        
-        
-        
-        
         for city in citys {
             let parameters: Parameters = ["key":UserSetting.newAppkey,
                                           "city":city.cityCN]

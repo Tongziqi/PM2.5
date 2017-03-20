@@ -153,9 +153,11 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
             }
             cellZero?.labelOfCity.text = locationCity ?? ""
-            cellZero?.locatedLabel.text = "当前城市"
             cellZero?.locatedLabel.textColor = UIColor.flatRed
-            cellZero?.cityLocationimage.image = UIImage(named: "choose" + (self.choosedCities[self.locationCity!]?.weather)!)
+            if self.locationCity != "获取地理位置失败" {
+                cellZero?.cityLocationimage.image = UIImage(named: "choose" + (self.choosedCities[self.locationCity!]?.weather)!)
+                cellZero?.locatedLabel.text = "当前城市"
+            }
             cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
             cellZero?.temperatureLabel.text = self.choosedCities[self.locationCity!]?.temperature
             
@@ -163,7 +165,10 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         } else if indexPath.section == 1 {
             cell?.locatedLabel.text = "已经定位"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
-            cell?.cityLocationimage.image = UIImage(named: ("choose" + (self.choosedCities[cities[indexPath.row].cityCN]?.weather)!))
+            if self.choosedCities != [:] {
+                cell?.cityLocationimage.image = UIImage(named: ("choose" + (self.choosedCities[cities[indexPath.row].cityCN]?.weather)!))
+
+            }
             cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind
             cell?.temperatureLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.temperature
             
