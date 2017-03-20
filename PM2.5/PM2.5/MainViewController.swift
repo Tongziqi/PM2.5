@@ -174,7 +174,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     @IBAction func jumpToChoose(_ sender: Any) {
         let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
-        chooseViewController.locationCity = self.searchLocation
+        chooseViewController.locationCity = self.currentLocation
         chooseViewController.choosedCities = self.choosedCities
         chooseViewController.setBackMyClosure { (input: String) in
             self.userLocationLabel.text = input
@@ -288,6 +288,29 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updateChoosedCity(citys: [City]) {
+        
+        
+        let parameters: Parameters = ["key":UserSetting.newAppkey,
+                                      "city":self.currentLocation]
+        Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
+            guard self != nil else { return }
+            switch response.result {
+            case .success:
+                if let value = response.result.value{
+                    let json = JSON(value)
+                    let choosedCity: ChoosedCity = ChoosedCity.init(city: self!.currentLocation, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
+                    self?.choosedCities[(self?.currentLocation)!] = choosedCity
+                }
+            case .failure(let errno):
+                HUD.hide()
+                self?.showHub(text: "实时数据获取失败")
+                print(errno)
+            }
+        }
+        
+        
+        
+        
         for city in citys {
             let parameters: Parameters = ["key":UserSetting.newAppkey,
                                           "city":city.cityCN]

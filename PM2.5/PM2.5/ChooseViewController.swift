@@ -153,7 +153,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
             }
             cellZero?.labelOfCity.text = locationCity ?? ""
-            cellZero?.locatedLabel.text = "当前选择的城市"
+            cellZero?.locatedLabel.text = "当前城市"
             cellZero?.locatedLabel.textColor = UIColor.flatRed
             cellZero?.cityLocationimage.image = UIImage(named: "choose" + (self.choosedCities[self.locationCity!]?.weather)!)
             cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
@@ -161,7 +161,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             
             return cellZero!
         } else if indexPath.section == 1 {
-            cell?.locatedLabel.text = "您定位过的城市"
+            cell?.locatedLabel.text = "已经定位"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
             cell?.cityLocationimage.image = UIImage(named: ("choose" + (self.choosedCities[cities[indexPath.row].cityCN]?.weather)!))
             cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind
@@ -176,14 +176,14 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             if searchBar.text != "" {
                 city = filteredCities[indexPath.row]
                 cell?.labelOfCity?.text = city.cityCN
-                cell?.locatedLabel.text = "点击查询该城市"
+                cell?.locatedLabel.text = "点击查询"
                 cell?.locatedLabel.textColor = UIColor.flatOrange
                 return cell!
             } else {
                 city = cities[indexPath.row]
                 cell?.addCityName(city)
                 cell?.locationImg.isHidden = true
-                cell?.locatedLabel.text = "点击查询该城市"
+                cell?.locatedLabel.text = "点击查询"
                 return cell!
             }
         } else {
