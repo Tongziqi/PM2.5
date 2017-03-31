@@ -166,7 +166,11 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             cell?.locatedLabel.text = "已经定位"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
             if self.choosedCities != [:] {
-                cell?.cityLocationimage.image = UIImage(named: ("choose" + (self.choosedCities[cities[indexPath.row].cityCN]?.weather)!))
+                var name:String = (self.choosedCities[cities[indexPath.row].cityCN]?.weather) ?? ""
+                if !UserSetting.chooseWeatherCondition.contains(name) {
+                    name = name.components(separatedBy: "到").last ?? ""
+                }
+                cell?.cityLocationimage.image = UIImage(named: ("choose" + name))
 
             }
             cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind

@@ -41,6 +41,7 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
         if UserSetting.WeatherCondition.contains(entry.imageString!) {
             cell?.image.image = UIImage(named: entry.imageString!)
         }
+        
         cell?.dataLabel.text = entry.dataLabel
         cell?.temptureLabel.text = entry.temperature
         cell?.weather.text = entry.weatherLabel

@@ -25,7 +25,7 @@ DEPENDENCIES:
   - MJRefresh
   - MOBFoundation (~> 2.0.8)
   - Onboard
-  - PKHUD (~> 4.2.0)
+  - PKHUD
   - Reachability
   - ShareSDK3 (~> 3.3.2)
   - ShareSDK3/ShareSDKPlatforms/QQ
@@ -55,6 +55,6 @@ SPEC CHECKSUMS:
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 435e596fbe09fed0c159cd01fc6cb1189ecacfd7
+PODFILE CHECKSUM: 1eab11d037bfd9e07bfe81fe909a46c895f1952a
 
 COCOAPODS: 1.2.0

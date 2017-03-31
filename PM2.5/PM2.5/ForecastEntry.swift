@@ -20,7 +20,13 @@ class ForecastEntry: IGListDiffable {
     
     init(imageString: String, dataLabel: String, temperature: String, weatherLabel: String){
         self.weatherLabel = weatherLabel
-        self.imageString = imageString
+        
+        var name = imageString
+        if !UserSetting.WeatherCondition.contains(name) {
+            name = name.components(separatedBy: "到").last!
+        }
+        
+        self.imageString = name
         self.dataLabel = dataLabel
         self.temperature = temperature
     }
