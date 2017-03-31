@@ -6,6 +6,7 @@
 //  Copyright © 2017年 童小托. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class UserSetting: NSObject {
@@ -24,6 +25,45 @@ class UserSetting: NSObject {
     
     static let chooseWeatherCondition: [String] = ["多云,少云,晴,阴,小雨,雨,雷阵雨,中雨,阵雨,零散阵雨,零散雷雨,小雪,雨夹雪,阵雪,霾,暴雨,大雨,大雪,中雪"]
     
+}
+
+typealias Task = (_ cancel : Bool) -> Void
+
+@discardableResult func delay(_ time:Foundation.TimeInterval, task:@escaping ()->()) ->  Task? {
+    
+    func dispatch_later(_ block:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(
+            deadline: DispatchTime.now() + Double(Int64(time * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC),
+            execute: block)
+    }
+    
+    var closure: (()->())? = task
+    var result: Task?
+    
+    let delayedClosure: Task = {
+        cancel in
+        if let internalClosure = closure {
+            if (cancel == false) {
+                DispatchQueue.main.async(execute: internalClosure);
+            }
+        }
+        closure = nil
+        result = nil
+    }
+    
+    result = delayedClosure
+    
+    dispatch_later {
+        if let delayedClosure = result {
+            delayedClosure(false)
+        }
+    }
+    
+    return result;
+}
+
+func cancel(_ task: Task?) {
+    task?(true)
 }
 
 

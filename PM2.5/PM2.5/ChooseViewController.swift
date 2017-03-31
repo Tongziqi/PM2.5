@@ -204,7 +204,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: false)
             if self.backClosure != nil {
                 self.backClosure!(locationCity!)
             }
@@ -218,7 +218,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 city = cities[indexPath.row]
             }
             searchBar.resignFirstResponder()
-            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: false)
             
             if self.backClosure != nil {
                 let tempString: String? = city.cityCN
@@ -236,7 +236,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 city = cities[indexPath.row]
             }
             searchBar.resignFirstResponder()
-            tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: false)
             
             if self.backClosure != nil {
                 let tempString: String? = city.cityCN

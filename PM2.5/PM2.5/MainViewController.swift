@@ -14,6 +14,8 @@ import MJRefresh
 import Alamofire
 import IGListKit
 import Reachability
+import Foundation
+
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
     
@@ -64,6 +66,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var cities = [City]()
     
     var choosedCities:[String: ChoosedCity] = [:]
+    
     
     
     override func viewDidLoad() {
@@ -180,7 +183,11 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             self.userLocationLabel.text = input
             self.locationImg.isHidden = true
             self.searchLocation = input
-            self.updateWeather(location: input)
+            
+            delay(0.5, task: {
+                self.updateWeather(location: input)
+            })
+            
         }
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
         menuLeftNavigationController.leftSide = true
@@ -231,7 +238,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     
-    
     func updateWeather(location: String) {
         HUD.show(.progress)
         //清空一下缓存
@@ -241,6 +247,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                                       "city":location]
         Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
             guard self != nil else { return }
+            HUD.hide()
+            
             switch response.result {
             case .success:
                 if let value = response.result.value{
@@ -306,7 +314,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
         if self.currentLocation != "获取地理位置失败" {
             let parameters: Parameters = ["key":UserSetting.newAppkey,
-                                        "city":self.currentLocation]
+                                          "city":self.currentLocation]
             Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
                 guard self != nil else { return }
                 switch response.result {
@@ -343,6 +351,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 }
             }
         }
+        
+        self.showHub(text: self.searchLocation + "数据更新完毕")
     }
     
     
@@ -350,11 +360,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         data.remove(at: 0)
         //这里面生成一个随机数，保证每次获得的都不一样
         data.append(self.searchLocation + String(arc4random()))
-        self.scoreView.reloadInputViews()
         self.adapter.performUpdates(animated: true, completion: nil)
-        HUD.hide()
-        self.showHub(text: self.searchLocation + "数据更新完毕")
-        
+        //        self.showHub(text: self.searchLocation + "数据更新完毕")
     }
     
     
@@ -381,8 +388,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func updateWeatherUI(json: JSON) {
         let weatherLabel: String = json["result"][0]["date"].stringValue + "\n" + json["result"][0]["weather"].stringValue + json["result"][0]["temperature"].stringValue + "\n" + json["result"][0]["wind"].stringValue
-//        let weather_curr: String = json["result"][0]["weather"].stringValue
-        var name: String = json["result"][0]["weather"].stringValue 
+        //        let weather_curr: String = json["result"][0]["weather"].stringValue
+        var name: String = json["result"][0]["weather"].stringValue
         if !UserSetting.WeatherCondition.contains(name) {
             name = name.components(separatedBy: "到").last ?? ""
         }
@@ -452,10 +459,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func showHub(text: String) {
         // 这里面又一个warning https://github.com/pkluz/PKHUD/issues/6 fixed
-        let hud = PKHUD()
-        hud.contentView = PKHUDTextView(text: text)
-        hud.show()
-        hud.hide(afterDelay: 1.0)
+        //                let hud = PKHUD()
+        //                hud.contentView = PKHUDTextView(text: text)
+        //                hud.show()
+        //                hud.hide(afterDelay: 1.0)
+        PKHUD.sharedHUD.contentView = CustomPKHUDView(text: text, backgroundColor: UIColor.randomFlat, titleColor:UIColor.randomFlat)
+        PKHUD.sharedHUD.show()
+        PKHUD.sharedHUD.hide(afterDelay: 1.0)
     }
     
     func displayLocationInfo(placemark: CLPlacemark?) {
