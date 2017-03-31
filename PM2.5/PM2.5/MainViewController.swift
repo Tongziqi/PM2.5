@@ -115,6 +115,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func tapped() {
+        // 这里面初始化可能在ios9中会出现问题啊
         let deatilViewController = DeatilViewController()
         deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
         deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical

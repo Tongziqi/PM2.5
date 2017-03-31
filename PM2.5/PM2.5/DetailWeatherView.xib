@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -220,7 +220,18 @@
                 <constraint firstItem="9p3-bC-wE2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mYO-TX-6fs"/>
             </constraints>
             <connections>
+                <outlet property="activityState" destination="2v8-SB-Z59" id="baj-Gh-98D"/>
+                <outlet property="aqi" destination="w21-3u-Hcs" id="VaL-aS-g7f"/>
+                <outlet property="city" destination="e1x-e3-dhl" id="2C0-mj-3bJ"/>
+                <outlet property="currentTemputure" destination="N4G-Y1-3k1" id="bAb-sD-Yc3"/>
+                <outlet property="data" destination="Qbr-fd-6lt" id="0NH-PY-AAF"/>
+                <outlet property="humidity" destination="wTp-ah-qG0" id="PFC-h9-SWt"/>
                 <outlet property="mainScrollView" destination="9p3-bC-wE2" id="S3Y-8U-l5p"/>
+                <outlet property="tempoture" destination="Ed2-OT-PrL" id="xvR-Td-UnW"/>
+                <outlet property="weather" destination="bI9-DP-bIW" id="c6A-H1-n6s"/>
+                <outlet property="weatherState" destination="kWB-lf-tf2" id="Vlu-kD-qkB"/>
+                <outlet property="windDirection" destination="P4J-AV-BuD" id="gIP-nX-Vxc"/>
+                <outlet property="windPower" destination="XJf-Ch-9U6" id="xJU-6k-EZa"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>

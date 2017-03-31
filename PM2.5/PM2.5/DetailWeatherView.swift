@@ -12,6 +12,19 @@ class DetailWeatherView: UIView {
 
     @IBOutlet weak var mainScrollView: UIScrollView!
     
+    @IBOutlet weak var data: UILabel!
+    @IBOutlet weak var city: UILabel!
+    @IBOutlet weak var weather: UILabel!
+    @IBOutlet weak var tempoture: UILabel!
+    @IBOutlet weak var currentTemputure: UILabel!
+    
+    @IBOutlet weak var windDirection: UILabel!
+    @IBOutlet weak var windPower: UILabel!
+    @IBOutlet weak var aqi: UILabel!
+    @IBOutlet weak var humidity: UILabel!
+    @IBOutlet weak var weatherState: UILabel!
+    @IBOutlet weak var activityState: UILabel!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
