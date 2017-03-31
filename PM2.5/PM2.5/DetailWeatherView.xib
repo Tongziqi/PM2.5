@@ -37,8 +37,8 @@
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="风力:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEO-PM-R7X">
-                            <rect key="frame" x="13" y="177" width="39" height="20"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="穿衣：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEO-PM-R7X">
+                            <rect key="frame" x="13" y="177" width="51" height="20"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                             <nil key="highlightedColor"/>
@@ -225,13 +225,13 @@
                 <outlet property="city" destination="e1x-e3-dhl" id="2C0-mj-3bJ"/>
                 <outlet property="currentTemputure" destination="N4G-Y1-3k1" id="bAb-sD-Yc3"/>
                 <outlet property="data" destination="Qbr-fd-6lt" id="0NH-PY-AAF"/>
+                <outlet property="dressingIndex" destination="XJf-Ch-9U6" id="wNP-5n-S3s"/>
                 <outlet property="humidity" destination="wTp-ah-qG0" id="PFC-h9-SWt"/>
                 <outlet property="mainScrollView" destination="9p3-bC-wE2" id="S3Y-8U-l5p"/>
                 <outlet property="tempoture" destination="Ed2-OT-PrL" id="xvR-Td-UnW"/>
                 <outlet property="weather" destination="bI9-DP-bIW" id="c6A-H1-n6s"/>
                 <outlet property="weatherState" destination="kWB-lf-tf2" id="Vlu-kD-qkB"/>
                 <outlet property="windDirection" destination="P4J-AV-BuD" id="gIP-nX-Vxc"/>
-                <outlet property="windPower" destination="XJf-Ch-9U6" id="xJU-6k-EZa"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>

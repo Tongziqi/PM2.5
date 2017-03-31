@@ -47,6 +47,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var locationManager: CLLocationManager!
     var currentLocation: String = "获取地理位置失败"
     var searchLocation: String = ""
+    var detailWeather: [String:String] = [:]
     
     
     let loader = ForecastDataLoader()
@@ -63,8 +64,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var cities = [City]()
     
     var choosedCities:[String: ChoosedCity] = [:]
-    
-    //var choosedCities = [ChoosedCity]()
     
     
     override func viewDidLoad() {
@@ -115,8 +114,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func tapped() {
-        // 这里面初始化可能在ios9中会出现问题啊
         let deatilViewController = DeatilViewController()
+        deatilViewController.detailWeatherDate = self.detailWeather
         deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
         deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         self.present(deatilViewController, animated: true, completion: nil)
@@ -219,7 +218,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             switch state{
             case SSDKResponseState.success:
                 self.showHub(text: "分享成功")
-            case SSDKResponseState.fail:    print("分享失败,错误描述:\(error)")
+            case SSDKResponseState.fail:    print("分享失败,错误描述:\(String(describing: error))")
             case SSDKResponseState.cancel:  print("分享取消")
             self.showHub(text: "分享取消")
             default:
@@ -249,8 +248,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                     
                     let choosedCity: ChoosedCity = ChoosedCity.init(city: location, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
                     
+                    self?.addDetailWeatherFromJson(json: json)
                     self?.choosedCities[location] = choosedCity
-                    
                     self?.updateWeatherUI(json: json)
                     let futurejson: JSON = json["result"][0]["future"]
                     self?.forecastJson = futurejson
@@ -263,6 +262,21 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             }
         }
         
+    }
+    
+    
+    func addDetailWeatherFromJson(json: JSON) {
+        detailWeather["data"] = json["result"][0]["date"].stringValue
+        detailWeather["city"] = json["result"][0]["city"].stringValue
+        detailWeather["weather"] = json["result"][0]["weather"].stringValue
+        detailWeather["tempoture"] = json["result"][0]["future"][0]["temperature"].stringValue
+        detailWeather["currentTemputure"] = json["result"][0]["temperature"].stringValue
+        detailWeather["windDirection"] = json["result"][0]["wind"].stringValue
+        detailWeather["aqi"] = json["result"][0]["pollutionIndex"].stringValue
+        detailWeather["humidity"] = json["result"][0]["humidity"].stringValue
+        detailWeather["weatherState"] = json["result"][0]["airCondition"].stringValue
+        detailWeather["activityState"] = json["result"][0]["exerciseIndex"].stringValue
+        detailWeather["dressingIndex"] = json["result"][0]["dressingIndex"].stringValue
     }
     
     func updatePm25(location: String) {
