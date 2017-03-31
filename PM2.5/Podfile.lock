@@ -25,7 +25,7 @@ DEPENDENCIES:
   - MJRefresh
   - MOBFoundation (~> 2.0.8)
   - Onboard
-  - PKHUD
+  - PKHUD (from `https://github.com/pkluz/PKHUD.git`)
   - Reachability
   - ShareSDK3 (~> 3.3.2)
   - ShareSDK3/ShareSDKPlatforms/QQ
@@ -37,11 +37,16 @@ DEPENDENCIES:
 EXTERNAL SOURCES:
   ChameleonFramework:
     :git: https://github.com/ViccAlexander/Chameleon.git
+  PKHUD:
+    :git: https://github.com/pkluz/PKHUD.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
     :commit: dcf98f9bf3a632a7f40679b7da46f09681e48526
     :git: https://github.com/ViccAlexander/Chameleon.git
+  PKHUD:
+    :commit: e7b953a19460ef94d8aa91d715f024b7d46d2c54
+    :git: https://github.com/pkluz/PKHUD.git
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
@@ -50,11 +55,11 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MOBFoundation: e213065e65eebd8146ab29d10a8445dc8f385091
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
-  PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
+  PKHUD: c7e8c1595d687b41a10aac59589c357bfcb7df61
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 1eab11d037bfd9e07bfe81fe909a46c895f1952a
+PODFILE CHECKSUM: 90596b645759f99b583c692b1784c2d0df9cfe0f
 
 COCOAPODS: 1.2.0

@@ -5,7 +5,8 @@ use_frameworks!
 target 'PM2.5’ do
     pod 'Alamofire', '~> 4.3'
     pod 'SwiftyJSON', '~> 3.1.4’
-    pod 'PKHUD'
+    pod 'PKHUD’, :git => 'https://github.com/pkluz/PKHUD.git'
+
     pod 'MJRefresh'
     pod 'Onboard'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'

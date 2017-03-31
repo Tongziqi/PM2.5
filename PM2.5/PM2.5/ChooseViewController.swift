@@ -10,10 +10,10 @@ import UIKit
 import ChameleonFramework
 
 class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate {
-
+    
     let cellId = "CityListCellTableViewCell"
     var locationCity: String? = nil
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabelView: UITableView!
     
@@ -79,7 +79,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     
-     func editCity() {
+    func editCity() {
         if self.navigationItem.rightBarButtonItem?.title == "完成" {
             self.navigationItem.rightBarButtonItem?.title = "编辑"
             self.tabelView.isEditing = false
@@ -106,7 +106,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-
+        
         return 3
     }
     
@@ -142,7 +142,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             return 0.001
         }
     }
-
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
@@ -152,15 +152,17 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             if cellZero == nil {
                 cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
             }
-            cellZero?.labelOfCity.text = locationCity ?? ""
-            cellZero?.locatedLabel.textColor = UIColor.flatRed
             if self.locationCity != "获取地理位置失败" {
+                cellZero?.labelOfCity.text = locationCity ?? ""
+                cellZero?.locatedLabel.textColor = UIColor.flatRed
                 cellZero?.cityLocationimage.image = UIImage(named: "choose" + (self.choosedCities[self.locationCity!]?.weather)!)
                 cellZero?.locatedLabel.text = "当前城市"
+                cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
+                cellZero?.temperatureLabel.text = self.choosedCities[self.locationCity!]?.temperature
+                
+            } else {
+                cellZero?.isHidden = true
             }
-            cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
-            cellZero?.temperatureLabel.text = self.choosedCities[self.locationCity!]?.temperature
-            
             return cellZero!
         } else if indexPath.section == 1 {
             cell?.locatedLabel.text = "已经定位"
@@ -171,7 +173,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                     name = name.components(separatedBy: "到").last ?? ""
                 }
                 cell?.cityLocationimage.image = UIImage(named: ("choose" + name))
-
+                
             }
             cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind
             cell?.temperatureLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.temperature
@@ -207,6 +209,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 self.backClosure!(locationCity!)
             }
             self.dismiss(animated: true, completion: nil)
+            
         } else if indexPath.section == 1 {
             let city: City
             if !filteredCities.isEmpty{
