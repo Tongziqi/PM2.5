@@ -155,7 +155,10 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             if self.locationCity != "获取地理位置失败" {
                 cellZero?.labelOfCity.text = locationCity ?? ""
                 cellZero?.locatedLabel.textColor = UIColor.flatRed
-                cellZero?.cityLocationimage.image = UIImage(named: "choose" + (self.choosedCities[self.locationCity!]?.weather)!)
+                
+                let name = self.choosedCities[self.locationCity!]?.weather
+                cellZero?.cityLocationimage.image = UIImage(named: "choose" + detectPicture(value: name!, weather: UserSetting.chooseWeatherCondition))
+                
                 cellZero?.locatedLabel.text = "当前城市"
                 cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
                 cellZero?.temperatureLabel.text = self.choosedCities[self.locationCity!]?.temperature
@@ -168,11 +171,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             cell?.locatedLabel.text = "已经定位"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
             if self.choosedCities != [:] {
-                var name:String = (self.choosedCities[cities[indexPath.row].cityCN]?.weather) ?? ""
-                if !UserSetting.chooseWeatherCondition.contains(name) {
-                    name = name.components(separatedBy: "到").last ?? ""
-                }
-                cell?.cityLocationimage.image = UIImage(named: ("choose" + name))
+                let name: String = (self.choosedCities[cities[indexPath.row].cityCN]?.weather) ?? ""
+                cell?.cityLocationimage.image = UIImage(named: ("choose" + detectPicture(value: name, weather: UserSetting.chooseWeatherCondition)))
                 
             }
             cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind

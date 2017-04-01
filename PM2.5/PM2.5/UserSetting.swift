@@ -21,11 +21,45 @@ class UserSetting: NSObject {
     
     
     
-    static let WeatherCondition: [String] = ["晴","多云","阴","阵雨","雷阵雨","暴雪","暴到大暴雨","暴雨","大到特大暴雨","大暴雨","大到暴雪","大雪","大到暴雨","大雨","冻雨","多云转晴","多云转阴","浮城","雷阵雨","雷阵雨伴有冰雹","霾","强沙尘暴","沙尘暴","特大暴雨","雾","小到中雪","小雪","小到中雨","小雨","扬沙","雨夹雪","阵雪","阵雨","中到大雪","中雪","中到大雨","中雨"]
+    static let WeatherCondition: [String] = ["晴","多云","阴","阵雨","雷阵雨","暴雪","暴到大暴雨","暴雨","大到特大暴雨","大暴雨","大到暴雪","大雪","大到暴雨","大雨","冻雨","多云转晴","多云转阴","浮尘","雷阵雨伴有冰雹","霾","强沙尘暴","沙尘暴","特大暴雨","雾","小到中雪","小雪","小到中雨","小雨","扬沙","雨夹雪","阵雪","阵雨","中到大雪","中雪","中到大雨","中雨"]
     
-    static let chooseWeatherCondition: [String] = ["多云,少云,晴,阴,小雨,雨,雷阵雨,中雨,阵雨,零散阵雨,零散雷雨,小雪,雨夹雪,阵雪,霾,暴雨,大雨,大雪,中雪"]
+    static let chooseWeatherCondition: [String] = ["多云","少云","晴","阴","小雨","雨","雷阵雨","中雨","阵雨","零散阵雨","零散雷雨","小雪","雨夹雪","阵雪","霾","暴雨","大雨","大雪","中雪"]
     
 }
+
+func detectPicture(value: String, weather: [String]) -> String {
+    if weather.contains(value) {
+        return value
+    } else if value.contains("到") {
+        return value.components(separatedBy: "到").last ?? ""
+    } else if value.contains("零散") {
+        //处理零散雷雨
+        var newResult = value.components(separatedBy: "散").last ?? ""
+        if newResult.contains("雷") {
+            newResult = newResult.replacingOccurrences(of: "雷", with: "雷阵")
+            return newResult
+        } else {
+            return newResult
+        }
+    } else if value.contains("局部") {
+        //处理局部有云 由雨之类的
+        var newResult = value.components(separatedBy: "部").last ?? ""
+        if newResult.contains("雷") {
+            newResult = newResult.replacingOccurrences(of: "雷", with: "雷阵")
+            return newResult
+        } else {
+            return newResult
+        }
+    } else if value.contains("少") {
+        //处理少云之类的
+        return value.replacingOccurrences(of: "少", with: "多")
+    } else if value.characters.count == 1 {
+        //处理雨之类的
+        return "小" + value
+    }
+    return value
+}
+
 
 typealias Task = (_ cancel : Bool) -> Void
 
