@@ -253,8 +253,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             case .success:
                 if let value = response.result.value{
                     let json = JSON(value)
-                    
-                    let choosedCity: ChoosedCity = ChoosedCity.init(city: location, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
+                    let choosedCity: ChoosedCity = ChoosedCity.init(city: location, weather: getRealWeather(json: json), temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
                     
                     self?.addDetailWeatherFromJson(json: json)
                     self?.choosedCities[location] = choosedCity
@@ -276,7 +275,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     func addDetailWeatherFromJson(json: JSON) {
         detailWeather["data"] = json["result"][0]["date"].stringValue
         detailWeather["city"] = json["result"][0]["city"].stringValue
-        detailWeather["weather"] = json["result"][0]["weather"].stringValue
+        detailWeather["weather"] = getRealWeather(json: json)
         detailWeather["tempoture"] = json["result"][0]["future"][0]["temperature"].stringValue
         detailWeather["currentTemputure"] = json["result"][0]["temperature"].stringValue
         detailWeather["windDirection"] = json["result"][0]["wind"].stringValue
@@ -321,9 +320,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 case .success:
                     if let value = response.result.value{
                         let json = JSON(value)
-                        let choosedCity: ChoosedCity = ChoosedCity.init(city: self!.currentLocation, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
+                        let choosedCity: ChoosedCity = ChoosedCity.init(city: self!.currentLocation, weather: getRealWeather(json: json), temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
                         self?.choosedCities[(self?.currentLocation)!] = choosedCity
-                        
                     }
                 case .failure(let errno):
                     HUD.hide()
@@ -341,7 +339,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 case .success:
                     if let value = response.result.value{
                         let json = JSON(value)
-                        let choosedCity: ChoosedCity = ChoosedCity.init(city: city.cityCN, weather: json["result"][0]["weather"].stringValue, temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
+                        let choosedCity: ChoosedCity = ChoosedCity.init(city: city.cityCN, weather: getRealWeather(json: json), temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
                         self?.choosedCities[city.cityCN] = choosedCity
                     }
                 case .failure(let errno):
@@ -387,10 +385,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updateWeatherUI(json: JSON) {
-        let weatherLabel: String = json["result"][0]["date"].stringValue + "\n" + json["result"][0]["weather"].stringValue + json["result"][0]["temperature"].stringValue + "\n" + json["result"][0]["wind"].stringValue
-        //        let weather_curr: String = json["result"][0]["weather"].stringValue
-        let name: String = json["result"][0]["weather"].stringValue
-        self.weatherImage.image = UIImage(named:  detectPicture(value: name, weather: UserSetting.WeatherCondition))
+        let weatherLabel: String = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + json["result"][0]["wind"].stringValue
+        self.weatherImage.image = UIImage(named:  detectPicture(value: getRealWeather(json: json), weather: UserSetting.WeatherCondition))
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
         self.weatherLabel.text = weatherLabel
@@ -468,12 +464,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     func displayLocationInfo(placemark: CLPlacemark?) {
         if let containsPlacemark = placemark {
             locationManager.stopUpdatingLocation()
-            //let place = (containsPlacemark.name != nil) ? containsPlacemark.name : ""
             var locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
-            //let country = (containsPlacemark.country != nil) ? containsPlacemark.country : ""
-            if locality == "北京市" {
-                locality = "北京"
-            }
+            locality = getRealCity(city: locality!)
             self.currentLocation = "\(locality!)"
             self.locationImg.isHidden = false
             

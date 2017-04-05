@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyJSON
 
 class UserSetting: NSObject {
     static let Appkey: String! = "23252"
@@ -58,6 +59,24 @@ func detectPicture(value: String, weather: [String]) -> String {
         return "小" + value
     }
     return value
+}
+
+func getRealWeather(json: JSON) -> String {
+    var dayWeather: String = ""
+    if (!json["result"][0]["future"][0]["dayTime"].stringValue.isEmpty) {
+        dayWeather = json["result"][0]["future"][0]["dayTime"].stringValue
+    } else {
+        dayWeather = json["result"][0]["future"][0]["night"].stringValue
+    }
+    return dayWeather
+}
+
+func getRealCity(city: String) -> String {
+    if city.contains("市") {
+        return city.components(separatedBy: "市").first ?? ""
+    } else {
+        return city
+    }
 }
 
 
