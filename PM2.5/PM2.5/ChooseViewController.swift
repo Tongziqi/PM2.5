@@ -13,6 +13,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     let cellId = "CityListCellTableViewCell"
     var locationCity: String? = nil
+    var hideCell = false
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tabelView: UITableView!
@@ -57,7 +58,12 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tabelView?.estimatedRowHeight = 100
         let cellNib = UINib(nibName: cellId, bundle: nil)
         self.tabelView.register(cellNib, forCellReuseIdentifier: cellId)
+        
     }
+    
+
+    
+    
     
     func leftpushTo() {
         let _ =  self.dismiss(animated: true, completion: nil)
@@ -76,16 +82,19 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     func addEdit() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "编辑", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editCity))
+        
     }
     
     
     func editCity() {
+        let btn = UIBarButtonItem(title: "编辑", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editCity))
+        let btn2 = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editCity))
         if self.navigationItem.rightBarButtonItem?.title == "完成" {
-            self.navigationItem.rightBarButtonItem?.title = "编辑"
+            self.navigationItem.rightBarButtonItem = btn
             self.tabelView.isEditing = false
             self.tabelView.reloadData()
-        } else {
-            self.navigationItem.rightBarButtonItem?.title = "完成"
+        } else if !self.hideCell{
+            self.navigationItem.rightBarButtonItem = btn2
             self.tabelView.isEditing = true
             self.tabelView.reloadData()
             CommonTool.saveCity(cities: cities)
@@ -111,12 +120,22 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     }
     
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            if self.hideCell {
+                return 0
+            } else {
+                return 1
+            }
         case 1:
-            return cities.count
+            if self.hideCell {
+                return 0
+            } else {
+                return cities.count
+            }
+            
         case 2:
             return filteredCities.count
         default:
@@ -131,7 +150,11 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         case 0:
             return 0.001
         case 1:
-            return 10
+            if self.hideCell {
+                return 0
+            }else {
+                return 10
+            }
         case 2:
             if filteredCities.count == 0 {
                 return 0.001
@@ -147,7 +170,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
         cell?.initdata()
-        if indexPath.section == 0 {
+        if indexPath.section == 0 && !self.hideCell {
             var cellZero = tableView.cellForRow(at: indexPath) as? CityListCellTableViewCell
             if cellZero == nil {
                 cellZero = Bundle.main.loadNibNamed(cellId, owner: self, options: nil)?.last as? CityListCellTableViewCell
@@ -167,7 +190,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 cellZero?.isHidden = true
             }
             return cellZero!
-        } else if indexPath.section == 1 {
+        } else if indexPath.section == 1 && !self.hideCell {
             cell?.locatedLabel.text = "已经定位"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
             if self.choosedCities != [:] {
@@ -264,9 +287,9 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         if indexPath.section == 0 {
             return false
         } else {
-            if searchBar.text != ""{
+            if searchBar.text != "" {
                 return false
-            }else{
+            }else {
                 return true
             }
         }
@@ -291,7 +314,18 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         filterControllerForSearchText(searchText)
     }
     
+    
+    
     func filterControllerForSearchText(_ searchText: String, scope: String = "ALL"){
+        if searchText == "" {
+            self.hideCell = false
+        } else {
+            self.hideCell = true
+        }
+        let btn = UIBarButtonItem(title: "编辑", style: UIBarButtonItemStyle.plain, target: self, action: #selector(self.editCity))
+        self.navigationItem.rightBarButtonItem = btn
+        // 点击了搜索栏就不能编辑了
+        self.tabelView.isEditing = false
         filteredCities = parserCities.filter({ (city) -> Bool in
             return city.cityCN.lowercased().contains(searchText.lowercased())
         })
