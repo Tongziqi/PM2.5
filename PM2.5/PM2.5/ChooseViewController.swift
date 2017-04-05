@@ -45,7 +45,6 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.addEdit()
         
         cities = CommonTool.loadData(cities: &cities)
-        //self.loadData()
         self.tabelView.separatorStyle = .none
         self.searchBar.layer.borderWidth = 1
         self.searchBar.layer.borderColor = UIColor.flatWhite.cgColor
@@ -58,12 +57,9 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
         self.tabelView?.estimatedRowHeight = 100
         let cellNib = UINib(nibName: cellId, bundle: nil)
         self.tabelView.register(cellNib, forCellReuseIdentifier: cellId)
+        self.tabelView.register(UINib(nibName: "ChooseCellTableViewCell", bundle: nil), forCellReuseIdentifier: "ChooseCellTableViewCell")
         
     }
-    
-
-    
-    
     
     func leftpushTo() {
         let _ =  self.dismiss(animated: true, completion: nil)
@@ -168,8 +164,6 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
-        cell?.initdata()
         if indexPath.section == 0 && !self.hideCell {
             var cellZero = tableView.cellForRow(at: indexPath) as? CityListCellTableViewCell
             if cellZero == nil {
@@ -191,6 +185,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             return cellZero!
         } else if indexPath.section == 1 && !self.hideCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
+            cell?.initdata()
             cell?.locatedLabel.text = "已经定位"
             cell?.labelOfCity?.text = cities[indexPath.row].cityCN
             if self.choosedCities != [:] {
@@ -206,6 +202,8 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             return cell!
         } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseCellTableViewCell", for: indexPath) as? ChooseCellTableViewCell
+            cell?.initdata()
             let city: City
             if searchBar.text != "" {
                 city = filteredCities[indexPath.row]
@@ -216,7 +214,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             } else {
                 city = cities[indexPath.row]
                 cell?.addCityName(city)
-                cell?.locationImg.isHidden = true
+                //                cell?.locationImg.isHidden = true
                 cell?.locatedLabel.text = "点击查询"
                 return cell!
             }
