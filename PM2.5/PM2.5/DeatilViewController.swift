@@ -46,7 +46,12 @@ class DeatilViewController: UIViewController {
         testView.tempoture.text = detailWeatherDate["tempoture"]
         testView.currentTemputure.text = detailWeatherDate["currentTemputure"]
         testView.humidity.text = detailWeatherDate["humidity"]?.components(separatedBy: "湿度：").last
-        testView.windDirection.text = detailWeatherDate["windDirection"]
+        if detailWeatherDate["windDirection"] != "" {
+            testView.windDirection.text = detailWeatherDate["windDirection"]
+        } else {
+            testView.windDirection.text = "未获得风向"
+
+        }
         testView.weatherState.text = detailWeatherDate["weatherState"]
         testView.dressingIndex.text = detailWeatherDate["dressingIndex"]
     }

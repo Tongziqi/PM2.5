@@ -152,11 +152,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 return 10
             }
         case 2:
-            if filteredCities.count == 0 {
-                return 0.001
-            } else {
-                return 10
-            }
+            return 0.001
         default:
             return 0.001
         }
@@ -194,7 +190,9 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 cell?.cityLocationimage.image = UIImage(named: ("choose" + detectPicture(value: name, weather: UserSetting.chooseWeatherCondition)))
                 
             }
-            cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind
+            if self.choosedCities[cities[indexPath.row].cityCN]?.wind != "" {
+                cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind
+            } 
             cell?.temperatureLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.temperature
             
             if self.tabelView.isEditing {
@@ -208,14 +206,13 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             if searchBar.text != "" {
                 city = filteredCities[indexPath.row]
                 cell?.labelOfCity?.text = city.cityCN
-                cell?.locatedLabel.text = "点击查询"
+                cell?.locatedLabel.text = "点击查询该城市"
                 cell?.locatedLabel.textColor = UIColor.flatOrange
                 return cell!
             } else {
                 city = cities[indexPath.row]
                 cell?.addCityName(city)
-                //                cell?.locationImg.isHidden = true
-                cell?.locatedLabel.text = "点击查询"
+                cell?.locatedLabel.text = "点击查询该城市"
                 return cell!
             }
         } else {
@@ -296,6 +293,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         cities.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
+        CommonTool.saveCity(cities: cities)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

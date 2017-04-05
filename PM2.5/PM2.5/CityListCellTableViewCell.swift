@@ -43,7 +43,7 @@ class CityListCellTableViewCell: UITableViewCell {
         locatedLabel.text = ""
         labelOfCity.text = ""
         temperatureLabel.text = ""
-        windLabel.text = ""
+        windLabel.text = "未获得数据"
         selectionStyle = UITableViewCellSelectionStyle.none
         defaultView.layer.cornerRadius = 20
         defaultView.layer.shadowColor = colorWithHex(0xCCCDCF).cgColor

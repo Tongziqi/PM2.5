@@ -359,7 +359,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         //这里面生成一个随机数，保证每次获得的都不一样
         data.append(self.searchLocation + String(arc4random()))
         self.adapter.performUpdates(animated: true, completion: nil)
-        //        self.showHub(text: self.searchLocation + "数据更新完毕")
     }
     
     
@@ -385,7 +384,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updateWeatherUI(json: JSON) {
-        let weatherLabel: String = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + json["result"][0]["wind"].stringValue
+        var weatherLabel: String = ""
+        let wind = json["result"][0]["wind"].stringValue
+        if wind != "" {
+             weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + wind
+        } else {
+             weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + "未获得风向"
+        }
         self.weatherImage.image = UIImage(named:  detectPicture(value: getRealWeather(json: json), weather: UserSetting.WeatherCondition))
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         self.weatherLabel.font = UIFont(name: "Helvetica", size: 18)
@@ -451,14 +456,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func showHub(text: String) {
-        // 这里面又一个warning https://github.com/pkluz/PKHUD/issues/6 fixed
-        //                let hud = PKHUD()
-        //                hud.contentView = PKHUDTextView(text: text)
-        //                hud.show()
-        //                hud.hide(afterDelay: 1.0)
-        PKHUD.sharedHUD.contentView = CustomPKHUDView(text: text, backgroundColor: UIColor.randomFlat, titleColor:UIColor.randomFlat)
+        PKHUD.sharedHUD.contentView = CustomPKHUDView(text: text, backgroundColor: UIColor.flatWhiteDark, titleColor:UIColor.flatBlack)
         PKHUD.sharedHUD.show()
-        PKHUD.sharedHUD.hide(afterDelay: 1.0)
+        PKHUD.sharedHUD.hide(afterDelay: 0.5)
     }
     
     func displayLocationInfo(placemark: CLPlacemark?) {

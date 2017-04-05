@@ -32,9 +32,9 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击查询" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLw-iE-qad">
-                        <rect key="frame" x="190.5" y="12.5" width="61.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击查询该城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xLw-iE-qad">
+                        <rect key="frame" x="166" y="16.5" width="86" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -55,7 +55,7 @@
                     <constraint firstItem="aKt-Xh-uaq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="XX0-6x-hd7"/>
                     <constraint firstAttribute="bottom" secondItem="aKt-Xh-uaq" secondAttribute="bottom" id="Zl7-yL-ama"/>
                     <constraint firstItem="aKt-Xh-uaq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="aL7-Jz-1OP"/>
-                    <constraint firstItem="xLw-iE-qad" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pmP-YO-MdC"/>
+                    <constraint firstItem="xLw-iE-qad" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="2" id="pmP-YO-MdC"/>
                     <constraint firstItem="seV-kg-0pY" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="q8C-6y-evX"/>
                     <constraint firstItem="jjF-aO-Xql" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vrm-TQ-K8L"/>
                 </constraints>
