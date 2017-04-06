@@ -50,6 +50,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var currentLocation: String = "获取地理位置失败"
     var searchLocation: String = ""
     var detailWeather: [String:String] = [:]
+    var dayOfAqiJson: JSON = []
     
     
     let loader = ForecastDataLoader()
@@ -107,13 +108,31 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         data = [self.searchLocation] as [Any]
         
         checkNetConnection()
-        
-        weatherImage.isUserInteractionEnabled = true
-        weatherLabel.isUserInteractionEnabled = true
-        weatherImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        weatherLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        addTouchListener()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkNetConnection), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
+    }
+    
+    func addTouchListener() {
+        weatherImage.isUserInteractionEnabled = true
+        weatherLabel.isUserInteractionEnabled = true
+        pm25image.isUserInteractionEnabled = true
+        pm10.isUserInteractionEnabled = true
+        so2.isUserInteractionEnabled = true
+        no2.isUserInteractionEnabled = true
+        aqi.isUserInteractionEnabled = true
+        airConditon.isUserInteractionEnabled = true
+        pm25.isUserInteractionEnabled = true
+
+        weatherImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        weatherLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        pm25image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        pm25.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        pm10.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        so2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        no2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        aqi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        airConditon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
     }
     
     func tapped() {
@@ -122,6 +141,11 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
         deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         self.present(deatilViewController, animated: true, completion: nil)
+        //        let tableViewController = TableViewController()
+        //        tableViewController.json = self.dayOfAqiJson
+        //        tableViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+        //                tableViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        //        self.present(tableViewController, animated: true, completion: nil)
         
     }
     
@@ -195,6 +219,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         SideMenuManager.menuShadowColor =  UIColor.clear
         SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
         self.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
+        //        let tableViewController = TableViewController()
+        //        tableViewController.json = self.dayOfAqiJson
+        //        self.present(tableViewController, animated: true, completion: nil)
     }
     
     @IBAction func shareButton(_ sender: Any) {
@@ -295,6 +322,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             case .success:
                 if let value = response.result.value{
                     let json = JSON(value)
+                    self?.dayOfAqiJson = json
                     self?.updatePM25UI(json: json)
                 }
                 self?.updateForecastUI(json: (self?.forecastJson)!)
@@ -387,9 +415,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         var weatherLabel: String = ""
         let wind = json["result"][0]["wind"].stringValue
         if wind != "" {
-             weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + wind
+            weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + wind
         } else {
-             weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + "未获得风向"
+            weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + "未获得风向"
         }
         self.weatherImage.image = UIImage(named:  detectPicture(value: getRealWeather(json: json), weather: UserSetting.WeatherCondition))
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping

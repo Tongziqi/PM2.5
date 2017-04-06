@@ -16,6 +16,8 @@
 		5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A571E768DA60045B115 /* SideMenuTransition.swift */; };
 		5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */; };
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
+		5D2177DA1E95EC370065E472 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2177D81E95EC370065E472 /* TableViewController.swift */; };
+		5D2177DB1E95EC370065E472 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2177D91E95EC370065E472 /* TableViewController.xib */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
 		5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68933E1E67F10500694491 /* HorizontalSectionController.swift */; };
@@ -54,6 +56,8 @@
 		5D086A571E768DA60045B115 /* SideMenuTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTransition.swift; sourceTree = "<group>"; };
 		5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
 		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
+		5D2177D81E95EC370065E472 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		5D2177D91E95EC370065E472 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareSdk-Bridge-Header.h"; sourceTree = "<group>"; };
 		5D32A00C1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D32A00D1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 				5D5161621E546DF4006F512E /* ChooseViewController.swift */,
 				5D5161631E546DF4006F512E /* ChooseViewController.xib */,
 				5D03BA571E791E5500C84313 /* DeatilViewController.swift */,
+				5D2177D81E95EC370065E472 /* TableViewController.swift */,
+				5D2177D91E95EC370065E472 /* TableViewController.xib */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 				5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */,
 				5DA107C21E9509B7008043A6 /* ChooseCellTableViewCell.xib in Resources */,
 				5D80F7AE1E5B046800A989D8 /* CityListCellTableViewCell.xib in Resources */,
+				5D2177DB1E95EC370065E472 /* TableViewController.xib in Resources */,
 				5DE0049F1E3473CD009517CB /* LaunchScreen.storyboard in Resources */,
 				5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */,
 				5D03BA601E79413400C84313 /* DetailWeatherView.xib in Resources */,
@@ -405,6 +412,7 @@
 				5D03BA591E791E5500C84313 /* DeatilViewController.swift in Sources */,
 				5DBE7B5E1E6D414000B2E9D0 /* ForecastEntry.swift in Sources */,
 				5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */,
+				5D2177DA1E95EC370065E472 /* TableViewController.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
 				5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */,
 				5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */,

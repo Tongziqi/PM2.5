@@ -27,10 +27,7 @@ class DeatilViewController: UIViewController {
         testView.layer.masksToBounds = true
         testView.backgroundColor = UIColor.flatBlack
         testView.frame = CGRect(x: x, y: y, width: viewWidth, height: viewHeigth)
-        
-        
-        
-        
+
         self.view.backgroundColor = UIColor.clear.withAlphaComponent(0.5)
         self.view.addSubview(testView)
         
