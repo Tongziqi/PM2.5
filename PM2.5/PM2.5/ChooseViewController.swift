@@ -171,9 +171,11 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 
                 let name = self.choosedCities[self.locationCity!]?.weather
                 cellZero?.cityLocationimage.image = UIImage(named: "choose" + detectPicture(value: name!, weather: UserSetting.chooseWeatherCondition))
-                
                 cellZero?.locatedLabel.text = "当前城市"
-                cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
+                if self.choosedCities[self.locationCity!]?.wind != "" {
+                    cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
+                }
+
                 cellZero?.temperatureLabel.text = self.choosedCities[self.locationCity!]?.temperature
                 
             } else {

@@ -116,6 +116,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     func addTouchListener() {
         weatherImage.isUserInteractionEnabled = true
         weatherLabel.isUserInteractionEnabled = true
+        
         pm25image.isUserInteractionEnabled = true
         pm10.isUserInteractionEnabled = true
         so2.isUserInteractionEnabled = true
@@ -124,29 +125,32 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         airConditon.isUserInteractionEnabled = true
         pm25.isUserInteractionEnabled = true
 
-        weatherImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        weatherLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        pm25image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        pm25.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        pm10.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        so2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        no2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        aqi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
-        airConditon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tapped)))
+        weatherImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedDeatilWeather)))
+        weatherLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedDeatilWeather)))
+        
+        pm25image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
+        pm25.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
+        pm10.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
+        so2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
+        no2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
+        aqi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
+        airConditon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
     }
     
-    func tapped() {
+    func tappedDeatilWeather() {
         let deatilViewController = DeatilViewController()
         deatilViewController.detailWeatherDate = self.detailWeather
         deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
         deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
         self.present(deatilViewController, animated: true, completion: nil)
-        //        let tableViewController = TableViewController()
-        //        tableViewController.json = self.dayOfAqiJson
-        //        tableViewController.modalPresentationStyle = UIModalPresentationStyle.custom
-        //                tableViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        //        self.present(tableViewController, animated: true, completion: nil)
-        
+    }
+    
+    func tappedAqiDeatil() {
+        let tableViewController = TableViewController()
+        tableViewController.json = self.dayOfAqiJson
+        tableViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+        tableViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        self.present(tableViewController, animated: true, completion: nil)
     }
     
     
