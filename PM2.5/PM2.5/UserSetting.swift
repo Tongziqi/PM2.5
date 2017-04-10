@@ -82,6 +82,19 @@ func getRealCity(city: String) -> String {
 }
 
 
+func getTime(time: String) -> String {
+    let year = time.startIndex
+    let month = time.index(year, offsetBy: 4)
+    let day = time.index(month, offsetBy: 2)
+    let hour = time.index(day, offsetBy: 2)
+    let minute = time.index(hour, offsetBy: 2)
+    let second = time.index(minute, offsetBy: 2)
+    
+    return (time.substring(with: month..<day) + "月" + time.substring(with: day..<hour) + "日" + time.substring(with: hour..<minute) + "点" + time.substring(with: minute..<second) + "分" + time.substring(with: second..<time.endIndex) + "秒")
+
+}
+
+
 typealias Task = (_ cancel : Bool) -> Void
 
 @discardableResult func delay(_ time:Foundation.TimeInterval, task:@escaping ()->()) ->  Task? {

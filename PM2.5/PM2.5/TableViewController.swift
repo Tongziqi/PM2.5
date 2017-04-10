@@ -84,13 +84,29 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             let chartData = LineChartData(dataSet: chartDataSet)
             
             // 加各种污染界限
+            let goodjx = ChartLimitLine(limit: 50, label: "良好")
+            goodjx.lineColor = UIColor.flatBlue
+            goodjx.valueTextColor = UIColor.flatBlue
+            goodjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
+            goodjx.lineWidth = 0.5
+            goodjx.lineDashLengths = [5.0,5.0]
+            goodjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
+            barChartView?.leftAxis.addLimitLine(goodjx)
+            let lowjx = ChartLimitLine(limit: 100, label: "轻度污染")
+            lowjx.lineColor = UIColor.flatOrange
+            lowjx.valueTextColor = UIColor.flatOrange
+            lowjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
+            lowjx.lineWidth = 0.5
+            lowjx.lineDashLengths = [5.0,5.0]
+            lowjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
+            barChartView?.leftAxis.addLimitLine(lowjx)
             let midjx = ChartLimitLine(limit: 150, label: "中度污染")
-            midjx.lineColor = UIColor.flatOrange
-            midjx.valueTextColor = UIColor.flatOrange
+            midjx.lineColor = UIColor.flatOrangeDark
+            midjx.valueTextColor = UIColor.flatOrangeDark
             midjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
             midjx.lineWidth = 0.5
             midjx.lineDashLengths = [5.0,5.0]
-            midjx.labelPosition = ChartLimitLine.LabelPosition.rightBottom
+            midjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
             barChartView?.leftAxis.addLimitLine(midjx)
             let highjx = ChartLimitLine(limit: 200, label: "重度污染")
             highjx.lineColor = UIColor.flatRed
@@ -98,7 +114,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             highjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
             highjx.lineWidth = 0.5
             highjx.lineDashLengths = [5.0,5.0]
-            highjx.labelPosition = ChartLimitLine.LabelPosition.rightBottom
+            highjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
             barChartView?.leftAxis.addLimitLine(highjx)
             let hugejx = ChartLimitLine(limit: 300, label: "严度污染")
             hugejx.lineColor = UIColor.flatRedDark
@@ -106,7 +122,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             hugejx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
             hugejx.lineWidth = 0.5
             hugejx.lineDashLengths = [5.0,5.0]
-            hugejx.labelPosition = ChartLimitLine.LabelPosition.rightBottom
+            hugejx.labelPosition = ChartLimitLine.LabelPosition.rightTop
             barChartView?.leftAxis.addLimitLine(hugejx)
             
             barChartView?.data = chartData

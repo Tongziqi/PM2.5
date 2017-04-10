@@ -51,6 +51,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var searchLocation: String = ""
     var detailWeather: [String:String] = [:]
     var dayOfAqiJson: JSON = []
+    var updateTime: String = ""
     
     
     let loader = ForecastDataLoader()
@@ -113,6 +114,23 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkNetConnection), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
+    deinit{
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // 监听后台进入，刷新页面
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    
+    func refresh() {
+        if self.currentLocation != "获取地理位置失败" {
+            self.updateWeather(location: self.currentLocation)
+        }
+    }
+    
+    
     func addTouchListener() {
         weatherImage.isUserInteractionEnabled = true
         weatherLabel.isUserInteractionEnabled = true
@@ -124,7 +142,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         aqi.isUserInteractionEnabled = true
         airConditon.isUserInteractionEnabled = true
         pm25.isUserInteractionEnabled = true
-
+        
         weatherImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedDeatilWeather)))
         weatherLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedDeatilWeather)))
         
@@ -223,9 +241,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         SideMenuManager.menuShadowColor =  UIColor.clear
         SideMenuManager.menuAnimationBackgroundColor = UIColor.clear
         self.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
-        //        let tableViewController = TableViewController()
-        //        tableViewController.json = self.dayOfAqiJson
-        //        self.present(tableViewController, animated: true, completion: nil)
     }
     
     @IBAction func shareButton(_ sender: Any) {
@@ -285,7 +300,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 if let value = response.result.value{
                     let json = JSON(value)
                     let choosedCity: ChoosedCity = ChoosedCity.init(city: location, weather: getRealWeather(json: json), temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
-                    
+                    self?.updateTime = json["result"][0]["updateTime"].stringValue
                     self?.addDetailWeatherFromJson(json: json)
                     self?.choosedCities[location] = choosedCity
                     self?.updateWeatherUI(json: json)
@@ -382,7 +397,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             }
         }
         
-        self.showHub(text: self.searchLocation + "数据更新完毕")
+        self.showHub(text: self.searchLocation + "数据更新完毕\n" + "时间:" + getTime(time: self.updateTime))
     }
     
     
@@ -490,7 +505,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     func showHub(text: String) {
         PKHUD.sharedHUD.contentView = CustomPKHUDView(text: text, backgroundColor: UIColor.flatWhiteDark, titleColor:UIColor.flatBlack)
         PKHUD.sharedHUD.show()
-        PKHUD.sharedHUD.hide(afterDelay: 0.5)
+        PKHUD.sharedHUD.hide(afterDelay: 1)
     }
     
     func displayLocationInfo(placemark: CLPlacemark?) {
