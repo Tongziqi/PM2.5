@@ -95,8 +95,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }
         self.locationImg.isHidden = true
         
-        cities = CommonTool.loadData(cities: &cities)
-        
         initLocationManager()
         ceateHeader()
         // Do any additional setup after loading the view.
@@ -136,6 +134,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         weatherImage.isUserInteractionEnabled = true
         weatherLabel.isUserInteractionEnabled = true
         
+        userLocationLabel.isUserInteractionEnabled = true
+        
         pm25image.isUserInteractionEnabled = true
         pm10.isUserInteractionEnabled = true
         so2.isUserInteractionEnabled = true
@@ -154,6 +154,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         no2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
         aqi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
         airConditon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
+        userLocationLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.jumpToChooseCityVC)))
     }
     
     func tappedDeatilWeather() {
@@ -223,18 +224,22 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     @IBAction func jumpToChoose(_ sender: Any) {
+        jumpToChooseCityVC()
+    }
+    
+    func jumpToChooseCityVC() {
         let chooseViewController = ChooseViewController(nibName: "ChooseViewController", bundle: nil)
         chooseViewController.locationCity = self.currentLocation
         chooseViewController.choosedCities = self.choosedCities
         chooseViewController.setBackMyClosure { (input: String) in
-            self.userLocationLabel.text = input
-            self.locationImg.isHidden = true
-            self.searchLocation = input
-            
-            delay(0.5, task: {
-                self.updateWeather(location: input)
-            })
-            
+        self.userLocationLabel.text = input
+        self.locationImg.isHidden = true
+        self.searchLocation = input
+        
+        delay(0.5, task: {
+        self.updateWeather(location: input)
+        })
+        
         }
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
         menuLeftNavigationController.leftSide = true
@@ -287,6 +292,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func updateWeather(location: String) {
         HUD.show(.progress)
+        //在这里面再重新加载所有的城市
+        cities = CommonTool.loadData(cities: &cities)
+
         //清空一下缓存
         self.choosedCities.removeAll()
         
@@ -298,7 +306,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             
             switch response.result {
             case .success:
-                if let value = response.result.value{
+                if let value = response.result.value {
                     let json = JSON(value)
                     let choosedCity: ChoosedCity = ChoosedCity.init(city: location, weather: getRealWeather(json: json), temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
                     self?.updateTime = json["result"][0]["updateTime"].stringValue

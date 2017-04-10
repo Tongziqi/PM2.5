@@ -228,6 +228,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             if self.backClosure != nil {
                 self.backClosure!(locationCity!)
             }
+            CommonTool.saveCity(cities: cities)
             self.dismiss(animated: true, completion: nil)
             
         } else if indexPath.section == 1 {

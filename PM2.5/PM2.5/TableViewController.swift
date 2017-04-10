@@ -19,7 +19,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
     var aqiData: [Double] = []
     var barChartView: LineChartView?
     
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
