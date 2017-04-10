@@ -129,10 +129,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             let xaxis = barChartView?.xAxis
             xaxis?.valueFormatter = axisFormatDelegate
             barChartView?.animate(xAxisDuration: 1.0, easingOption: .linear)
-        } else {
-            barChartView?.noDataText = "没有获得数据，啦啦啦"
         }
-        
     }
     
     func setDefault() {
@@ -141,7 +138,8 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
         barChartView?.layer.masksToBounds = true
         barChartView?.backgroundColor = UIColor.flatBlack //设置背景颜色
         barChartView?.chartDescription?.text = "" //隐藏描述文字
-        barChartView?.noDataText = "没有获得数据，啦啦啦" // 设置没有数据的显示内容
+        barChartView?.noDataTextColor = UIColor.flatWhite
+        barChartView?.noDataText = "没有获得实时数据，无法绘制AQI变化趋势。" // 设置没有数据的显示内容
         barChartView?.legend.enabled = true //显示图例说明
         barChartView?.legend.textColor = UIColor.flatWhite
         barChartView?.scaleYEnabled = false //取消Y轴缩放

@@ -125,6 +125,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func refresh() {
+        initLocationManager()
         if self.currentLocation != "获取地理位置失败" {
             self.updateWeather(location: self.currentLocation)
         }
@@ -410,12 +411,19 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updatePM25UI(json: JSON) {
-        let pm25: Int = json["result"][0]["pm25"].intValue
-        let pm10: Int = json["result"][0]["pm10"].intValue
-        let no2: Int = json["result"][0]["no2"].intValue
-        let so2: Int = json["result"][0]["so2"].intValue
+        // 数字需要校验下，如果没有数据怎么办？例如0 / -1
+        // 直接显示未获得吧～
+        let pm25: String = self.verifyInteger(num: json["result"][0]["pm25"].intValue)
+        let pm10: String = self.verifyInteger(num: json["result"][0]["pm10"].intValue)
+        let no2: String = self.verifyInteger(num: json["result"][0]["no2"].intValue)
+        let so2: String = self.verifyInteger(num: json["result"][0]["so2"].intValue)
         let aqi: Int = json["result"][0]["aqi"].intValue
-        let airCondition: String = json["result"][0]["quality"].stringValue
+        var airConditonString: String = ""
+        if pm10.contains(no2) && no2.contains(so2) && no2.contains(so2) && json["result"][0]["quality"].stringValue == "优" {
+            airConditonString = "暂无"
+        } else {
+            airConditonString = json["result"][0]["quality"].stringValue
+        }
         
         
         self.pm25.text = String(pm25)
@@ -423,7 +431,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.no2.text = String(no2)
         self.so2.text = String(so2)
         self.aqi.text = String(aqi)
-        self.airConditon.text = airCondition
+        self.airConditon.text = airConditonString
         
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
@@ -452,7 +460,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func headerRefresh() {
-        print("重新获得pm25的值是")
         if self.searchLocation != "" {
             self.updateWeather(location: self.searchLocation)
         }
@@ -485,6 +492,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     //可以添加那里一些限制。比如位置和精度之间的时间跨度。来解决多次调用
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        HUD.show(.progress)
         let newLocation: CLLocation? = locations.last
         let locationAge: TimeInterval = -(newLocation?.timestamp.timeIntervalSinceNow)!
         if locationAge.binade > 1.0 {
@@ -522,6 +530,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }
     }
     
+    func verifyInteger(num: Int) -> String{
+        if num <= 0 {
+            return "暂无"
+        } else {
+            return String(num)
+        }
+    }
+    
 }
 
 extension MainViewController: IGListAdapterDataSource {
@@ -536,5 +552,6 @@ extension MainViewController: IGListAdapterDataSource {
     }
     func emptyView(for listAdapter: IGListAdapter) -> UIView? { return nil }
 }
+
 
 

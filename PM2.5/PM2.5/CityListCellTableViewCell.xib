@@ -42,7 +42,7 @@
                             <constraint firstItem="FRk-sp-GgD" firstAttribute="top" secondItem="HMG-c2-VIO" secondAttribute="top" id="zMc-e8-CCq"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="windbag" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-tq-Hqj">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fb6-tq-Hqj">
                         <rect key="frame" x="13" y="7" width="28" height="28"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="28" id="6aT-11-iBW"/>
@@ -129,6 +129,5 @@
     <resources>
         <image name="cellbg" width="160" height="23"/>
         <image name="location" width="32" height="32"/>
-        <image name="windbag" width="112" height="108"/>
     </resources>
 </document>
