@@ -32,3 +32,7 @@
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <TencentOpenAPI/QQApiInterface.h>
+
+//友盟统计
+#import "UMMobClick/MobClick.h"
+

@@ -21,8 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         buildOnboard()
         registerShareSDK()
         initReachability()
+        // 友盟统计
+        addUmengAnalytics()
         // Override point for customization after application launch.
         return true
+    }
+    
+    func addUmengAnalytics() {
+        let analyticsConfig = UMAnalyticsConfig.sharedInstance()
+        analyticsConfig?.appKey = "58ed0329734be4399900260d"
+        MobClick.start(withConfigure: analyticsConfig)
     }
     
     func initReachability() {

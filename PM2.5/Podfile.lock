@@ -20,6 +20,7 @@ PODS:
   - ShareSDK3/ShareSDKPlatforms/WeChat (3.3.2)
   - ShareSDK3/ShareSDKUI (3.3.2)
   - SwiftyJSON (3.1.4)
+  - UMengAnalytics-NO-IDFA (4.2.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - ShareSDK3/ShareSDKPlatforms/WeChat
   - ShareSDK3/ShareSDKUI
   - SwiftyJSON (~> 3.1.4)
+  - UMengAnalytics-NO-IDFA
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -64,7 +66,8 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
 
-PODFILE CHECKSUM: 2b0b8a7ec7258c1e09b3dc712cd41ec8ac39d8d4
+PODFILE CHECKSUM: f6f72d1479b1469ce8b2f2855e5ae871faa918b5
 
 COCOAPODS: 1.2.0
