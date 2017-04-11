@@ -166,7 +166,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func tappedAqiDeatil() {
-        let tableViewController = TableViewController()
+        let tableViewController = TableViewController(nibName: "TableViewController", bundle: nil)
         tableViewController.json = self.dayOfAqiJson
         tableViewController.modalPresentationStyle = UIModalPresentationStyle.custom
         tableViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical

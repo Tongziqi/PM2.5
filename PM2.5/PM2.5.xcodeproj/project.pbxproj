@@ -18,6 +18,7 @@
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
 		5D2177DA1E95EC370065E472 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2177D81E95EC370065E472 /* TableViewController.swift */; };
 		5D2177DB1E95EC370065E472 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D2177D91E95EC370065E472 /* TableViewController.xib */; };
+		5D41BC591E9CB91D0004C647 /* Area.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5D41BC581E9CB91D0004C647 /* Area.xml */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
 		5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68933E1E67F10500694491 /* HorizontalSectionController.swift */; };
@@ -61,6 +62,7 @@
 		5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareSdk-Bridge-Header.h"; sourceTree = "<group>"; };
 		5D32A00C1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D32A00D1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		5D41BC581E9CB91D0004C647 /* Area.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Area.xml; sourceTree = "<group>"; };
 		5D5161621E546DF4006F512E /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		5D5161631E546DF4006F512E /* ChooseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseViewController.xib; sourceTree = "<group>"; };
 		5D68933E1E67F10500694491 /* HorizontalSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalSectionController.swift; path = PM2.5/HorizontalSectionController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		5D80F7B11E5B17E500A989D8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5D41BC581E9CB91D0004C647 /* Area.xml */,
 				5D80F7A51E5AE7F500A989D8 /* City.swift */,
 				5D80F7A71E5AE80A00A989D8 /* Citys.xml */,
 				5DBE7B5D1E6D414000B2E9D0 /* ForecastEntry.swift */,
@@ -336,6 +339,7 @@
 				5DE0049F1E3473CD009517CB /* LaunchScreen.storyboard in Resources */,
 				5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */,
 				5D03BA601E79413400C84313 /* DetailWeatherView.xib in Resources */,
+				5D41BC591E9CB91D0004C647 /* Area.xml in Resources */,
 				5D6893521E68015700694491 /* WeatherUICollectionViewCell.xib in Resources */,
 				5D80F7A81E5AE80A00A989D8 /* Citys.xml in Resources */,
 				5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */,

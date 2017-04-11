@@ -31,6 +31,7 @@ class ParserXML: NSObject,XMLParserDelegate{
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
+        // 去掉两端的符号
         let str = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if elementName == "city"{
             let city = City()
