@@ -305,7 +305,7 @@
 					5DE0048E1E3473CD009517CB = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = KCR7C6GSDJ;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -454,7 +454,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5D41BC601E9D10230004C647 /* ad hoc distribution */ = {
+		5D41BC621E9D140D0004C647 /* ad hoc distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -500,21 +500,21 @@
 			};
 			name = "ad hoc distribution";
 		};
-		5D41BC611E9D10230004C647 /* ad hoc distribution */ = {
+		5D41BC631E9D140D0004C647 /* ad hoc distribution */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3E82051039B5A380D5FE3A38 /* Pods-PM2.5.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ziqi Tong (KCR7C6GSDJ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ziqi Tong (KCR7C6GSDJ)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = KCR7C6GSDJ;
 				INFOPLIST_FILE = PM2.5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "85fe35a2-2542-4bf1-8603-fb78e0b19c5a";
+				PROVISIONING_PROFILE_SPECIFIER = com.Nino.PM2.5;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -628,13 +628,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KCR7C6GSDJ;
 				INFOPLIST_FILE = PM2.5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "259af3d0-e75a-4271-a3c8-794324f0a09f";
+				PROVISIONING_PROFILE_SPECIFIER = PM25DevelopmentCertification;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -649,13 +649,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = KCR7C6GSDJ;
 				INFOPLIST_FILE = PM2.5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "259af3d0-e75a-4271-a3c8-794324f0a09f";
+				PROVISIONING_PROFILE_SPECIFIER = PM25DevelopmentCertification;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -670,7 +670,7 @@
 			buildConfigurations = (
 				5DE004A11E3473CD009517CB /* Debug */,
 				5DE004A21E3473CD009517CB /* Release */,
-				5D41BC601E9D10230004C647 /* ad hoc distribution */,
+				5D41BC621E9D140D0004C647 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -680,7 +680,7 @@
 			buildConfigurations = (
 				5DE004A41E3473CD009517CB /* Debug */,
 				5DE004A51E3473CD009517CB /* Release */,
-				5D41BC611E9D10230004C647 /* ad hoc distribution */,
+				5D41BC631E9D140D0004C647 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
