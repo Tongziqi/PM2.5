@@ -11,8 +11,6 @@ import Foundation
 class City: NSObject,NSCoding {
     // 中文
     var cityCN = ""
-    // 拼音
-    var cityPY = ""
     
     override init(){
         super.init()

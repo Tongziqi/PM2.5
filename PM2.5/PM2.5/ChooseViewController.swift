@@ -186,7 +186,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CityListCellTableViewCell
             cell?.initdata()
             cell?.locatedLabel.text = "已经定位"
-            cell?.labelOfCity?.text = cities[indexPath.row].cityCN
+            cell?.labelOfCity?.text = cities[indexPath.row].cityCN.components(separatedBy: "/").first!
             if self.choosedCities != [:] {
                 let name: String = (self.choosedCities[cities[indexPath.row].cityCN]?.weather) ?? ""
                 cell?.cityLocationimage.image = UIImage(named: ("choose" + detectPicture(value: name, weather: UserSetting.chooseWeatherCondition)))
@@ -207,7 +207,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             let city: City
             if searchBar.text != "" {
                 city = filteredCities[indexPath.row]
-                cell?.labelOfCity?.text = city.cityCN
+                cell?.labelOfCity?.text = city.cityCN.components(separatedBy: "/").first
                 cell?.locatedLabel.text = "点击查询该城市"
                 cell?.locatedLabel.textColor = UIColor.flatOrange
                 return cell!
@@ -242,7 +242,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             tableView.deselectRow(at: indexPath, animated: false)
             
             if self.backClosure != nil {
-                let tempString: String? = city.cityCN
+                let tempString: String? = city.cityCN.components(separatedBy: "/").first
                 if tempString != nil {
                     self.backClosure!(tempString!)
                 }
@@ -260,7 +260,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             tableView.deselectRow(at: indexPath, animated: false)
             
             if self.backClosure != nil {
-                let tempString: String? = city.cityCN
+                let tempString: String? = city.cityCN.components(separatedBy: "/").first
                 if tempString != nil {
                     self.backClosure!(tempString!)
                 }

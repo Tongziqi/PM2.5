@@ -19,7 +19,7 @@ class ParserXML: NSObject,XMLParserDelegate{
     }
     
     func parseXMLResource(){
-        let parser = XMLParser(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "Citys", ofType: "xml")!))
+        let parser = XMLParser(contentsOf: URL(fileURLWithPath: Bundle.main.path(forResource: "NewCitys", ofType: "xml")!))
         if let parser = parser{
             parser.delegate = self
             parser.parse()
@@ -33,7 +33,7 @@ class ParserXML: NSObject,XMLParserDelegate{
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         // 去掉两端的符号
         let str = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        if elementName == "city"{
+        if elementName == "city" {
             let city = City()
             city.cityCN = str
             cities.append(city)

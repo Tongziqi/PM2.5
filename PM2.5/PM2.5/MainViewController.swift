@@ -402,7 +402,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }
         for city in citys {
             let parameters: Parameters = ["key":UserSetting.newAppkey,
-                                          "city":city.cityCN]
+                                          "city":city.cityCN.components(separatedBy: "/").first!]
             Alamofire.request(UserSetting.newWeatherUrl, method: .get, parameters: parameters, encoding: URLEncoding.default).validate().responseJSON { [weak self] (response) in
                 guard self != nil else { return }
                 switch response.result {
@@ -541,6 +541,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     func displayLocationInfo(placemark: CLPlacemark?) {
         if let containsPlacemark = placemark {
             locationManager.stopUpdatingLocation()
+            //  定位只获得所在市，不再具体精确
             var locality = (containsPlacemark.locality != nil) ? containsPlacemark.locality : ""
             locality = getRealCity(city: locality!)
             self.currentLocation = "\(locality!)"
