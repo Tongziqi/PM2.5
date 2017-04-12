@@ -51,6 +51,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var searchLocation: String = ""
     var detailWeather: [String:String] = [:]
     var dayOfAqiJson: JSON = []
+    var firstTime = true
     var lastTime = Date()
     
     
@@ -547,7 +548,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             
             self.userLocationLabel.text = currentLocation
             self.searchLocation = currentLocation
-            self.updateWeather(location: self.currentLocation)
+            if getCurrentTime() - lastTime.timeIntervalSince1970 * 1000 >= 2 * 60 * 60 * 1000
+                || self.firstTime {
+                self.firstTime = false
+                self.updateWeather(location: self.currentLocation)
+            }
+
         }
     }
     
