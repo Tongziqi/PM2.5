@@ -9,20 +9,23 @@
 import Foundation
 
 class City: NSObject,NSCoding {
-  var cityCN = ""
-
-  override init(){
-    super.init()
-  }
-
-  
-  required init?(coder aDecoder: NSCoder) {
-    cityCN = aDecoder.decodeObject(forKey: "CityCN") as! String
-    super.init()
-  }
-  
-  func encode(with aCoder: NSCoder) {
-    aCoder.encode(cityCN, forKey: "CityCN")
-  }
+    // 中文
+    var cityCN = ""
+    // 拼音
+    var cityPY = ""
+    
+    override init(){
+        super.init()
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        cityCN = aDecoder.decodeObject(forKey: "CityCN") as! String
+        super.init()
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(cityCN, forKey: "CityCN")
+    }
     
 }

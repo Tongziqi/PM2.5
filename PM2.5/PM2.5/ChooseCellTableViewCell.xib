@@ -23,7 +23,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="Qja-uH-2cD"/>
-                            <constraint firstAttribute="width" constant="300" id="k27-2x-Dnn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="城市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jjF-aO-Xql">

@@ -51,7 +51,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var searchLocation: String = ""
     var detailWeather: [String:String] = [:]
     var dayOfAqiJson: JSON = []
-    var updateTime: String = ""
+    var lastTime = Date()
+    
     
     
     let loader = ForecastDataLoader()
@@ -123,10 +124,21 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func refresh() {
-        initLocationManager()
-        if self.currentLocation != "获取地理位置失败" {
-            self.updateWeather(location: self.currentLocation)
+        // 刷新策略 两个小时
+        if getCurrentTime() - lastTime.timeIntervalSince1970 * 1000 >= 2 * 60 * 60 * 1000 {
+            initLocationManager()
         }
+    }
+    
+    func getCurrentTime() -> Double {
+        return Date().timeIntervalSince1970 * 1000
+    }
+    
+    func getRealTime(date: Date) -> String {
+        let dformatter = DateFormatter()
+        dformatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        print("当前日期时间：\(dformatter.string(from: date))")
+        return dformatter.string(from: date)
     }
     
     
@@ -291,6 +303,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func updateWeather(location: String) {
+        print("刷新了一次")
         HUD.show(.progress)
         //在这里面再重新加载所有的城市
         cities = CommonTool.loadData(cities: &cities)
@@ -309,12 +322,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 if let value = response.result.value {
                     let json = JSON(value)
                     let choosedCity: ChoosedCity = ChoosedCity.init(city: location, weather: getRealWeather(json: json), temperature: json["result"][0]["temperature"].stringValue, wind: json["result"][0]["wind"].stringValue)
-                    self?.updateTime = json["result"][0]["updateTime"].stringValue
                     self?.addDetailWeatherFromJson(json: json)
                     self?.choosedCities[location] = choosedCity
                     self?.updateWeatherUI(json: json)
                     let futurejson: JSON = json["result"][0]["future"]
                     self?.forecastJson = futurejson
+                    self?.lastTime = Date()
                 }
                 self?.updatePm25(location: location)
             case .failure(let errno):
@@ -406,7 +419,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             }
         }
         
-        self.showHub(text: self.searchLocation + "数据更新完毕\n" + "时间:" + getTime(time: self.updateTime))
+        self.showHub(text: self.searchLocation + "数据更新完毕\n" + "时间:" + getRealTime(date: lastTime))
     }
     
     
@@ -512,7 +525,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             if let pm = placemarks?[0] {
                 self.displayLocationInfo(placemark: pm)
             } else {
-                self.showHub(text: "获得地理位置失败...")
+                self.showHub(text: "获得地理位置失败,请重试")
             }
         }
         self.locationManager.stopUpdatingLocation()
