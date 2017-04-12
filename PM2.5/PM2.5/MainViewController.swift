@@ -305,6 +305,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     func updateWeather(location: String) {
         print("刷新了一次")
+        
+        
+        
         HUD.show(.progress)
         //在这里面再重新加载所有的城市
         cities = CommonTool.loadData(cities: &cities)
@@ -546,12 +549,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
             locality = getRealCity(city: locality!)
             self.currentLocation = "\(locality!)"
             self.locationImg.isHidden = false
-            
+            //获得中文的地址，因为如果手机设置为英语，那么定位得到的会是"Beijing"
+            self.currentLocation = CommonTool.getLocationCityName(cityName: self.currentLocation)
             self.userLocationLabel.text = currentLocation
-            self.searchLocation = currentLocation
             if getCurrentTime() - lastTime.timeIntervalSince1970 * 1000 >= 2 * 60 * 60 * 1000
                 || self.firstTime {
                 self.firstTime = false
+                
+                self.searchLocation = self.currentLocation
                 self.updateWeather(location: self.currentLocation)
             }
 

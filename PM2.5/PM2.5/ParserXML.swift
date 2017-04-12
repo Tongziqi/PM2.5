@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ParserXML: NSObject,XMLParserDelegate{
+class ParserXML: NSObject,XMLParserDelegate {
     
     var elementName = ""
     var cities = [City]()

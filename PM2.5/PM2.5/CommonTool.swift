@@ -19,6 +19,25 @@ public let ScreenBounds: CGRect = UIScreen.main.bounds
 
 class CommonTool {
     
+    
+    class func getLocationCityName(cityName: String) -> String {
+        var parserXML: ParserXML!
+        var parserCities = [City]()
+
+        parserXML = ParserXML()
+        parserCities = parserXML.cities
+        
+        parserCities = parserCities.filter({ (city) -> Bool in
+            return city.cityCN.lowercased().contains(cityName.lowercased())
+        })
+        
+        if parserCities.isEmpty {
+            return "获取地理位置失败"
+        } else {
+            return (parserCities.first?.cityCN.components(separatedBy: "/").first)!}
+        
+    }
+    
     /// 获得传入Json数据中的平均值
     ///
     /// - Parameter json: 传入的json
