@@ -356,6 +356,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         detailWeather["weatherState"] = json["result"][0]["airCondition"].stringValue
         detailWeather["activityState"] = json["result"][0]["exerciseIndex"].stringValue
         detailWeather["dressingIndex"] = json["result"][0]["dressingIndex"].stringValue
+        detailWeather["week"] = json["result"][0]["week"].stringValue
     }
     
     func updatePm25(location: String) {
@@ -467,7 +468,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         var weatherLabel: String = ""
         let wind = json["result"][0]["wind"].stringValue
         if wind != "" {
-            weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + wind
+            weatherLabel = json["result"][0]["date"].stringValue + "\n" + json["result"][0]["week"].stringValue + " " + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + wind
         } else {
             weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + "未获得风向"
         }

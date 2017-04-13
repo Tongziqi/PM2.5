@@ -12,6 +12,7 @@ class DetailWeatherView: UIView {
 
     @IBOutlet weak var mainScrollView: UIScrollView!
     
+    @IBOutlet weak var week: UILabel!
     @IBOutlet weak var data: UILabel!
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var weather: UILabel!

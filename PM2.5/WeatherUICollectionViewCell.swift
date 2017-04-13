@@ -17,6 +17,7 @@ class WeatherUICollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var temptureLabel: UILabel!
+    @IBOutlet weak var week: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +29,6 @@ class WeatherUICollectionViewCell: UICollectionViewCell {
         self.weather?.text = "大雪"
         self.dataLabel?.text = "2017-02-01"
         self.temptureLabel?.text = "56°/ 87°"
+        self.week?.text = "星期五"
     }
 }

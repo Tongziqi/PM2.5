@@ -46,6 +46,7 @@ final class EmbeddedSectionController: IGListSectionController, IGListSectionTyp
         cell?.dataLabel.text = entry.dataLabel
         cell?.temptureLabel.text = entry.temperature
         cell?.weather.text = entry.weatherLabel
+        cell?.week.text = entry.weekLabel
         return cell!
     }
     

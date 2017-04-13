@@ -12,45 +12,46 @@ import ChameleonFramework
 class DeatilViewController: UIViewController {
     
     var detailWeatherDate: [String: String] = [:]
-    let testView: DetailWeatherView = (Bundle.main.loadNibNamed("DetailWeatherView", owner: nil, options: nil)?.first as? DetailWeatherView)!
+    let detailWeatherView: DetailWeatherView = (Bundle.main.loadNibNamed("DetailWeatherView", owner: nil, options: nil)?.first as? DetailWeatherView)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let viewWidth: CGFloat = 190
-        let viewHeigth: CGFloat = 320
+        let viewHeigth: CGFloat = 360
         let parentSize = ScreenBounds
         let x = (parentSize.width - viewWidth) / 2
         let y = (parentSize.height - viewHeigth) / 2
         setDefaultData()
-        testView.layer.cornerRadius = 20
-        testView.layer.masksToBounds = true
-        testView.backgroundColor = UIColor.flatBlack
-        testView.frame = CGRect(x: x, y: y, width: viewWidth, height: viewHeigth)
+        detailWeatherView.layer.cornerRadius = 20
+        detailWeatherView.layer.masksToBounds = true
+        detailWeatherView.backgroundColor = UIColor.flatBlack
+        detailWeatherView.frame = CGRect(x: x, y: y, width: viewWidth, height: viewHeigth)
 
         self.view.backgroundColor = UIColor.clear.withAlphaComponent(0.5)
-        self.view.addSubview(testView)
+        self.view.addSubview(detailWeatherView)
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action:#selector(bgOnTap)))
     }
     
     func setDefaultData() {
-        testView.activityState.text = detailWeatherDate["activityState"]
-        testView.aqi.text = detailWeatherDate["aqi"]
-        testView.data.text = detailWeatherDate["data"]
-        testView.city.text = detailWeatherDate["city"]
-        testView.weather.text = detailWeatherDate["weather"]
-        testView.tempoture.text = detailWeatherDate["tempoture"]
-        testView.currentTemputure.text = detailWeatherDate["currentTemputure"]
-        testView.humidity.text = detailWeatherDate["humidity"]?.components(separatedBy: "湿度：").last
+        detailWeatherView.activityState.text = detailWeatherDate["activityState"]
+        detailWeatherView.aqi.text = detailWeatherDate["aqi"]
+        detailWeatherView.data.text = detailWeatherDate["data"]
+        detailWeatherView.city.text = detailWeatherDate["city"]
+        detailWeatherView.weather.text = detailWeatherDate["weather"]
+        detailWeatherView.tempoture.text = detailWeatherDate["tempoture"]
+        detailWeatherView.currentTemputure.text = detailWeatherDate["currentTemputure"]
+        detailWeatherView.humidity.text = detailWeatherDate["humidity"]?.components(separatedBy: "湿度：").last
         if detailWeatherDate["windDirection"] != "" {
-            testView.windDirection.text = detailWeatherDate["windDirection"]
+            detailWeatherView.windDirection.text = detailWeatherDate["windDirection"]
         } else {
-            testView.windDirection.text = "未获得风向"
+            detailWeatherView.windDirection.text = "未获得风向"
 
         }
-        testView.weatherState.text = detailWeatherDate["weatherState"]
-        testView.dressingIndex.text = detailWeatherDate["dressingIndex"]
+        detailWeatherView.weatherState.text = detailWeatherDate["weatherState"]
+        detailWeatherView.dressingIndex.text = detailWeatherDate["dressingIndex"]
+        detailWeatherView.week.text = detailWeatherDate["week"]
     }
     
     
