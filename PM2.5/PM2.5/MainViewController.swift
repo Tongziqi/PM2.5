@@ -245,14 +245,14 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         chooseViewController.locationCity = self.currentLocation
         chooseViewController.choosedCities = self.choosedCities
         chooseViewController.setBackMyClosure { (input: String) in
-        self.userLocationLabel.text = input
-        self.locationImg.isHidden = true
-        self.searchLocation = input
-        
-        delay(0.5, task: {
-        self.updateWeather(location: input)
-        })
-        
+            self.userLocationLabel.text = input
+            self.locationImg.isHidden = true
+            self.searchLocation = input
+            
+            delay(0.5, task: {
+                self.updateWeather(location: input)
+            })
+            
         }
         let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: chooseViewController)
         menuLeftNavigationController.leftSide = true
@@ -311,7 +311,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         HUD.show(.progress)
         //在这里面再重新加载所有的城市
         cities = CommonTool.loadData(cities: &cities)
-
+        
         //清空一下缓存
         self.choosedCities.removeAll()
         
@@ -459,6 +459,23 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.aqi.text = String(aqi)
         self.airConditon.text = airConditonString
         
+        self.airConditon.textColor = {() -> UIColor in
+            if airConditonString.contains("优") {
+                return UIColor.flatGreen
+            } else if airConditonString.contains("良") {
+                return UIColor.flatBlue
+            } else if airConditonString.contains("轻度") {
+                return UIColor.flatOrange
+            } else if airConditonString.contains("中度") {
+                return UIColor.flatOrangeDark
+            } else if airConditonString.contains("重度") {
+                return UIColor.flatRed
+            } else {
+                return UIColor.flatRedDark
+            }
+        }()
+        
+        
         let distence = CommonTool.pm25ChangeIntoFrame(pm25: aqi)
         self.updateArrow(locationX: (Int(self.view.frame.midX) - 100  - arrowWidth/2 + distence), locationY: self.arrLocationY!)
     }
@@ -470,7 +487,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         if wind != "" {
             weatherLabel = json["result"][0]["date"].stringValue + "\n" + json["result"][0]["week"].stringValue + " " + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + wind
         } else {
-            weatherLabel = json["result"][0]["date"].stringValue + "\n" + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + "未获得风向"
+            weatherLabel = json["result"][0]["date"].stringValue + "\n" + json["result"][0]["week"].stringValue + " " + getRealWeather(json: json) + json["result"][0]["temperature"].stringValue + "\n" + "未获得风向"
         }
         self.weatherImage.image = UIImage(named:  detectPicture(value: getRealWeather(json: json), weather: UserSetting.WeatherCondition))
         self.weatherLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
@@ -560,7 +577,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 self.searchLocation = self.currentLocation
                 self.updateWeather(location: self.currentLocation)
             }
-
+            
         }
     }
     
