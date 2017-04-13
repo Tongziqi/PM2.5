@@ -81,8 +81,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         arrLocationY = Int(pm25image.frame.origin.y) - Int(Double(arrowHight)/1.7)
         switch screenHeight {
         case 480.0:
-            labelSize.constant = 30
-            arrLocationY = arrLocationY! - 20
+            labelSize.constant = 5
+            arrLocationY = arrLocationY! - 45
             collectionViewHeight = 100
         case 568.0:
             labelSize.constant = 40
@@ -146,27 +146,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     func addTouchListener() {
         weatherImage.isUserInteractionEnabled = true
         weatherLabel.isUserInteractionEnabled = true
-        
         userLocationLabel.isUserInteractionEnabled = true
-        
         pm25image.isUserInteractionEnabled = true
-        pm10.isUserInteractionEnabled = true
-        so2.isUserInteractionEnabled = true
-        no2.isUserInteractionEnabled = true
-        aqi.isUserInteractionEnabled = true
-        airConditon.isUserInteractionEnabled = true
-        pm25.isUserInteractionEnabled = true
         
         weatherImage.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedDeatilWeather)))
         weatherLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedDeatilWeather)))
         
         pm25image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
-        pm25.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
-        pm10.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
-        so2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
-        no2.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
-        aqi.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
-        airConditon.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.tappedAqiDeatil)))
         userLocationLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.jumpToChooseCityVC)))
     }
     
@@ -178,6 +164,9 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         self.present(deatilViewController, animated: true, completion: nil)
     }
     
+    @IBAction func instrumentClick(_ sender: Any) {
+        showHub(text: "此处显示帮助页面")
+    }
     func tappedAqiDeatil() {
         let tableViewController = TableViewController(nibName: "TableViewController", bundle: nil)
         tableViewController.json = self.dayOfAqiJson
