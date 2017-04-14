@@ -23,19 +23,19 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize = CGSize(width: ScreenWidth * 2 + 10, height: ScreenHeight)
+        scrollView.contentSize = CGSize(width: ScreenWidth, height: ScreenHeight)
         scrollView.showsHorizontalScrollIndicator = false
         self.view.backgroundColor = UIColor.clear.withAlphaComponent(0.5)
-        barChartView = LineChartView.init(frame: CGRect(x: 0, y: ScreenBounds.height/4, width: ScreenWidth * 2, height: 200))
+        
+        barChartView = LineChartView.init(frame: CGRect(x: 0, y: ScreenBounds.height/4, width: ScreenWidth, height: 200))
         axisFormatDelegate = self
         setData(json: json["result"][0]["hourData"])
         
         setDefault()
-        
         updateChartWithData()
         
         
-        let label = UILabel(frame: CGRect(x: ScreenWidth / 3 - 5 , y: ScreenBounds.height/4 - 15, width: ScreenWidth * 2, height: 10))
+        let label = UILabel(frame: CGRect(x: ScreenWidth / 3 - 5 , y: ScreenBounds.height/4 - 15, width: ScreenWidth, height: 10))
         label.textColor = UIColor.flatWhite
         label.text = "24小时的AQI指数变化"
         label.font = UIFont.boldSystemFont(ofSize: 12)
@@ -72,10 +72,10 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             chartDataSet.colors = [UIColor.flatGreen]
             
             chartDataSet.cubicIntensity = 0.2 // 曲线弧度
-            chartDataSet.circleRadius = 5.0 //拐点半径
-            chartDataSet.drawCircleHoleEnabled = false //是否绘制中间的空心
-            chartDataSet.circleHoleRadius = 3.0 //空心的半径
-            chartDataSet.circleHoleColor = UIColor.flatWhite //空心的颜色
+            chartDataSet.circleRadius = 3.0 //拐点半径
+            chartDataSet.drawCircleHoleEnabled = true //是否绘制中间的空心
+            chartDataSet.circleHoleRadius = 2.0 //空心的半径
+            chartDataSet.circleHoleColor = UIColor.flatBlue //空心的颜色
             chartDataSet.highlightEnabled = false // //选中拐点,是否开启高亮效果(显示十字线)
             chartDataSet.mode = LineChartDataSet.Mode.linear
             
@@ -87,7 +87,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             let goodjx = ChartLimitLine(limit: 50, label: "良好")
             goodjx.lineColor = UIColor.flatBlue
             goodjx.valueTextColor = UIColor.flatBlue
-            goodjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
+            goodjx.valueFont = NSUIFont.systemFont(ofSize: 10)
             goodjx.lineWidth = 0.5
             goodjx.lineDashLengths = [5.0,5.0]
             goodjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
@@ -95,7 +95,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             let lowjx = ChartLimitLine(limit: 100, label: "轻度污染")
             lowjx.lineColor = UIColor.flatOrange
             lowjx.valueTextColor = UIColor.flatOrange
-            lowjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
+            lowjx.valueFont = NSUIFont.systemFont(ofSize: 10)
             lowjx.lineWidth = 0.5
             lowjx.lineDashLengths = [5.0,5.0]
             lowjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
@@ -103,7 +103,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             let midjx = ChartLimitLine(limit: 150, label: "中度污染")
             midjx.lineColor = UIColor.flatOrangeDark
             midjx.valueTextColor = UIColor.flatOrangeDark
-            midjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
+            midjx.valueFont = NSUIFont.systemFont(ofSize: 10)
             midjx.lineWidth = 0.5
             midjx.lineDashLengths = [5.0,5.0]
             midjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
@@ -111,7 +111,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             let highjx = ChartLimitLine(limit: 200, label: "重度污染")
             highjx.lineColor = UIColor.flatRed
             highjx.valueTextColor = UIColor.flatRed
-            highjx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
+            highjx.valueFont = NSUIFont.systemFont(ofSize: 10)
             highjx.lineWidth = 0.5
             highjx.lineDashLengths = [5.0,5.0]
             highjx.labelPosition = ChartLimitLine.LabelPosition.rightTop
@@ -119,7 +119,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
             let hugejx = ChartLimitLine(limit: 300, label: "严度污染")
             hugejx.lineColor = UIColor.flatRedDark
             hugejx.valueTextColor = UIColor.flatRedDark
-            hugejx.valueFont = NSUIFont.systemFont(ofSize: 11.0)
+            hugejx.valueFont = NSUIFont.systemFont(ofSize: 10)
             hugejx.lineWidth = 0.5
             hugejx.lineDashLengths = [5.0,5.0]
             hugejx.labelPosition = ChartLimitLine.LabelPosition.rightTop

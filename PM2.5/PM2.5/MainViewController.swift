@@ -15,6 +15,7 @@ import Alamofire
 import IGListKit
 import Reachability
 import Foundation
+import PopupDialog
 
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
@@ -81,12 +82,12 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         arrLocationY = Int(pm25image.frame.origin.y) - Int(Double(arrowHight)/1.7)
         switch screenHeight {
         case 480.0:
-            labelSize.constant = 5
-            arrLocationY = arrLocationY! - 45
+            labelSize.constant = 0
+            arrLocationY = arrLocationY! - 50
             collectionViewHeight = 100
         case 568.0:
-            labelSize.constant = 40
-            arrLocationY = arrLocationY! - 10
+            labelSize.constant = 30
+            arrLocationY = arrLocationY! - 20
             collectionViewHeight = 120
         case 667.0:
             labelSize.constant = 50
@@ -157,16 +158,93 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func tappedDeatilWeather() {
-        let deatilViewController = DeatilViewController()
-        deatilViewController.detailWeatherDate = self.detailWeather
-        deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
-        deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        self.present(deatilViewController, animated: true, completion: nil)
+        
+        //        把原来创建新view的方法换成直接弹窗，方便
+        //        let deatilViewController = DeatilViewController()
+        //        deatilViewController.detailWeatherDate = self.detailWeather
+        //        deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
+        //        deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        //        self.present(deatilViewController, animated: true, completion: nil)
+        
+        let title = "\(self.searchLocation)天气详情"
+        let wind = {() -> String in
+            if detailWeather["windDirection"] != "" {
+                return detailWeather["windDirection"]!
+            } else {
+                return "未获得风向"
+            }
+        }()
+        let humidity: String = (self.detailWeather["humidity"]?.components(separatedBy: "湿度：").last)!
+        
+        let weatherMessage = "日期：\(self.detailWeather["data"]!)\n星期： \(self.detailWeather["week"]!)\n城市：\(self.detailWeather["city"]!)\n温度：\(self.detailWeather["tempoture"]!)\n实时温度：\(self.detailWeather["currentTemputure"]!)\n风向：\(wind)\n穿衣：\(self.detailWeather["dressingIndex"]!)\n湿度：\(humidity)\n天气状况：\(self.detailWeather["weatherState"]!)\n活动状况：\(self.detailWeather["activityState"]!)\n"
+        
+        let aqiMessage = "AQI(空气质量指数)：\(self.aqi.text!)\nPM2.5细颗粒物(μg/m³)：\(self.pm25.text!)\nPM10可吸入颗粒物(μg/m³)：\(self.pm10.text!)\nNO2二氧化氮(μg/m³)：\(self.no2.text!)\nSO2二氧化硫(μg/m³)：\(self.so2.text!)\n空气质量：\(self.airConditon.text!)"
+        
+        let message:String = weatherMessage + aqiMessage
+        
+        let cancleButton = CancelButton(title: "好的", action: nil)
+        let shareButton = DefaultButton(title: "分享") {
+            //
+        }
+        self.showAlart(title: title, message: message, buttonOne: cancleButton, messageTextAlignment: NSTextAlignment.left, buttonTwo: shareButton)
+        
+        
     }
     
     @IBAction func instrumentClick(_ sender: Any) {
-        showHub(text: "此处显示帮助页面")
+        let title = "指数含义"
+        let message = "    空气质量指数（Air Quality Index，简称AQI）是定量描述空气质量状况的无量纲指数。其数值越大、级别和类别越高、表征颜色越深，说明空气污染状况越严重，对人体的健康危害也就越大。\n    参与空气质量评价的主要污染物为细颗粒物、可吸入颗粒物、二氧化硫、二氧化氮、臭氧、一氧化碳六项。"
+        let cancleButtom = CancelButton(title: "好的", action: nil)
+        let buttonTwo = DefaultButton(title: "无", action: nil)
+        self.showAlart(title: title, message: message, buttonOne: cancleButtom, messageTextAlignment: NSTextAlignment.left, buttonTwo: buttonTwo)
     }
+    
+    
+    func showAlart(title: String, message: String, buttonOne: CancelButton, messageTextAlignment: NSTextAlignment, buttonTwo: DefaultButton){
+        // Customize dialog appearance
+        let pv = PopupDialogDefaultView.appearance()
+        pv.titleFont    = UIFont(name: "HelveticaNeue-Light", size: 16)!
+        pv.titleColor   = UIColor.white
+        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 14)!
+        pv.messageColor = UIColor.flatWhite
+        pv.messageTextAlignment = messageTextAlignment
+        
+        // Customize the container view appearance
+        let pcv = PopupDialogContainerView.appearance()
+        pcv.backgroundColor = UIColor.flatBlack
+        pcv.cornerRadius    = 10
+        pcv.shadowEnabled   = true
+        pcv.shadowColor     = UIColor.flatGray
+        
+        // Customize default button appearance
+        let db = DefaultButton.appearance()
+        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+        db.titleColor     = UIColor.flatWhite
+        db.buttonColor    = UIColor(red:0.25, green:0.25, blue:0.29, alpha:1.00)
+        db.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
+        
+        // Customize cancel button appearance
+        let cb = CancelButton.appearance()
+        cb.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+        cb.titleColor     = UIColor(white: 0.6, alpha: 1)
+        cb.buttonColor    = UIColor(red:0.25, green:0.25, blue:0.29, alpha:1.00)
+        cb.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
+        
+        
+        // Create the dialog
+        let popup = PopupDialog(title: title, message: message)
+        
+        if buttonTwo.currentTitle == "无" {
+            popup.addButtons([buttonOne])
+        }  else {
+            popup.addButtons([buttonOne,buttonTwo])
+        }
+        
+        // Present dialog
+        self.present(popup, animated: true, completion: nil)
+    }
+    
+    
     func tappedAqiDeatil() {
         let tableViewController = TableViewController(nibName: "TableViewController", bundle: nil)
         tableViewController.json = self.dayOfAqiJson
