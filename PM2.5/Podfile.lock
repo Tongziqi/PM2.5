@@ -11,6 +11,7 @@ PODS:
   - MOBFoundation (2.0.11)
   - Onboard (2.3.1)
   - PKHUD (4.2.0)
+  - PopupDialog (0.5.4)
   - Reachability (3.2)
   - ShareSDK3 (3.3.2):
     - ShareSDK3/ShareSDK (= 3.3.2)
@@ -31,6 +32,7 @@ DEPENDENCIES:
   - MOBFoundation (~> 2.0.8)
   - Onboard
   - PKHUD (from `https://github.com/pkluz/PKHUD.git`)
+  - PopupDialog (~> 0.5)
   - Reachability
   - ShareSDK3 (~> 3.3.2)
   - ShareSDK3/ShareSDKPlatforms/QQ
@@ -63,11 +65,12 @@ SPEC CHECKSUMS:
   MOBFoundation: e213065e65eebd8146ab29d10a8445dc8f385091
   Onboard: b6871f25ac753175b2ab9a362fb2feb26a81a311
   PKHUD: c7e8c1595d687b41a10aac59589c357bfcb7df61
+  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
 
-PODFILE CHECKSUM: f6f72d1479b1469ce8b2f2855e5ae871faa918b5
+PODFILE CHECKSUM: f5a3be06882f7fe425502631078fcd4803db4fbf
 
 COCOAPODS: 1.2.0
