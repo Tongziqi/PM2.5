@@ -1,57 +1,77 @@
 //
-//  TableViewController.swift
+//  AqiDeatilViewController.swift
 //  PM2.5
 //
-//  Created by 童小托 on 2017/4/6.
+//  Created by 童小托 on 2017/4/14.
 //  Copyright © 2017年 童小托. All rights reserved.
 //
 
 import UIKit
 import Charts
 import SwiftyJSON
+import SnapKit
 
-class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDelegate, ChartViewDelegate {
-    @IBOutlet weak var scrollView: UIScrollView!
+class AqiDeatilViewController: UIViewController, IAxisValueFormatter, UIScrollViewDelegate, ChartViewDelegate  {
     weak var axisFormatDelegate: IAxisValueFormatter?
     
     var json: JSON = []
     var timeData: [String] = []
     var aqiData: [Double] = []
     var barChartView: LineChartView?
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.contentSize = CGSize(width: ScreenWidth, height: ScreenHeight)
-        scrollView.showsHorizontalScrollIndicator = false
-        self.view.backgroundColor = UIColor.clear.withAlphaComponent(0.5)
-        
-        barChartView = LineChartView.init(frame: CGRect(x: 0, y: ScreenBounds.height/4, width: ScreenWidth, height: 200))
+        barChartView = LineChartView.init(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         axisFormatDelegate = self
         setData(json: json["result"][0]["hourData"])
         
         setDefault()
         updateChartWithData()
         
+        let label = UILabel(frame: CGRect(x: ScreenWidth / 4 , y: 5 , width: self.view.frame.width, height: 10))
         
-        let label = UILabel(frame: CGRect(x: ScreenWidth / 3 - 5 , y: ScreenBounds.height/4 - 15, width: ScreenWidth, height: 10))
         label.textColor = UIColor.flatWhite
         label.text = "24小时的AQI指数变化"
         label.font = UIFont.boldSystemFont(ofSize: 12)
         
-        self.scrollView.addSubview(barChartView!)
-        self.scrollView.addSubview(label)
+        self.view.addSubview(barChartView!)
+        self.view.addSubview(label)
+        
+
+        
+        barChartView?.snp.makeConstraints({ [weak self] (make) in
+            guard let `self` = self else {
+                return
+            }
+            make.width.equalTo(self.view.snp.width)
+            make.height.equalTo(self.view.bounds.height / 3)
+        })
+        
+        barChartView?.snp.makeConstraints({ [weak self](make) in
+            guard let `self` = self else {
+                return
+            }
+            make.left.equalTo(self.view.snp.left).offset(0)
+            make.right.equalTo(self.view.snp.right).offset(0)
+            make.top.equalTo(self.view.snp.top).offset(0)
+            make.bottom.equalTo(self.view.snp.bottom).offset(0)
+        })
+        
+        
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action:#selector(bgOnTap)))
+
+
         // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         return timeData[Int(value)]
     }
@@ -134,7 +154,7 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
     
     func setDefault() {
         
-        barChartView?.layer.cornerRadius = 20
+        barChartView?.layer.cornerRadius = 5
         barChartView?.layer.masksToBounds = true
         barChartView?.backgroundColor = UIColor.flatBlack //设置背景颜色
         barChartView?.chartDescription?.text = "" //隐藏描述文字
@@ -177,6 +197,4 @@ class TableViewController: UIViewController, IAxisValueFormatter, UIScrollViewDe
     func bgOnTap(_gusture: UITapGestureRecognizer) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
 }

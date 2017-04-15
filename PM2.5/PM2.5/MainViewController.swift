@@ -184,7 +184,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         
         let cancleButton = CancelButton(title: "好的", action: nil)
         let shareButton = DefaultButton(title: "分享") {
-            //
+            self.shareButton(self)
         }
         self.showAlart(title: title, message: message, buttonOne: cancleButton, messageTextAlignment: NSTextAlignment.left, buttonTwo: shareButton)
         
@@ -246,12 +246,45 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     
     
     func tappedAqiDeatil() {
-        let tableViewController = TableViewController(nibName: "TableViewController", bundle: nil)
-        tableViewController.json = self.dayOfAqiJson
-        tableViewController.modalPresentationStyle = UIModalPresentationStyle.custom
-        tableViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        self.present(tableViewController, animated: true, completion: nil)
+        
+        let pv = PopupDialogDefaultView.appearance()
+        pv.titleFont    = UIFont(name: "HelveticaNeue-Light", size: 16)!
+        pv.titleColor   = UIColor.white
+        pv.messageFont  = UIFont(name: "HelveticaNeue", size: 14)!
+        pv.messageColor = UIColor.flatWhite
+        pv.messageTextAlignment = NSTextAlignment.left
+        
+        // Customize the container view appearance
+        let pcv = PopupDialogContainerView.appearance()
+        pcv.backgroundColor = UIColor.flatBlack
+        pcv.cornerRadius    = 5
+        pcv.shadowEnabled   = true
+        pcv.shadowColor     = UIColor.flatGray
+        
+        // Customize default button appearance
+        let db = DefaultButton.appearance()
+        db.titleFont      = UIFont(name: "HelveticaNeue-Medium", size: 14)!
+        db.titleColor     = UIColor.flatWhite
+        db.buttonColor    = UIColor(red:0.25, green:0.25, blue:0.29, alpha:1.00)
+        db.separatorColor = UIColor(red:0.20, green:0.20, blue:0.25, alpha:1.00)
+        
+        
+        let aqiDetail = AqiDeatilViewController()
+        aqiDetail.json = self.dayOfAqiJson
+        let popup = PopupDialog(viewController: aqiDetail, buttonAlignment: UILayoutConstraintAxis.vertical, transitionStyle: .bounceUp, gestureDismissal: true, completion: nil)
+        //         Create first button
+        let buttonOne = CancelButton(title: "好的", height: 40) {
+        }
+        //        // Add buttons to dialog
+        popup.addButtons([buttonOne])
+        //
+        //        // Present dialog
+        present(popup, animated: true, completion: nil)
+        
+        
     }
+    
+    
     
     
     func checkNetConnection() {

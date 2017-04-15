@@ -16,6 +16,7 @@ target 'PM2.5’ do
     #pod 'KSCrash' 暂时不使用这个统计
     pod 'UMengAnalytics-NO-IDFA'
     pod 'PopupDialog', '~> 0.5'
+    pod 'SnapKit'
 
 # 主模块(必须)
 pod 'ShareSDK3', '~> 3.3.2'

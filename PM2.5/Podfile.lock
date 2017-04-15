@@ -20,6 +20,7 @@ PODS:
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.3.2)
   - ShareSDK3/ShareSDKPlatforms/WeChat (3.3.2)
   - ShareSDK3/ShareSDKUI (3.3.2)
+  - SnapKit (3.2.0)
   - SwiftyJSON (3.1.4)
   - UMengAnalytics-NO-IDFA (4.2.5)
 
@@ -39,6 +40,7 @@ DEPENDENCIES:
   - ShareSDK3/ShareSDKPlatforms/SinaWeibo
   - ShareSDK3/ShareSDKPlatforms/WeChat
   - ShareSDK3/ShareSDKUI
+  - SnapKit
   - SwiftyJSON (~> 3.1.4)
   - UMengAnalytics-NO-IDFA
 
@@ -68,9 +70,10 @@ SPEC CHECKSUMS:
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ShareSDK3: c76cb96eb38e079952b8157071486d945faa2df2
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   UMengAnalytics-NO-IDFA: 16666e32edce5be44ae5b14aaaa7f3582e09d6ab
 
-PODFILE CHECKSUM: f5a3be06882f7fe425502631078fcd4803db4fbf
+PODFILE CHECKSUM: a66aebdc83db0aea0dc46ee3b408a5f6e7d7a931
 
 COCOAPODS: 1.2.0
