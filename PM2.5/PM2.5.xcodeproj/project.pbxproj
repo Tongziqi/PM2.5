@@ -16,6 +16,7 @@
 		5D086A5B1E768DA60045B115 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A571E768DA60045B115 /* SideMenuTransition.swift */; };
 		5D086A5C1E768DA60045B115 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */; };
 		5D19BB1D1E5FE41600A693FC /* UserSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D19BB1C1E5FE41600A693FC /* UserSetting.swift */; };
+		5D2D00351EA33DE90021EC9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D00341EA33DE90021EC9F /* LaunchScreen.storyboard */; };
 		5D2F079A1EA0D8FF0029A926 /* AqiDeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F07991EA0D8FF0029A926 /* AqiDeatilViewController.swift */; };
 		5D32EB3D1E9E1EEA00FD2BD4 /* NewCitys.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5D32EB3C1E9E1EEA00FD2BD4 /* NewCitys.xml */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
@@ -42,7 +43,6 @@
 		5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE004921E3473CD009517CB /* AppDelegate.swift */; };
 		5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE004981E3473CD009517CB /* Main.storyboard */; };
 		5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0049B1E3473CD009517CB /* Assets.xcassets */; };
-		5DE0049F1E3473CD009517CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0049D1E3473CD009517CB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +57,8 @@
 		5D086A581E768DA60045B115 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISideMenuNavigationController.swift; sourceTree = "<group>"; };
 		5D19BB1C1E5FE41600A693FC /* UserSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSetting.swift; sourceTree = "<group>"; };
 		5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ShareSdk-Bridge-Header.h"; sourceTree = "<group>"; };
+		5D2D00341EA33DE90021EC9F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5D2F07991EA0D8FF0029A926 /* AqiDeatilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AqiDeatilViewController.swift; sourceTree = "<group>"; };
-		5D32A00C1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5D32A00D1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5D32EB3C1E9E1EEA00FD2BD4 /* NewCitys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NewCitys.xml; path = ../../../../Desktop/NewCitys.xml; sourceTree = "<group>"; };
 		5D5161621E546DF4006F512E /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +86,6 @@
 		5DE004921E3473CD009517CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE004991E3473CD009517CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DE0049B1E3473CD009517CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5DE0049E1E3473CD009517CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DE004A01E3473CD009517CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DED8BEC1E9D1D8E0073F1B2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../Library/Developer/Xcode/DerivedData/PM2.5-bzatngcaijgaifdicrauylvrqpyz/Build/Products/Debug-iphoneos/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		5DED8BED1E9D1D8E0073F1B2 /* ChameleonFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChameleonFramework.framework; path = "../../../Library/Developer/Xcode/DerivedData/PM2.5-bzatngcaijgaifdicrauylvrqpyz/Build/Products/Debug-iphoneos/ChameleonFramework/ChameleonFramework.framework"; sourceTree = "<group>"; };
@@ -220,7 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				5D7838391E8E780900026E0A /* CustomPKHUDView.swift */,
-				5DE0049D1E3473CD009517CB /* LaunchScreen.storyboard */,
+				5D2D00341EA33DE90021EC9F /* LaunchScreen.storyboard */,
 				5DE004981E3473CD009517CB /* Main.storyboard */,
 				5D03BA5D1E79412A00C84313 /* DetailWeatherView.swift */,
 				5D03BA5F1E79413400C84313 /* DetailWeatherView.xib */,
@@ -346,11 +345,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2D00351EA33DE90021EC9F /* LaunchScreen.storyboard in Resources */,
 				5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */,
 				5DA107C21E9509B7008043A6 /* ChooseCellTableViewCell.xib in Resources */,
 				5D80F7AE1E5B046800A989D8 /* CityListCellTableViewCell.xib in Resources */,
 				5D32EB3D1E9E1EEA00FD2BD4 /* NewCitys.xml in Resources */,
-				5DE0049F1E3473CD009517CB /* LaunchScreen.storyboard in Resources */,
 				5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */,
 				5D03BA601E79413400C84313 /* DetailWeatherView.xib in Resources */,
 				5D6893521E68015700694491 /* WeatherUICollectionViewCell.xib in Resources */,
@@ -452,15 +451,6 @@
 				5D32A00D1E7157A50039254E /* zh-Hans */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5DE0049D1E3473CD009517CB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5DE0049E1E3473CD009517CB /* Base */,
-				5D32A00C1E7157A50039254E /* zh-Hans */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

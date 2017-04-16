@@ -273,7 +273,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         aqiDetail.json = self.dayOfAqiJson
         let popup = PopupDialog(viewController: aqiDetail, buttonAlignment: UILayoutConstraintAxis.vertical, transitionStyle: .bounceUp, gestureDismissal: true, completion: nil)
         //         Create first button
-        let buttonOne = CancelButton(title: "好的", height: 40) {
+        let buttonOne = CancelButton(title: "好的", height: 45) {
         }
         //        // Add buttons to dialog
         popup.addButtons([buttonOne])

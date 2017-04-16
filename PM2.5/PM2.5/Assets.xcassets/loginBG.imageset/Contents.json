@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "defaultCloud.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "loginBG.png",
       "scale" : "2x"
     },
     {
