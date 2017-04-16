@@ -59,7 +59,7 @@ func detectPicture(value: String, weather: [String]) -> String {
         return "小" + value
     } else if value.contains("-") {
         return value.components(separatedBy: "-").last ?? ""
-    } else if value.contains("雷") {
+    } else if value.contains("雷") && !value.contains("雷阵"){
         return value.replacingOccurrences(of: "雷", with: "雷阵")
     } else if value.contains("阴天") {
         return value.replacingOccurrences(of: "阴天", with: "阴")

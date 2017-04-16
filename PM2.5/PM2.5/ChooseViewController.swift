@@ -120,7 +120,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            if self.hideCell {
+            if self.hideCell || self.locationCity == "获取地理位置失败" {
                 return 0
             } else {
                 return 1
@@ -144,12 +144,16 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section {
         case 0:
-            return 0.001
+            if self.hideCell {
+                return 0
+            }else {
+                return 15
+            }
         case 1:
             if self.hideCell {
                 return 0
             }else {
-                return 10
+                return 15
             }
         case 2:
             return 0.001
@@ -157,6 +161,25 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             return 0.001
         }
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "当前城市:"
+        case 1:
+            return "搜索历史:"
+        default:
+            return ""
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        headerView.textLabel?.textAlignment = .left
+        
+    }
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -175,7 +198,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
                 if self.choosedCities[self.locationCity!]?.wind != "" {
                     cellZero?.windLabel.text = self.choosedCities[self.locationCity!]?.wind
                 }
-
+                
                 cellZero?.temperatureLabel.text = self.choosedCities[self.locationCity!]?.temperature
                 
             } else {
@@ -194,7 +217,7 @@ class ChooseViewController: UIViewController,UITableViewDelegate,UITableViewData
             }
             if self.choosedCities[cities[indexPath.row].cityCN]?.wind != "" {
                 cell?.windLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.wind
-            } 
+            }
             cell?.temperatureLabel.text = self.choosedCities[cities[indexPath.row].cityCN]?.temperature
             
             if self.tabelView.isEditing {

@@ -176,7 +176,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }()
         let humidity: String = (self.detailWeather["humidity"]?.components(separatedBy: "湿度：").last)!
         
-        let weatherMessage = "日期：\(self.detailWeather["data"]!)\n星期： \(self.detailWeather["week"]!)\n城市：\(self.detailWeather["city"]!)\n温度：\(self.detailWeather["tempoture"]!)\n实时温度：\(self.detailWeather["currentTemputure"]!)\n风向：\(wind)\n穿衣：\(self.detailWeather["dressingIndex"]!)\n湿度：\(humidity)\n天气状况：\(self.detailWeather["weatherState"]!)\n活动状况：\(self.detailWeather["activityState"]!)\n"
+        let weatherMessage = "日期：\(self.detailWeather["data"]!)\n星期：\(self.detailWeather["week"]!)\n城市：\(self.detailWeather["city"]!)\n天气：\(self.detailWeather["weather"]!)\n温度：\(self.detailWeather["tempoture"]!)\n实时温度：\(self.detailWeather["currentTemputure"]!)\n风向：\(wind)\n穿衣：\(self.detailWeather["dressingIndex"]!)\n湿度：\(humidity)\n天气状况：\(self.detailWeather["weatherState"]!)\n活动状况：\(self.detailWeather["activityState"]!)\n"
         
         let aqiMessage = "AQI(空气质量指数)：\(self.aqi.text!)\nPM2.5细颗粒物(μg/m³)：\(self.pm25.text!)\nPM10可吸入颗粒物(μg/m³)：\(self.pm10.text!)\nNO2二氧化氮(μg/m³)：\(self.no2.text!)\nSO2二氧化硫(μg/m³)：\(self.so2.text!)\n空气质量：\(self.airConditon.text!)"
         
@@ -406,8 +406,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     func updateWeather(location: String) {
         print("刷新了一次")
         
-        
-        
         HUD.show(.progress)
         //在这里面再重新加载所有的城市
         cities = CommonTool.loadData(cities: &cities)
@@ -436,7 +434,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 self?.updatePm25(location: location)
             case .failure(let errno):
                 HUD.hide()
-                self?.showHub(text: "实时数据获取失败")
+                self?.showHub(text: "实时数据获取失败,请检查网络连接")
                 print(errno)
             }
         }
@@ -475,7 +473,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                 
             case .failure(let errno):
                 HUD.hide()
-                self?.showHub(text: "pm2.5数据获取失败")
+                self?.showHub(text: "pm2.5数据获取失败,请检查网络连接")
                 print(errno)
             }
         }
@@ -499,7 +497,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                     }
                 case .failure(let errno):
                     HUD.hide()
-                    self?.showHub(text: "实时数据获取失败")
+                    self?.showHub(text: "实时数据获取失败,请检查网络连接")
                     print(errno)
                 }
             }
@@ -518,7 +516,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
                     }
                 case .failure(let errno):
                     HUD.hide()
-                    self?.showHub(text: "实时数据获取失败")
+                    self?.showHub(text: "实时数据获取失败,请检查网络连接")
                     print(errno)
                 }
             }
