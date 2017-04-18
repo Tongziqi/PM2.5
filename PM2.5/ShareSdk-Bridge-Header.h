@@ -35,4 +35,4 @@
 
 //友盟统计
 #import "UMMobClick/MobClick.h"
-
+#include"UMessage.h"

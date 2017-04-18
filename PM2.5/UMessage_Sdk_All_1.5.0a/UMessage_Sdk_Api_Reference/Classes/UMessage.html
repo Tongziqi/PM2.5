@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>UMessage Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">UMessage </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">umeng.com</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/addAlias:type:response:">+ addAlias:type:response:</option>
+		
+		<option value="//api/name/addTag:response:">+ addTag:response:</option>
+		
+		<option value="//api/name/didReceiveRemoteNotification:">+ didReceiveRemoteNotification:</option>
+		
+		<option value="//api/name/getTags:">+ getTags:</option>
+		
+		<option value="//api/name/registerDeviceToken:">+ registerDeviceToken:</option>
+		
+		<option value="//api/name/registerForRemoteNotifications">+ registerForRemoteNotifications</option>
+		
+		<option value="//api/name/registerForRemoteNotifications:">+ registerForRemoteNotifications:</option>
+		
+		<option value="//api/name/registerForRemoteNotifications:withTypesForIos7:withTypesForIos8:">+ registerForRemoteNotifications:withTypesForIos7:withTypesForIos8:</option>
+		
+		<option value="//api/name/removeAlias:type:response:">+ removeAlias:type:response:</option>
+		
+		<option value="//api/name/removeAllTags:">+ removeAllTags:</option>
+		
+		<option value="//api/name/removeTag:response:">+ removeTag:response:</option>
+		
+		<option value="//api/name/sendClickReportForRemoteNotification:">+ sendClickReportForRemoteNotification:</option>
+		
+		<option value="//api/name/setAlias:type:response:">+ setAlias:type:response:</option>
+		
+		<option value="//api/name/setAutoAlert:">+ setAutoAlert:</option>
+		
+		<option value="//api/name/setBadgeClear:">+ setBadgeClear:</option>
+		
+		<option value="//api/name/setChannel:">+ setChannel:</option>
+		
+		<option value="//api/name/setLocation:">+ setLocation:</option>
+		
+		<option value="//api/name/setLogEnabled:">+ setLogEnabled:</option>
+		
+		<option value="//api/name/setUniqueID:">+ setUniqueID:</option>
+		
+		<option value="//api/name/startWithAppkey:launchOptions:">+ startWithAppkey:launchOptions:</option>
+		
+		<option value="//api/name/startWithAppkey:launchOptions:httpsenable:">+ startWithAppkey:launchOptions:httpsenable:</option>
+		
+		<option value="//api/name/unregisterForRemoteNotifications">+ unregisterForRemoteNotifications</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">UMessage Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>UMessage.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>UMessage：开发者使用主类（API）</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="settings（most required）" name="task_settings（most required）"></a>
+						<h2 class="task-title">settings（most required）</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/startWithAppkey:launchOptions:" title="startWithAppkey:launchOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startWithAppkey:launchOptions:">+&nbsp;startWithAppkey:launchOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>绑定App的appKey和启动参数，启动消息参数用于处理用户通过消息打开应用相关信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)startWithAppkey:(NSString *__nonnull)<em>appKey</em> launchOptions:(NSDictionary *__nullable)<em>launchOptions</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appKey</code></th>
+						<td><p>主站生成appKey</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>launchOptions</code></th>
+						<td><p>启动参数</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>绑定App的appKey和启动参数，启动消息参数用于处理用户通过消息打开应用相关信息</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startWithAppkey:launchOptions:httpsenable:" title="startWithAppkey:launchOptions:httpsenable:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startWithAppkey:launchOptions:httpsenable:">+&nbsp;startWithAppkey:launchOptions:httpsenable:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>绑定App的appKey和启动参数，启动消息参数用于处理用户通过消息打开应用相关信息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)startWithAppkey:(NSString *__nonnull)<em>appKey</em> launchOptions:(NSDictionary *__nullable)<em>launchOptions</em> httpsenable:(BOOL)<em>value</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appKey</code></th>
+						<td><p>主站生成appKey</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>launchOptions</code></th>
+						<td><p>启动参数</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>value</code></th>
+						<td><p>开启友盟内部协议使用https的开关,默认是关闭</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>绑定App的appKey和启动参数，启动消息参数用于处理用户通过消息打开应用相关信息</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerForRemoteNotifications" title="registerForRemoteNotifications"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerForRemoteNotifications">+&nbsp;registerForRemoteNotifications</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>分别针对iOS8以前版本及iOS8及以后开启推送消息推送。
+默认的时候是sound，badge ,alert三个功能全部打开, 没有开启交互式推送行为分类。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerForRemoteNotifications</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>注册RemoteNotification的类型</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerForRemoteNotifications:" title="registerForRemoteNotifications:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerForRemoteNotifications:">+&nbsp;registerForRemoteNotifications:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>分别针对iOS8以下版本及iOS8及以上开启推送消息推送。
+默认的时候是sound，badge ,alert三个功能全部打开。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerForRemoteNotifications:(nullable NSSet&lt;UIUserNotificationCategory*&gt; *)<em>categories8</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>categories</code></th>
+						<td><p>交互式推送行为分类。可以具体查看demo。</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>注册RemoteNotification的类型</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerForRemoteNotifications:withTypesForIos7:withTypesForIos8:" title="registerForRemoteNotifications:withTypesForIos7:withTypesForIos8:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerForRemoteNotifications:withTypesForIos7:withTypesForIos8:">+&nbsp;registerForRemoteNotifications:withTypesForIos7:withTypesForIos8:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>分别针对iOS8以前版本及iOS8及以后开启推送消息推送。
+默认的时候是sound，badge ,alert三个功能全部打开。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerForRemoteNotifications:(nullable NSSet&lt;UIUserNotificationCategory*&gt; *)<em>categories8</em> withTypesForIos7:(UIRemoteNotificationType)<em>types7</em> withTypesForIos8:(UIUserNotificationType)<em>types8</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>categories8</code></th>
+						<td><p>交互式推送行为分类。可以具体查看demo。</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>types7</code></th>
+						<td><p>iOS7及以下版本的推送类型。默认types7 = UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound;</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>types8</code></th>
+						<td><p>iOS8及以上，iOS10以下版本的推送类型。默认types8 = UIUserNotificationTypeAlert|UIUserNotificationTypeSound|UIUserNotificationTypeBadge;</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>注册RemoteNotification的类型</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unregisterForRemoteNotifications" title="unregisterForRemoteNotifications"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unregisterForRemoteNotifications">+&nbsp;unregisterForRemoteNotifications</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>解除RemoteNotification的注册（关闭消息推送，实际调用：[[UIApplication sharedApplication] unregisterForRemoteNotifications]）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)unregisterForRemoteNotifications</code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>types</code></th>
+						<td><p>消息类型，参见<code>UIRemoteNotificationType</code></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>解除RemoteNotification的注册（关闭消息推送，实际调用：[[UIApplication sharedApplication] unregisterForRemoteNotifications]）</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerDeviceToken:" title="registerDeviceToken:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerDeviceToken:">+&nbsp;registerDeviceToken:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>向友盟注册该设备的deviceToken，便于发送Push消息</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerDeviceToken:(nullable NSData *)<em>deviceToken</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>deviceToken</code></th>
+						<td><p>APNs返回的deviceToken</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>向友盟注册该设备的deviceToken，便于发送Push消息</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/didReceiveRemoteNotification:" title="didReceiveRemoteNotification:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/didReceiveRemoteNotification:">+&nbsp;didReceiveRemoteNotification:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>应用处于运行时（前台、后台）的消息处理</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)didReceiveRemoteNotification:(nullable NSDictionary *)<em>userInfo</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>userInfo</code></th>
+						<td><p>消息参数</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>应用处于运行时（前台、后台）的消息处理</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setLocation:" title="setLocation:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setLocation:">+&nbsp;setLocation:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>开发者自行传入location</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setLocation:(nullable CLLocation *)<em>location</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>location</code></th>
+						<td><p>当前location信息</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>开发者自行传入location</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setLogEnabled:" title="setLogEnabled:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setLogEnabled:">+&nbsp;setLogEnabled:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置应用的日志输出的开关（默认关闭）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setLogEnabled:(BOOL)<em>value</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>value</code></th>
+						<td><p>是否开启标志，注意App发布时请关闭日志输出</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置应用的日志输出的开关（默认关闭）</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setBadgeClear:" title="setBadgeClear:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setBadgeClear:">+&nbsp;setBadgeClear:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置是否允许SDK自动清空角标（默认开启）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setBadgeClear:(BOOL)<em>value</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>value</code></th>
+						<td><p>是否开启角标清空</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置是否允许SDK自动清空角标（默认开启）</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setAutoAlert:" title="setAutoAlert:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setAutoAlert:">+&nbsp;setAutoAlert:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置是否允许SDK当应用在前台运行收到Push时弹出Alert框（默认开启）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setAutoAlert:(BOOL)<em>value</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>value</code></th>
+						<td><p>是否开启弹出框</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置是否允许SDK当应用在前台运行收到Push时弹出Alert框（默认开启）</p><div class="warning"><p><strong>Warning:</strong> 建议不要关闭，否则会丢失程序在前台收到的Push的点击统计,如果定制了 Alert，可以使用<code>sendClickReportForRemoteNotification</code>补发 log</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setChannel:" title="setChannel:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setChannel:">+&nbsp;setChannel:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置App的发布渠道（默认为:&ldquo;App Store"）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setChannel:(nullable NSString *)<em>channel</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>channel</code></th>
+						<td><p>渠道名称</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置App的发布渠道（默认为:&ldquo;App Store"）</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setUniqueID:" title="setUniqueID:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setUniqueID:">+&nbsp;setUniqueID:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>设置设备的唯一ID，目前友盟这边设备的唯一ID是OpenUdid，如果你们可以采集到更合适的唯一ID，可以采用这个ID来替换OpenUdid</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setUniqueID:(nullable NSString *)<em>uniqueId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uniqueId</code></th>
+						<td><p>唯一ID名称</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>设置设备的唯一ID，目前友盟这边设备的唯一ID是OpenUdid，如果你们可以采集到更合适的唯一ID，可以采用这个ID来替换OpenUdid</p><div class="warning"><p><strong>Warning:</strong> 用户可以设置uniqueId方便以后扩展，我们短时间内在服务区端任然会采取OpenUdid作为唯一标记。</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sendClickReportForRemoteNotification:" title="sendClickReportForRemoteNotification:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sendClickReportForRemoteNotification:">+&nbsp;sendClickReportForRemoteNotification:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>为某个消息发送点击事件</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)sendClickReportForRemoteNotification:(nullable NSDictionary *)<em>userInfo</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>userInfo</code></th>
+						<td><p>消息体的NSDictionary，此Dictionary是
+        (void)application:(UIApplication <em>)application <a href="#//api/name/didReceiveRemoteNotification:">didReceiveRemoteNotification:</a>(NSDictionary </em>)userInfo中的userInfo</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>为某个消息发送点击事件</p><div class="warning"><p><strong>Warning:</strong> 请注意不要对同一个消息重复调用此方法，可能导致你的消息打开率飚升，此方法只在需要定制 Alert 框时调用</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="tag (optional)" name="task_tag (optional)"></a>
+						<h2 class="task-title">tag (optional)</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/getTags:" title="getTags:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getTags:">+&nbsp;getTags:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>获取当前绑定设备上的所有tag(每台设备最多绑定64个tag)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)getTags:(nullable void ( ^ ) ( NSSet *__nonnull responseTags , NSInteger remain , NSError *__nonnull error ))<em>handle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handle</code></th>
+						<td><p>responseTags为绑定的tag
+集合,remain剩余可用的tag数,为-1时表示异常,error为获取失败时的信息(ErrCode:<a href="../Constants/kUMessageError.html">kUMessageError</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>获取当前绑定设备上的所有tag(每台设备最多绑定64个tag)</p><div class="warning"><p><strong>Warning:</strong> 获取列表的先决条件是已经成功获取到device_token，否则失败(kUMessageErrorDependsErr)</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addTag:response:" title="addTag:response:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addTag:response:">+&nbsp;addTag:response:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>绑定一个或多个tag至设备，每台设备最多绑定64个tag，超过64个，绑定tag不再成功，可<code>removeTag</code>或者<code>removeAllTags</code>来精简空间</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)addTag:(nullable id)<em>tag</em> response:(nullable void ( ^ ) ( id __nonnull responseObject , NSInteger remain , NSError *__nonnull error ))<em>handle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tag</code></th>
+						<td><p>tag标记,可以为单个tag（NSString）也可以为tag集合（NSArray、NSSet），单个tag最大允许长度50字节，编码UTF-8，超过长度自动截取</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handle</code></th>
+						<td><p>responseTags为绑定的tag集合,remain剩余可用的tag数,为-1时表示异常,error为获取失败时的信息(ErrCode:<a href="../Constants/kUMessageError.html">kUMessageError</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>绑定一个或多个tag至设备，每台设备最多绑定64个tag，超过64个，绑定tag不再成功，可<code>removeTag</code>或者<code>removeAllTags</code>来精简空间</p><div class="warning"><p><strong>Warning:</strong> 添加tag的先决条件是已经成功获取到device_token，否则直接添加失败(kUMessageErrorDependsErr)</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeTag:response:" title="removeTag:response:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeTag:response:">+&nbsp;removeTag:response:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>删除设备中绑定的一个或多个tag</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeTag:(id __nonnull)<em>tag</em> response:(nullable void ( ^ ) ( id __nonnull responseObject , NSInteger remain , NSError *__nonnull error ))<em>handle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tag</code></th>
+						<td><p>tag标记,可以为单个tag（NSString）也可以为tag集合（NSArray、NSSet），单个tag最大允许长度50字节，编码UTF-8，超过长度自动截取</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handle</code></th>
+						<td><p>responseTags为绑定的tag集合,remain剩余可用的tag数,为-1时表示异常,error为获取失败时的信息(ErrCode:<a href="../Constants/kUMessageError.html">kUMessageError</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>删除设备中绑定的一个或多个tag</p><div class="warning"><p><strong>Warning:</strong> 添加tag的先决条件是已经成功获取到device_token，否则失败(kUMessageErrorDependsErr)</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAllTags:" title="removeAllTags:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAllTags:">+&nbsp;removeAllTags:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>删除设备中所有绑定的tag,handle responseObject</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeAllTags:(nullable void ( ^ ) ( id __nonnull responseObject , NSInteger remain , NSError *__nonnull error ))<em>handle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handle</code></th>
+						<td><p>responseTags为绑定的tag集合,remain剩余可用的tag数,为-1时表示异常,error为获取失败时的信息(ErrCode:<a href="../Constants/kUMessageError.html">kUMessageError</a>)</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>删除设备中所有绑定的tag,handle responseObject</p><div class="warning"><p><strong>Warning:</strong> 删除tag的先决条件是已经成功获取到device_token，否则失败(kUMessageErrorDependsErr)</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="alias (optional)" name="task_alias (optional)"></a>
+						<h2 class="task-title">alias (optional)</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/addAlias:type:response:" title="addAlias:type:response:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addAlias:type:response:">+&nbsp;addAlias:type:response:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>绑定一个别名至设备（含账户，和平台类型）</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)addAlias:(NSString *__nonnull)<em>name</em> type:(NSString *__nonnull)<em>type</em> response:(nullable void ( ^ ) ( id __nonnull responseObject , NSError *__nonnull error ))<em>handle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>name</code></th>
+						<td><p>账户，例如email</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>平台类型，参见本文件头部的<code>kUMessageAliasType...</code>，例如：kUMessageAliasTypeSina</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handle</code></th>
+						<td><p>block返回数据，error为获取失败时的信息，responseObject为成功返回的数据</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>绑定一个别名至设备（含账户，和平台类型）</p><div class="warning"><p><strong>Warning:</strong> 添加Alias的先决条件是已经成功获取到device_token，否则失败(kUMessageErrorDependsErr)</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setAlias:type:response:" title="setAlias:type:response:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setAlias:type:response:">+&nbsp;setAlias:type:response:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>绑定一个别名至设备（含账户，和平台类型）,并解绑这个别名曾今绑定过的设备。</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setAlias:(NSString *__nonnull)<em>name</em> type:(NSString *__nonnull)<em>type</em> response:(nullable void ( ^ ) ( id __nonnull responseObject , NSError *__nonnull error ))<em>handle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>name</code></th>
+						<td><p>账户，例如email</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>平台类型，参见本文件头部的<code>kUMessageAliasType...</code>，例如：kUMessageAliasTypeSina</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handle</code></th>
+						<td><p>block返回数据，error为获取失败时的信息，responseObject为成功返回的数据</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>绑定一个别名至设备（含账户，和平台类型）,并解绑这个别名曾今绑定过的设备。</p><div class="warning"><p><strong>Warning:</strong> 添加Alias的先决条件是已经成功获取到device_token，否则失败(kUMessageErrorDependsErr)</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeAlias:type:response:" title="removeAlias:type:response:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeAlias:type:response:">+&nbsp;removeAlias:type:response:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>删除一个设备的别名绑定</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeAlias:(NSString *__nonnull)<em>name</em> type:(NSString *__nonnull)<em>type</em> response:(nullable void ( ^ ) ( id __nonnull responseObject , NSError *__nonnull error ))<em>handle</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>name</code></th>
+						<td><p>账户，例如email</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>type</code></th>
+						<td><p>平台类型，参见本文件头部的<code>kUMessageAliasType...</code>，例如：kUMessageAliasTypeSina</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>handle</code></th>
+						<td><p>block返回数据，error为获取失败时的信息，responseObject为成功返回的数据</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>删除一个设备的别名绑定</p><div class="warning"><p><strong>Warning:</strong> 删除Alias的先决条件是已经成功获取到device_token，否则失败(kUMessageErrorDependsErr)</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">UMessage.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 umeng.com. All rights reserved. Updated: 2016-09-22</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
