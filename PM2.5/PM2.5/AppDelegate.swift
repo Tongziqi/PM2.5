@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobClick.start(withConfigure: analyticsConfig)
     }
     
+    
     func initReachability() {
         if reach == nil {
             reach = Reachability.forInternetConnection()

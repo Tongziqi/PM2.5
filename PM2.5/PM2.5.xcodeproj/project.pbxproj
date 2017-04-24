@@ -19,8 +19,6 @@
 		5D2D00351EA33DE90021EC9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D00341EA33DE90021EC9F /* LaunchScreen.storyboard */; };
 		5D2F079A1EA0D8FF0029A926 /* AqiDeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2F07991EA0D8FF0029A926 /* AqiDeatilViewController.swift */; };
 		5D4A9EF51EA4A254003475B1 /* NewCitys.xml in Resources */ = {isa = PBXBuildFile; fileRef = 5D4A9EF41EA4A254003475B1 /* NewCitys.xml */; };
-		5D4A9F401EA4B74E003475B1 /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4A9EF81EA4B74E003475B1 /* libUMessage_Sdk_1.5.0a.a */; };
-		5D4A9F7C1EA4B947003475B1 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4A9F7B1EA4B947003475B1 /* UserNotifications.framework */; };
 		5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5161621E546DF4006F512E /* ChooseViewController.swift */; };
 		5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5161631E546DF4006F512E /* ChooseViewController.xib */; };
 		5D68933F1E67F10500694491 /* HorizontalSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68933E1E67F10500694491 /* HorizontalSectionController.swift */; };
@@ -63,8 +61,6 @@
 		5D2F07991EA0D8FF0029A926 /* AqiDeatilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AqiDeatilViewController.swift; sourceTree = "<group>"; };
 		5D32A00D1E7157A50039254E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5D4A9EF41EA4A254003475B1 /* NewCitys.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NewCitys.xml; sourceTree = "<group>"; };
-		5D4A9EF81EA4B74E003475B1 /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
-		5D4A9EF91EA4B74E003475B1 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
 		5D4A9F7B1EA4B947003475B1 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		5D4A9F7D1EA4BB43003475B1 /* PM2.5.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PM2.5.entitlements; sourceTree = "<group>"; };
 		5D5161621E546DF4006F512E /* ChooseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
@@ -111,9 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D4A9F7C1EA4B947003475B1 /* UserNotifications.framework in Frameworks */,
 				01C5FBDB9D51592320B8B679 /* Pods_PM2_5.framework in Frameworks */,
-				5D4A9F401EA4B74E003475B1 /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,23 +149,6 @@
 				5D19BB1C1E5FE41600A693FC /* UserSetting.swift */,
 			);
 			name = DefaultSetting;
-			sourceTree = "<group>";
-		};
-		5D4A9EF61EA4B74E003475B1 /* UMessage_Sdk_All_1.5.0a */ = {
-			isa = PBXGroup;
-			children = (
-				5D4A9EF71EA4B74E003475B1 /* UMessage_Sdk_1.5.0a */,
-			);
-			path = UMessage_Sdk_All_1.5.0a;
-			sourceTree = "<group>";
-		};
-		5D4A9EF71EA4B74E003475B1 /* UMessage_Sdk_1.5.0a */ = {
-			isa = PBXGroup;
-			children = (
-				5D4A9EF81EA4B74E003475B1 /* libUMessage_Sdk_1.5.0a.a */,
-				5D4A9EF91EA4B74E003475B1 /* UMessage.h */,
-			);
-			path = UMessage_Sdk_1.5.0a;
 			sourceTree = "<group>";
 		};
 		5D68934A1E67F57200694491 /* IGListKitView */ = {
@@ -255,7 +232,6 @@
 		5DE004861E3473CD009517CB = {
 			isa = PBXGroup;
 			children = (
-				5D4A9EF61EA4B74E003475B1 /* UMessage_Sdk_All_1.5.0a */,
 				5D265CF81E6FFC25006F56FA /* ShareSdk-Bridge-Header.h */,
 				5DE004911E3473CD009517CB /* PM2.5 */,
 				5DE004901E3473CD009517CB /* Products */,
@@ -541,6 +517,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PM2.5/PM2.5.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ziqi Tong (KCR7C6GSDJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ziqi Tong (KCR7C6GSDJ)";
 				DEVELOPMENT_TEAM = KCR7C6GSDJ;
@@ -553,8 +530,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5d32e1de-e621-4e95-81ac-480b4b6f6bf7";
-				PROVISIONING_PROFILE_SPECIFIER = fir_AD_Hoc_Pm2.5;
+				PROVISIONING_PROFILE = "f3a440f8-8621-4240-90d2-f1c15a4956da";
+				PROVISIONING_PROFILE_SPECIFIER = PM25DevelopmentCertification;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -666,6 +643,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PM2.5/PM2.5.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				DEVELOPMENT_TEAM = KCR7C6GSDJ;
@@ -692,6 +670,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PM2.5/PM2.5.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				DEVELOPMENT_TEAM = KCR7C6GSDJ;
@@ -704,6 +683,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f3a440f8-8621-4240-90d2-f1c15a4956da";
 				PROVISIONING_PROFILE_SPECIFIER = PM25DevelopmentCertification;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;

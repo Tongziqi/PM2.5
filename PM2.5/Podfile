@@ -13,7 +13,6 @@ target 'PM2.5’ do
     pod 'Reachability'
     pod 'IGListKit', '~> 2.0.0'
     pod 'Charts', '~> 3.0.2'
-    #pod 'KSCrash' 暂时不使用这个统计
     pod 'UMengAnalytics-NO-IDFA'
     pod 'PopupDialog', '~> 0.5'
     pod 'SnapKit'
