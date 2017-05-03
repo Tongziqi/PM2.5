@@ -325,7 +325,7 @@
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -517,7 +517,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PM2.5/PM2.5.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Ziqi Tong (KCR7C6GSDJ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ziqi Tong (KCR7C6GSDJ)";
 				DEVELOPMENT_TEAM = KCR7C6GSDJ;
@@ -530,8 +529,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9e6427e9-a98c-4547-8d9f-5d679f95923d";
-				PROVISIONING_PROFILE_SPECIFIER = com.Nino.PM2.5.Meituan;
+				PROVISIONING_PROFILE = "aa1ecaa8-c321-4ead-bb27-6fa8bcebb5e2";
+				PROVISIONING_PROFILE_SPECIFIER = fir_distribution_PM2.5;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -643,7 +642,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PM2.5/PM2.5.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				DEVELOPMENT_TEAM = KCR7C6GSDJ;
@@ -656,8 +654,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9e6427e9-a98c-4547-8d9f-5d679f95923d";
-				PROVISIONING_PROFILE_SPECIFIER = com.Nino.PM2.5.Meituan;
+				PROVISIONING_PROFILE = "e4db22a5-bd75-4727-a41a-fdf86de976ab";
+				PROVISIONING_PROFILE_SPECIFIER = com.Nino.PM2.5;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -670,7 +668,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PM2.5/PM2.5.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ziqi Tong (773G4YEYB3)";
 				DEVELOPMENT_TEAM = KCR7C6GSDJ;
@@ -683,8 +680,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nino.PM2.5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0f10d6ef-e92e-4981-98d7-b2c702b0ea3b";
-				PROVISIONING_PROFILE_SPECIFIER = com.Nino.PM2.5.Meituan;
+				PROVISIONING_PROFILE = "e4db22a5-bd75-4727-a41a-fdf86de976ab";
+				PROVISIONING_PROFILE_SPECIFIER = com.Nino.PM2.5;
 				SWIFT_OBJC_BRIDGING_HEADER = "ShareSdk-Bridge-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

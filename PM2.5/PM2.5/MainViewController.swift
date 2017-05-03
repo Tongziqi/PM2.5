@@ -16,6 +16,7 @@ import IGListKit
 import Reachability
 import Foundation
 import PopupDialog
+import SnapKit
 
 
 class MainViewController: UIViewController,CLLocationManagerDelegate {
@@ -102,6 +103,8 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         ceateHeader()
         // Do any additional setup after loading the view.
         
+        addForcastLabel()
+        
         self.scoreView.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.collectionView?.backgroundColor = UIColor.clear
@@ -122,6 +125,16 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     // 监听后台进入，刷新页面
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    
+    /// 添加一行文字：“未来7天天气”
+    func addForcastLabel() {
+        let forcastLabel: UILabel = UILabel(frame: CGRect(x: 0, y: self.view.bounds.height - self.collectionViewHeight! - 10, width: self.view.bounds.width, height: 5))
+        forcastLabel.text = "未来七天天气 -> (左右滑动)"
+        forcastLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        forcastLabel.textColor = UIColor(colorLiteralRed: 135, green: 135.0, blue: 135.0, alpha: 0.5)
+        self.scoreView.addSubview(forcastLabel)
     }
     
     
@@ -158,13 +171,10 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     func tappedDeatilWeather() {
-        
-        //        把原来创建新view的方法换成直接弹窗，方便
-        //        let deatilViewController = DeatilViewController()
-        //        deatilViewController.detailWeatherDate = self.detailWeather
-        //        deatilViewController.modalPresentationStyle = UIModalPresentationStyle.custom
-        //        deatilViewController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-        //        self.present(deatilViewController, animated: true, completion: nil)
+        if self.detailWeather.count == 0 {
+            showHub(text: "未获得数据,请重试...")
+            return
+        }
         
         let title = "\(self.searchLocation)天气详情"
         let wind = {() -> String in
@@ -285,8 +295,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     }
     
     
-    
-    
     func checkNetConnection() {
         let reachability = Reachability.forInternetConnection()
         
@@ -366,11 +374,17 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         let shareParames = NSMutableDictionary()
         
         let shareTextAqi = self.searchLocation + "的空气质量指数为：" + self.aqi.text!  + "(" + self.airConditon.text! + ")" + "\n"
+        
+        if self.detailWeather.count == 0 {
+            showHub(text: "未获得数据,请重试...")
+            return
+        }
+        
         let shareWeather = "天气为:" + self.detailWeather["weather"]! + self.detailWeather["tempoture"]!
         let shareUrl = "https://pm25.date/propagation/" + self.searchLocation
         
         shareParames.ssdkSetupShareParams(byText: shareTextAqi + shareWeather,
-                                          images : UIImage(named: "choose" + detailWeather["weather"]!),
+                                          images : UIImage(named: "share" + detailWeather["weather"]!),
                                           url : URL.init(string: shareUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!),
                                           title : self.searchLocation + "的PM2.5和天气",
                                           type : SSDKContentType.auto)
@@ -405,7 +419,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         // 不跳转编辑页面
         sheet.directSharePlatforms.add(SSDKPlatformType.typeSinaWeibo.rawValue)
     }
-    
     
     
     func updateWeather(location: String) {
