@@ -18,8 +18,9 @@ class ForecastEntry: IGListDiffable {
     var temperature: String? = ""
     var weatherLabel: String? = ""
     var weekLabel: String? = ""
+    var aqiLabel: String? = ""
     
-    init(imageString: String, dataLabel: String, temperature: String, weatherLabel: String, weekLabel: String){
+    init(imageString: String, dataLabel: String, temperature: String, weatherLabel: String, weekLabel: String, aqiLabel:String){
         self.weatherLabel = weatherLabel
         
         var name = imageString
@@ -31,6 +32,7 @@ class ForecastEntry: IGListDiffable {
         self.dataLabel = dataLabel
         self.temperature = temperature
         self.weekLabel = weekLabel
+        self.aqiLabel = aqiLabel
     }
     
     public func diffIdentifier() -> NSObjectProtocol {

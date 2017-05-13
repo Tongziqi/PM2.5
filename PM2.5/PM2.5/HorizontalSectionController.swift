@@ -20,6 +20,7 @@ import SwiftyJSON
 final class HorizontalSectionController: IGListSectionController, IGListSectionType, IGListAdapterDataSource {
     
     var json: JSON = []
+    var aqiJson: JSON = []
     var entry: ForecastEntry!
     
     let loader = ForecastDataLoader()
@@ -32,8 +33,9 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
         return adapter
     }()
 
-    init(json: JSON) {
-        self.json = json
+    init(weatherJson: JSON,aQIjson: JSON) {
+        self.json = weatherJson
+        self.aqiJson = aQIjson
     }
     
     
@@ -68,7 +70,7 @@ final class HorizontalSectionController: IGListSectionController, IGListSectionT
 
     func objects(for listAdapter: IGListAdapter) -> [IGListDiffable] {
         if json != [] {
-            loader.loadLatest(json: json)
+            loader.loadLatest(json: json, aqiJson: aqiJson)
         } else {
             loader.loadDefault()
         }

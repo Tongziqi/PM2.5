@@ -16,7 +16,7 @@ class UserSetting: NSObject {
     static let Sign: String! = "0cb4e1d9a759db575d36cb5db8f2ac69"
     static let WeatherTodayUrl: String! = "https://sapi.k780.com/"
     
-    static let newWeatherUrl: String! = "http://apicloud.mob.com/v1/weather/query"
+    static let newWeatherUrl: String! = "https://apicloud.mob.com/v1/weather/query"
     static let newAqiUrl: String! = "https://apicloud.mob.com/environment/query"
     static let newAppkey: String! = "1c2506cc3a934"
     

@@ -18,6 +18,7 @@ class WeatherUICollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var temptureLabel: UILabel!
     @IBOutlet weak var week: UILabel!
+    @IBOutlet weak var aqi: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,5 +31,6 @@ class WeatherUICollectionViewCell: UICollectionViewCell {
         self.dataLabel?.text = "2017-02-01"
         self.temptureLabel?.text = "56°/ 87°"
         self.week?.text = "星期五"
+        self.aqi?.text = "空气质量:80"
     }
 }

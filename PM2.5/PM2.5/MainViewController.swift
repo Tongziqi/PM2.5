@@ -381,7 +381,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         }
         
         let shareWeather = "天气为:" + self.detailWeather["weather"]! + self.detailWeather["tempoture"]!
-        let shareUrl = "https://pm25.date/propagation/" + self.searchLocation
+        let shareUrl = "https://myaqi.cn/propagation/" + self.searchLocation
         
         shareParames.ssdkSetupShareParams(byText: shareTextAqi + shareWeather,
                                           images : UIImage(named: "share" + detailWeather["weather"]!),
@@ -715,7 +715,7 @@ extension MainViewController: IGListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: IGListAdapter, sectionControllerFor object: Any) -> IGListSectionController {
-        return HorizontalSectionController(json: forecastJson)
+        return HorizontalSectionController(weatherJson: forecastJson, aQIjson: dayOfAqiJson)
     }
     func emptyView(for listAdapter: IGListAdapter) -> UIView? { return nil }
 }
