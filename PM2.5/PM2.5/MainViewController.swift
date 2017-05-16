@@ -27,6 +27,7 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     @IBOutlet weak var scoreView: UIScrollView!
     @IBOutlet weak var userLocationLabel: UILabel!
     @IBOutlet weak var locationImg: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
     
     //Weather
     @IBOutlet weak var weatherImage: UIImageView!
@@ -74,7 +75,6 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     var choosedCities:[String: ChoosedCity] = [:]
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 适配
@@ -115,6 +115,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
         checkNetConnection()
         addTouchListener()
         
+        //第一次加载不显示帮助按钮
+        if VersionControl.checkIsRealFirstUse() {
+            self.helpButton.isHidden = true
+        } else {
+            self.helpButton.alpha = 0.2
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.checkNetConnection), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
     }
     
@@ -125,6 +132,13 @@ class MainViewController: UIViewController,CLLocationManagerDelegate {
     // 监听后台进入，刷新页面
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(self.refresh), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+    }
+    
+    
+    
+    @IBAction func showHelpView(_ sender: Any) {
+        let vc =  OnBoardViewControllerTool.generateStandardOnboardingVC()
+        self.present(vc, animated: true, completion: nil)
     }
     
     

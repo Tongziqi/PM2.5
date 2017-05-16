@@ -106,10 +106,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
         let needOnBoard = VersionControl.checkIsRealFirstUse()
+        let vc = OnBoardViewControllerTool.generateStandardOnboardingVC()
         if needOnBoard {
-            window?.rootViewController = self.generateStandardOnboardingVC()
+            window?.rootViewController = vc
         } else {
             window?.rootViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
+
         }
     }
     

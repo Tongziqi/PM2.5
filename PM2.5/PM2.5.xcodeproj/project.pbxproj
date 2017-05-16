@@ -26,7 +26,6 @@
 		5D6893451E67F38D00694491 /* EmbeddedSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */; };
 		5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D68934F1E68015700694491 /* WeatherUICollectionViewCell.swift */; };
 		5D6893521E68015700694491 /* WeatherUICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D6893501E68015700694491 /* WeatherUICollectionViewCell.xib */; };
-		5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */; };
 		5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D69CDE81E5EC9A60004C3D2 /* VersionControl.swift */; };
 		5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6A02071E34C6E000AA0F50 /* CommonTool.swift */; };
 		5D78383A1E8E780900026E0A /* CustomPKHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7838391E8E780900026E0A /* CustomPKHUDView.swift */; };
@@ -40,6 +39,8 @@
 		5DA107C21E9509B7008043A6 /* ChooseCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA107C01E9509B7008043A6 /* ChooseCellTableViewCell.xib */; };
 		5DBE7B5C1E6D40B600B2E9D0 /* ForecastDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBE7B5B1E6D40B600B2E9D0 /* ForecastDataLoader.swift */; };
 		5DBE7B5E1E6D414000B2E9D0 /* ForecastEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DBE7B5D1E6D414000B2E9D0 /* ForecastEntry.swift */; };
+		5DDA72C51ECACFE900E16639 /* C7UQDEvXUAYdeIg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA72C41ECACFE900E16639 /* C7UQDEvXUAYdeIg.jpg */; };
+		5DDA72C71ECAFC9200E16639 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA72C61ECAFC9200E16639 /* OnBoardViewController.swift */; };
 		5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE004921E3473CD009517CB /* AppDelegate.swift */; };
 		5DE0049A1E3473CD009517CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DE004981E3473CD009517CB /* Main.storyboard */; };
 		5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DE0049B1E3473CD009517CB /* Assets.xcassets */; };
@@ -70,7 +71,6 @@
 		5D6893441E67F38D00694491 /* EmbeddedSectionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmbeddedSectionController.swift; path = PM2.5/EmbeddedSectionController.swift; sourceTree = "<group>"; };
 		5D68934F1E68015700694491 /* WeatherUICollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherUICollectionViewCell.swift; path = ../WeatherUICollectionViewCell.swift; sourceTree = "<group>"; };
 		5D6893501E68015700694491 /* WeatherUICollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WeatherUICollectionViewCell.xib; path = ../WeatherUICollectionViewCell.xib; sourceTree = "<group>"; };
-		5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardVC.swift; sourceTree = "<group>"; };
 		5D69CDE81E5EC9A60004C3D2 /* VersionControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionControl.swift; sourceTree = "<group>"; };
 		5D6A02071E34C6E000AA0F50 /* CommonTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonTool.swift; sourceTree = "<group>"; };
 		5D7838391E8E780900026E0A /* CustomPKHUDView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPKHUDView.swift; sourceTree = "<group>"; };
@@ -84,6 +84,8 @@
 		5DA107C01E9509B7008043A6 /* ChooseCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCellTableViewCell.xib; sourceTree = "<group>"; };
 		5DBE7B5B1E6D40B600B2E9D0 /* ForecastDataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastDataLoader.swift; sourceTree = "<group>"; };
 		5DBE7B5D1E6D414000B2E9D0 /* ForecastEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastEntry.swift; sourceTree = "<group>"; };
+		5DDA72C41ECACFE900E16639 /* C7UQDEvXUAYdeIg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = C7UQDEvXUAYdeIg.jpg; sourceTree = "<group>"; };
+		5DDA72C61ECAFC9200E16639 /* OnBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		5DE0048F1E3473CD009517CB /* PM2.5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PM2.5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE004921E3473CD009517CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DE004991E3473CD009517CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,7 +168,7 @@
 		5D69CDE31E5EB8DB0004C3D2 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				5D69CDE61E5EB99B0004C3D2 /* OnBoardVC.swift */,
+				5DDA72C61ECAFC9200E16639 /* OnBoardViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -263,6 +265,7 @@
 				5D6A02061E34C69600AA0F50 /* Tools */,
 				5DE004921E3473CD009517CB /* AppDelegate.swift */,
 				5DE0049B1E3473CD009517CB /* Assets.xcassets */,
+				5DDA72C41ECACFE900E16639 /* C7UQDEvXUAYdeIg.jpg */,
 				5DE004A01E3473CD009517CB /* Info.plist */,
 			);
 			path = PM2.5;
@@ -357,6 +360,7 @@
 				5D2D00351EA33DE90021EC9F /* LaunchScreen.storyboard in Resources */,
 				5D5161651E546DF4006F512E /* ChooseViewController.xib in Resources */,
 				5DA107C21E9509B7008043A6 /* ChooseCellTableViewCell.xib in Resources */,
+				5DDA72C51ECACFE900E16639 /* C7UQDEvXUAYdeIg.jpg in Resources */,
 				5D80F7AE1E5B046800A989D8 /* CityListCellTableViewCell.xib in Resources */,
 				5DE0049C1E3473CD009517CB /* Assets.xcassets in Resources */,
 				5D03BA601E79413400C84313 /* DetailWeatherView.xib in Resources */,
@@ -424,6 +428,7 @@
 				5DBE7B5C1E6D40B600B2E9D0 /* ForecastDataLoader.swift in Sources */,
 				5D94BB531E34D2EE00F4CD3D /* MainViewController.swift in Sources */,
 				5D6893511E68015700694491 /* WeatherUICollectionViewCell.swift in Sources */,
+				5DDA72C71ECAFC9200E16639 /* OnBoardViewController.swift in Sources */,
 				5D69CDE91E5EC9A60004C3D2 /* VersionControl.swift in Sources */,
 				5D086A591E768DA60045B115 /* UITableViewVibrantCell.swift in Sources */,
 				5D80F7AA1E5AEA3700A989D8 /* ParserXML.swift in Sources */,
@@ -439,7 +444,6 @@
 				5D80F7A61E5AE7F500A989D8 /* City.swift in Sources */,
 				5DE004931E3473CD009517CB /* AppDelegate.swift in Sources */,
 				5D5161641E546DF4006F512E /* ChooseViewController.swift in Sources */,
-				5D69CDE71E5EB99B0004C3D2 /* OnBoardVC.swift in Sources */,
 				5D6893431E67F35000694491 /* EmbeddedCollectionViewCell.swift in Sources */,
 				5D6A02081E34C6E000AA0F50 /* CommonTool.swift in Sources */,
 				5D82673C1E7AA62800DDB26A /* ChoosedCity.swift in Sources */,
